@@ -5,6 +5,8 @@ import ImageGallerySection from './sections/ImageGallerySection'
 import ServicesSection from './sections/ServicesSection'
 import AdditionalInfoSection from './sections/AdditionalInfoSection'
 import ClientsWorkSection from './sections/ClientsWorkSection'
+import ContactUsSection from './sections/ContactUsSection'
+import Footer from '@/Footer/page'
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
         <ServicesSection />
         <AdditionalInfoSection />
         <ClientsWorkSection />
+        <ContactUsSection />
+        <Footer />
       </main>
     </div>
   )

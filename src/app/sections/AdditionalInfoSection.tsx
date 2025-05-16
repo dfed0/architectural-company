@@ -12,12 +12,11 @@ export default function AdditionalInfoSection() {
         height="2"
         viewBox="0 0 1328 2"
         fill="none"
+       
       >
         <path
           d="M-96 1H1410"
-          stroke="black"
-          // stroke-opacity="0.16"
-          // stroke-width="2"
+          className='stroke-[#fff]'
         />
       </svg>
       <section className="h-[56.25rem] self-stretch flex flex-row items-center">

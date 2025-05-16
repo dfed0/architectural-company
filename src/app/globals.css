@@ -8,8 +8,10 @@ html {
   --foreground: #171717;
   --text-xl: 16px;
 }
-html {
+html, body {
   /* font-size: 16px; */
+  /* box-sizing: border-box; */
+  overflow-x: hidden;
 }
 @theme {
   --breakpoint-xl: 1440px;

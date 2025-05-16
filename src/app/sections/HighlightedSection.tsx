@@ -1,7 +1,7 @@
 'use client'
 export default function HighlightedSection() {
   return (
-    <section className="py-[3.5rem] flex flex-col self-stretch relative">
+    <section className="pb-[3.5rem] pt-[9.5rem] flex flex-col self-stretch relative">
       <h1 className="font-[Roboto_Serif] text-[#1E1B28] text-[7.5rem] font-[700] leading-[7.5rem]">
         European
       </h1>
