@@ -1,41 +1,12 @@
-'use client'
 
-import TestimonialCard from '../components/TestimonialCard'
+
+import InteriorDesign from '../components/InteriorDesign'
+import CommentsSection from './CommentsSection'
 
 export default function ClientsWorkSection() {
   return (
-    <>
-      <section className="flex py-[3.5rem] flex-col justify-center items-center gap-[3.5rem] self-stretch">
-        <h2 className="text-[#1E1B28] font-[Roboto_Serif] text-[2.5rem] font-[700] leading-[3.25rem] tracking-[0.05rem]">
-          What Our Clients Say
-        </h2>
-        <div className="flex items-start gap-[3rem] self-stretch">
-          <TestimonialCard
-            name="Ludwig Van Cleef"
-            role="Architect"
-            comment="The renovation was seamless and exceeded our expectations..."
-            imageUrl="/images/avatar.jpeg"
-          />
-          <TestimonialCard
-            name="Ludwig Van Cleef"
-            role="Architect"
-            comment="The renovation was seamless and exceeded our expectations... Very nice and beautiful! Amazing job!"
-            imageUrl="/images/avatar.jpeg"
-          />
-          <TestimonialCard
-            name="Ludwig Van Cleef"
-            role="Architect"
-            comment="The renovation was seamless and exceeded our expectations..."
-            imageUrl="/images/avatar.jpeg"
-          />
-          <TestimonialCard
-            name="Ludwig Van Cleef"
-            role="Architect"
-            comment="The renovation was seamless and exceeded our expectations... wow wow wow"
-            imageUrl="/images/avatar.jpeg"
-          />
-        </div>
-      </section>
+    <section id="about-us" className="scroll-mt-[6rem]">
+      <CommentsSection />
       <section>
         <div className="flex py-[3.5rem] items-start gap-[3.5rem] self-stretch">
           <h3 className="text-[#1E1B28] text-[2.5rem] font-[700] font-[Roboto_Serif] leading-[3.25rem] w-full ">
@@ -95,95 +66,53 @@ export default function ClientsWorkSection() {
           </div>
         </div>
       </section>
-      <section>
-        <div className="flex py-[3.5rem] items-start gap-[3.5rem] self-stretch">
-          <h3 className="text-[#1E1B28] text-[2.5rem] font-[700] font-[Roboto_Serif] leading-[3.25rem] w-full ">
-            What We Offer
-          </h3>
-          <div className="flex flex-col justify-center items-start gap-[1.5rem]  w-full">
-            <div className="flex items-center gap-[3.5rem] self-stretch w-full">
-              <p className="text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Tile Work
-              </p>
-              <p className=" text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Drywall Installation
-              </p>
-            </div>
-            <div className="flex items-center gap-[3.5rem] self-stretch w-full">
-              <p className="text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Floor Coverings
-              </p>
-              <p className=" text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Wallpapering
-              </p>
-            </div>
-            <div className="flex items-center gap-[3.5rem] self-stretch w-full">
-              <p className="text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Soundproofing
-              </p>
-              <p className=" text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Installation of Lining
-              </p>
-            </div>
-            <div className="flex items-center gap-[3.5rem] self-stretch w-full">
-              <p className="text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Kitchen Renovation
-              </p>
-              <p className=" text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Bathroom or Toilet Renovation
-              </p>
-            </div>
-            <div className="flex items-center gap-[3.5rem] self-stretch w-full">
-              <p className="text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Wall Panels
-              </p>
-              <p className=" text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Waterproofing
-              </p>
-            </div>
-            <div className="flex items-center gap-[3.5rem] self-stretch w-full">
-              <p className="text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Thermal Insulation
-              </p>
-              <p className=" text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Masonry Works
-              </p>
-            </div>
-            <div className="flex items-center gap-[3.5rem] self-stretch w-full">
-              <p className="text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Demolition of Walls and Partitions
-              </p>
-              <p className=" text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Dismantling of Plumbing
-              </p>
-            </div>
-            <div className="flex items-center gap-[3.5rem] self-stretch w-full">
-              <p className="text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Removing Paints
-              </p>
-              <p className=" text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Electrical Installation Works
-              </p>
-            </div>
-            <div className="flex items-center gap-[3.5rem] self-stretch w-full">
-              <p className="text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Plumbing Works
-              </p>
-              <p className=" text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Installation Works (Slabs, FBS)
-              </p>
-            </div>
-            <div className="flex items-center gap-[3.5rem] self-stretch w-full">
-              <p className="text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Decorative Wall Finishing
-              </p>
-              <p className=" text-[#000] font-[Inter] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem] w-full">
-                Rough Work on the Floor
-              </p>
-            </div>
+      <section className="flex py-[3.5rem] items-start gap-[3.5rem] self-stretch ">
+        <h3 className="text-[#1E1B28] text-[2.5rem] font-[700] font-[Roboto_Serif] leading-[3.25rem] w-full ">
+          What We Offer
+        </h3>
+        <div className="flex flex-col justify-center items-start gap-[1.5rem]  w-full">
+          <div className="flex items-center gap-[3.5rem] self-stretch w-full">
+            <InteriorDesign>Tile Work</InteriorDesign>
+            <InteriorDesign>Drywall Installation</InteriorDesign>
+          </div>
+          <div className="flex items-center gap-[3.5rem] self-stretch w-full">
+            <InteriorDesign>Floor Coverings</InteriorDesign>
+            <InteriorDesign>Wallpapering</InteriorDesign>
+          </div>
+          <div className="flex items-center gap-[3.5rem] self-stretch w-full">
+            <InteriorDesign>Soundproofing</InteriorDesign>
+            <InteriorDesign>Installation of Lining</InteriorDesign>
+          </div>
+          <div className="flex items-center gap-[3.5rem] self-stretch w-full">
+            <InteriorDesign>Kitchen Renovation</InteriorDesign>
+            <InteriorDesign>Bathroom or Toilet Renovation</InteriorDesign>
+          </div>
+          <div className="flex items-center gap-[3.5rem] self-stretch w-full">
+            <InteriorDesign>Wall Panels</InteriorDesign>
+            <InteriorDesign>Waterproofing</InteriorDesign>
+          </div>
+          <div className="flex items-center gap-[3.5rem] self-stretch w-full">
+            <InteriorDesign>Thermal Insulation</InteriorDesign>
+            <InteriorDesign>Masonry Works</InteriorDesign>
+          </div>
+          <div className="flex items-center gap-[3.5rem] self-stretch w-full">
+            <InteriorDesign>Demolition of Walls and Partitions</InteriorDesign>
+            <InteriorDesign>Dismantling of Plumbing</InteriorDesign>
+          </div>
+          <div className="flex items-center gap-[3.5rem] self-stretch w-full">
+            <InteriorDesign>Removing Paints</InteriorDesign>
+            <InteriorDesign>Electrical Installation Works</InteriorDesign>
+          </div>
+          <div className="flex items-center gap-[3.5rem] self-stretch w-full">
+            <InteriorDesign>Plumbing Works</InteriorDesign>
+            <InteriorDesign>Installation Works (Slabs, FBS)</InteriorDesign>
+          </div>
+          <div className="flex items-center gap-[3.5rem] self-stretch w-full">
+            <InteriorDesign>Decorative Wall Finishing</InteriorDesign>
+            <InteriorDesign>Rough Work on the Floor</InteriorDesign>
           </div>
         </div>
       </section>
-    </>
+    </section>
   )
 }

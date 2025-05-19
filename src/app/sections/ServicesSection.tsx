@@ -24,7 +24,10 @@ export default function ServicesSection() {
     },
   ]
   return (
-    <section className="py-[3.5rem] flex flex-col items-start gap-[3.5rem] self-stretch ">
+    <section
+      className="py-[3.5rem] flex flex-col items-start gap-[3.5rem] self-stretch scroll-mt-[6rem]"
+      id="services"
+    >
       <div className="flex flex-col items-start gap-[2.5rem] self-stretch">
         <h2 className="text-[#1E1B28] text-[2.5rem] text-center font-[Roboto_Serif] font-[700] leading-[3.25rem] self-stretch h-[2.5rem]">
           Our Services

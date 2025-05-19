@@ -1,5 +1,6 @@
 'use client'
 
+import OutlinedStandardButton from '@/app/components/OutlinedStandardButton'
 import Image from 'next/image'
 
 export default function Footer() {
@@ -60,6 +61,13 @@ export default function Footer() {
           <p className="text-[#000] font-[Inter] text-[0.9375rem] font-[500] leading-[1.25rem]">
             Stay updated with our latest renovation tips and offers!
           </p>
+          <div className="flex items-start gap-[1rem] self-stretch">
+            <input
+              placeholder="Email address"
+              className="flex py-[1rem] px-[1.5rem] items-center gap-[0.75] flex-[1_0_0] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#0000005c]"
+            />
+            <OutlinedStandardButton title="Subscribe" />
+          </div>
         </div>
       </div>
     </footer>

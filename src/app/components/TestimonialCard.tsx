@@ -4,14 +4,14 @@ import Image from 'next/image'
 
 type TestimonialCardProps = {
   name: string
-  role: string
+  tender: string
   imageUrl: string
   comment: string
 }
 
 const TestimonialCard = ({
   name,
-  role,
+  tender,
   imageUrl,
   comment,
 }: TestimonialCardProps) => {
@@ -23,7 +23,7 @@ const TestimonialCard = ({
           alt="avatar"
           width={48}
           height={48}
-          style={{ width: '3rem', height: '3rem', objectFit: 'cover'}}
+          style={{ width: '3rem', height: '3rem', objectFit: 'cover' }}
           className="rounded-[1.5rem] border-[2px] border-solid border-[rgba(82, 73, 110, 0.00)] shrink-0"
         />
         <div className="flex flex-col items-start flex-[1_0_0]">
@@ -31,7 +31,7 @@ const TestimonialCard = ({
             {name}
           </strong>
           <p className="text-[#1a142e9e] font-[Inter] text-[1rem] font-[400] leading-[1.25rem] tracking-[-0.005rem] self-stretch">
-            {role}
+            {tender}
           </p>
         </div>
       </div>
