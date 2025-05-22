@@ -8,7 +8,18 @@ type TestimonialCardProps = {
   imageUrl: string
   comment: string
 }
-
+// break-words whitespace-normal
+//             [display:-webkit-box]
+//             [webkit-box-orient:vertical]
+//             [webkit-line-clamp:4]
+//             overflow-hidden
+//             text-ellipsis
+//             [line-height:1.5em]
+//             [max-height:6em]
+//             transition-all duration-300 ease-in-out
+//             group-hover:[webkit-line-clamp:unset]
+//             group-hover:[max-height:1000px]
+//             group-hover:overflow-visible"
 const TestimonialCard = ({
   name,
   tender,
@@ -17,30 +28,30 @@ const TestimonialCard = ({
 }: TestimonialCardProps) => {
   return (
     <div className="flex w-[18rem] p-[3rem] flex-col items-center gap-[1.5rem] rounded-[1.375rem] border-[1px] border-solid border-[rgba(0, 0, 0, 0.00)] bg-[#3a257e17]">
-      <div className="flex items-center gap-[1rem] self-stretch">
+      <div className="flex items-center gap-[1rem] self-stretch w-[12rem]">
         <Image
           src={imageUrl}
           alt="avatar"
           width={48}
           height={48}
           style={{ width: '3rem', height: '3rem', objectFit: 'cover' }}
-          className="rounded-[1.5rem] border-[2px] border-solid border-[rgba(82, 73, 110, 0.00)] shrink-0"
+          className="rounded-[1.5rem] border-[2px] border-solid border-[rgba(82, 73, 110, 0.00)] shrink-0 object-top"
         />
         <div className="flex flex-col items-start flex-[1_0_0]">
-          <strong className="text-[#1E1B28] font-[Roboto_Serif] text-[1rem] font-[700] leading-[1.25rem] tracking-[-0.005rem] self-stretch">
+          <strong className="text-[#1E1B28] font-[Roboto_Serif_Bold] text-[1rem] font-[700] leading-[1.25rem] tracking-[-0.005rem] self-stretch">
             {name}
           </strong>
-          <p className="text-[#1a142e9e] font-[Inter] text-[1rem] font-[400] leading-[1.25rem] tracking-[-0.005rem] self-stretch">
+          <p className="text-[#1a142e9e] font-[Inter_Var] text-[1rem] font-[400] leading-[1.25rem] tracking-[-0.005rem] self-stretch">
             {tender}
           </p>
         </div>
       </div>
-      <div className="flex pb-[0.75rem] items-start gap-[1rem] self-stretch opacity-[0.8]">
-        <div className="flex w-[3rem] flex-col items-center self-stretch">
+      {/* <div className=""> */}
+        {/* <div className="flex flex-col items-center self-stretch w-[3rem] h-auto overflow-hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="2"
-            height="95"
+            height="100%"
             viewBox="0 0 2 95"
             fill="none"
           >
@@ -51,11 +62,24 @@ const TestimonialCard = ({
               // stroke-width="1.5"
             />
           </svg>
+        </div> */}
+        <div className="max-w-xl cursor-pointer overflow-hidden transition-all duration-300 ease-in-out h-auto w-[12rem]">
+          <p
+            className="flex-[1_0_0] text-[#000] font-[Inter_Var] text-[1rem] font-[400] leading-normal tracking-[-0.005rem] break-words whitespace-normal 
+            [display:-webkit-box] 
+            [webkit-box-orient:vertical] 
+            [webkit-line-clamp:4] 
+            overflow-hidden 
+            text-ellipsis 
+            [line-height:1.5em] 
+            [max-height:6em] 
+            transition-all duration-300 ease-in-out  w-[max] border-solid border-l-[2px] pl-[2.5rem] border-[#52496e33] ml-[1.5rem]
+            "
+          >
+            {comment}
+          </p>
         </div>
-        <p className="flex-[1_0_0] text-[#000] font-[Inter] text-[1rem] font-[400] leading-normal tracking-[-0.005rem]">
-          {comment}
-        </p>
-      </div>
+      {/* </div> */}
     </div>
   )
 }

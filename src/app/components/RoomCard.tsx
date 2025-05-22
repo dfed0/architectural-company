@@ -41,10 +41,10 @@ const RoomCard = ({ title, subtitle, imageUrl }: RoomCardProps) => {
           .replace(/^-+|-+$/g, '')}`}
         // onClick={() => pushRouterTitle(title)}
       >
-        <span className="text-[#000] overflow-ellipsis text-[1.25rem] font-[400]">
+        <span className="text-[#000] overflow-ellipsis text-[1.25rem] font-[Inter_Var] font-[400]">
           {title}
         </span>
-        <span className="text-[#00000099] overflow-ellipsis text-[1.0625rem] font-[400]">
+        <span className="text-[#00000099] overflow-ellipsis text-[1.0625rem] font-[Inter_Var] font-[400]">
           {subtitle}
         </span>
       </Link>

@@ -29,14 +29,14 @@ const ServiceCard = ({
         className="rounded-[0.75rem] border-2"
       />
       <div className="flex flex-col items-center gap-[1rem] self-stretch">
-        <p className="text-[#000] overflow-ellipsis font-[inter] text-[1.25rem] font-[300] leading-[1.5rem] self-stretch">
+        <p className="text-[#000]  overflow-ellipsis font-[Inter_Var] text-[1.25rem] font-[300] leading-[1.5rem] self-stretch">
           {title}
         </p>
-        <p className="text-[#000] font-[inter] text-[0.9375rem] font-[400] leading-[1.25rem] self-stretch">
+        <p className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem] self-stretch">
           {subtitle}
         </p>
       </div>
-      <FilledStandardButton title='Learn More'/>
+      <FilledStandardButton title="Learn More" type="button" />
     </div>
   )
 }

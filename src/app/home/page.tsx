@@ -1,12 +1,12 @@
 'use server'
 import AdditionalInfoSection from '@/app/sections/AdditionalInfoSection'
 import ClientsWorkSection from '@/app/sections/ClientsWorkSection'
-import ContactUsSection from '@/app/sections/ContactUsSection'
+// import ContactUsSection from '@/app/sections/ContactUsSection'
 import HighlightedSection from '@/app/sections/HighlightedSection'
 import ImageGallerySection from '@/app/sections/ImageGallerySection'
 import ServicesSection from '@/app/sections/ServicesSection'
-import Footer from '@/Footer/page'
-import Header from '@/Header/page'
+import Footer from '@/footer/page'
+import Header from '@/header/page'
 // import Image from 'next/image'
 // import Link from 'next/link'
 
@@ -16,11 +16,13 @@ export default async function Home() {
       <Header></Header>
       <main className="self-stretch">
         <HighlightedSection />
-        <ImageGallerySection />
-        <ServicesSection />
-        <AdditionalInfoSection />
+        <section className="py-[1.5rem] flex flex-col self-stretch items-start">
+          <ImageGallerySection />
+          <ServicesSection />
+          <AdditionalInfoSection />
+        </section>
         <ClientsWorkSection />
-        <ContactUsSection />
+        {/* <ContactUsSection /> */}
         <Footer />
       </main>
     </div>

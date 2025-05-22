@@ -13,7 +13,7 @@ export default function Header() {
             height={32}
             width={32}
           />
-          <span className="text-[#AD7C00] font-[500] text-[1.25rem] leading-[100%] font-inter">
+          <span className="text-[#AD7C00] font-[500] text-[1.25rem] leading-[100%] font-[Inter_Var]">
             Masters100%
           </span>
         </div>
@@ -23,7 +23,7 @@ export default function Header() {
         aria-label="Main menu"
         className="flex items-start gap-[3rem]"
       >
-        <div className="flex content-center items-center gap-[0.625rem] h-[43.5px]">
+        <div className="flex content-center items-center gap-[0.625rem] h-[43.5px] font-[Inter_Var]">
           <Link
             href="/home"
             className="text-[#1E1B28] text-[1.25rem] font-[500] hover:text-[#8F5E00]"
@@ -32,7 +32,7 @@ export default function Header() {
             Home
           </Link>
         </div>
-        <div className="flex content-center items-center gap-[0.625rem] h-[43.5px]">
+        <div className="flex content-center items-center gap-[0.625rem] h-[43.5px] font-[Inter_Var]">
           <Link
             href="/home#services"
             className="text-[#1E1B28] text-[1.25rem] font-[500] hover:text-[#8F5E00]"
@@ -41,7 +41,7 @@ export default function Header() {
             Our Services
           </Link>
         </div>
-        <div className="flex content-center items-center gap-[0.625rem] h-[43.5px]">
+        <div className="flex content-center items-center gap-[0.625rem] h-[43.5px] font-[Inter_Var]">
           <Link
             href="/home#about-us"
             className="text-[#1E1B28] text-[1.25rem] font-[500] hover:text-[#8F5E00]"
@@ -50,7 +50,7 @@ export default function Header() {
             About Us
           </Link>
         </div>
-        <div className="flex content-center items-center gap-[0.625rem] h-[43.5px]">
+        <div className="flex content-center items-center gap-[0.625rem] h-[43.5px] font-[Inter_Var]">
           <Link
             href="#gallery"
             className="text-[#1E1B28] text-[1.25rem] font-[500] hover:text-[#8F5E00]"
@@ -59,7 +59,7 @@ export default function Header() {
             Gallery of Works
           </Link>
         </div>
-        <div className="flex content-center items-center gap-[0.625rem] h-[43.5px]">
+        <div className="flex content-center items-center gap-[0.625rem] h-[43.5px] font-[Inter_Var]">
           <Link
             href="/home#contact"
             className="text-[#1E1B28] text-[1.25rem] font-[500] hover:text-[#8F5E00]"

@@ -4,8 +4,8 @@
 import HighlightedSection from '@/app/sections/HighlightedSection'
 import ImageGalleryProductSection from '@/app/sections/ImageGalleryProductSection'
 import AdditionalPhotosSection from '@/app/sections/AdditionalPhotosSection'
-import Footer from '@/Footer/page'
-import Header from '@/Header/page'
+import Footer from '@/footer/page'
+import Header from '@/header/page'
 import * as cheerio from 'cheerio'
 export default async function GalleryOfProject({
   params,
