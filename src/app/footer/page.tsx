@@ -2,8 +2,10 @@
 
 import OutlinedStandardButton from '@/app/components/OutlinedStandardButton'
 import Image from 'next/image'
+import { useTranslation } from 'react-i18next'
 
 export default function Footer() {
+  const { t } = useTranslation()
   return (
     <>
       <svg
@@ -52,39 +54,41 @@ export default function Footer() {
           </div>
           <div className="flex w-[12.5rem] flex-col justify-center items-start gap-[1rem]">
             <p className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
-              Home
+              {t('footer.section1').split('_')[0]}
             </p>
             <p className="text-[#00000099] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
-              About Us
+              {t('footer.section1').split('_')[1]}
             </p>
             <p className="text-[#00000099] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
-              Our Services
+              {t('footer.section1').split('_')[2]}
             </p>
           </div>
           <div className="flex w-[12.5rem] flex-col justify-center items-start gap-[1rem]">
             <p className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
-              Gallery of Works
+              {t('footer.section2').split('_')[0]}
             </p>
             <p className="text-[#00000099] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
-              Contact Us
+              {t('footer.section2').split('_')[1]}
             </p>
           </div>
           <div className="flex w-[25rem] flex-col justify-center items-start gap-[2.5rem]">
             <div className="flex flex-col items-start self-stretch gap-[2.5rem]">
               <div className="flex flex-col items-start self-stretch gap-[0.375rem]">
                 <p className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[500] leading-[1.25rem] self-stretch">
-                  Subscribe to our newsletter
+                  {t('footer.section3.title')}
                 </p>
                 <p className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem] self-stretch">
-                  Stay updated with our latest renovation tips and offers!
+                  {t('footer.section3.subtitle')}
                 </p>
               </div>
               <div className="flex items-start gap-[1rem] self-stretch">
                 <input
-                  placeholder="Email address"
+                  placeholder={t('footer.form.inputTitle')}
                   className="flex py-[1rem] px-[1.5rem] items-center gap-[0.75] flex-[1_0_0] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#0000005c]"
                 />
-                <OutlinedStandardButton title="Subscribe" />
+                <OutlinedStandardButton
+                  title={t('footer.form.btnTitle')}
+                />
               </div>
             </div>
           </div>

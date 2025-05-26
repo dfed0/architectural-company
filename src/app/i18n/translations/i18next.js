@@ -1,8 +1,72 @@
 import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import I18nextBrowserLanguageDetector from 'i18next-browser-languagedetector'
-import { rooms } from '@/app/sections/ImageGallerySection'
-
+// import { rooms } from '@/app/sections/ImageGallerySection'
+export const rooms = [
+  {
+    titleEn: 'Renovation of 2 flats',
+    titleUk: 'Реконструкція 2 квартир',
+    subtitleEn: 'Renovation',
+    subtitleUk: 'Реновація',
+    imageUrl: '/images/projects/1/photo-main.jpg',
+  },
+  {
+    titleEn: 'Rusanovka',
+    titleUk: 'Русанівка',
+    subtitleEn: 'Renovation',
+    subtitleUk: 'Реновація',
+    imageUrl: '/images/projects/2/photo-main.jpg',
+  },
+  {
+    titleEn: 'Housing Estate Republic',
+    titleUk: 'ЖК Республіка',
+    subtitleEn: 'Renovation',
+    subtitleUk: 'Реновація',
+    imageUrl: '/images/projects/3/photo-main.jpg',
+  },
+  {
+    titleEn: 'Forest Area',
+    titleUk: 'Лісовий масив',
+    subtitleEn: 'Renovation',
+    subtitleUk: 'Реновація',
+    imageUrl: '/images/projects/4/photo-main.jpg',
+  },
+  {
+    titleEn: 'House Renovation',
+    titleUk: 'Реновація Будинку',
+    subtitleEn: 'Renovation',
+    subtitleUk: 'Реновація',
+    imageUrl: '/images/projects/5/photo-main.jpg',
+  },
+  {
+    titleEn: 'Obolon',
+    titleUk: 'Оболонь',
+    subtitleEn: 'Renovation',
+    subtitleUk: 'Реновація',
+    imageUrl: '/images/projects/6/photo-main.jpg',
+  },
+  {
+    titleEn: 'Gostomel Duplex',
+    titleUk: 'Гостомель Дуплекс',
+    subtitleEn: 'Renovation',
+    subtitleUk: 'Реновація',
+    imageUrl: '/images/projects/7/photo-main.jpg',
+  },
+  {
+    titleEn: 'Zazimier Penthouse',
+    titleUk: `Пентхаус "Зазим'я"`,
+    subtitleEn: 'Renovation',
+    subtitleUk: 'Реновація',
+    imageUrl: '/images/projects/8/photo-main.jpg',
+  },
+  {
+    titleEn: 'Sofievska Borschagivka',
+    titleUk: 'Софієвська Боршагівка',
+    subtitleEn: 'Renovation',
+    subtitleUk: 'Реновація',
+    imageUrl: '/images/projects/9/photo-main.jpg',
+  },
+]
 i18next
   .use(initReactI18next)
   .use(I18nextBrowserLanguageDetector)
@@ -153,8 +217,30 @@ i18next
                 title: 'Contact Us',
                 subtitle:
                   'Get in touch with our team for more information or to schedule a tour.',
+                form: {
+                  input1: 'First name',
+                  input2: 'Last name',
+                  input3: 'Email',
+                  textarea: 'Placeholder',
+                  btnTitle: 'Submit',
+                  errors: {
+                    firstName: 'Invalid First Name',
+                    lastName: 'Invalid Last Name',
+                    email: 'Invalid Email',
+                  },
+                },
               },
             },
+          },
+          footer: {
+            section1: 'Home_About Us_Our Services',
+            section2: 'Gallery of Works_Contact Us',
+            section3: {
+              title: 'Subscribe to our newsletter',
+              subtitle:
+                'Stay updated with our latest renovation tips and offers!',
+            },
+            form: { inputTitle: 'Email address', btnTitle: 'Subscribe' },
           },
         },
       },
@@ -293,8 +379,30 @@ i18next
                 title: `Зв'яжіться з нами`,
                 subtitle:
                   'Зв’яжіться з нашою командою для отримання додаткової інформації або планування.',
+                form: {
+                  input1: `Ім'я`,
+                  input2: 'Фамілія',
+                  input3: 'Адреса електронної пошти',
+                  textarea: 'Поле для тексту',
+                  btnTitle: 'Надіслати',
+                  errors: {
+                    firstName: 'Недійсне Ім’я',
+                    lastName: 'Недійсне Прізвище',
+                    email: 'Недійсний електронний лист',
+                  },
+                },
               },
             },
+          },
+          footer: {
+            section1: 'Домашня_Про Нас_Наші Послуги',
+            section2: 'Галерея Робіт_Контакти',
+            section3: {
+              title: 'Підпишіться на нашу розсилку',
+              subtitle:
+                'Слідкуйте за нашими останніми порадами та пропозиціями щодо ремонту!',
+            },
+            form: { inputTitle: 'Адреса ел. пошти', btnTitle: 'Підписатися' },
           },
         },
       },
