@@ -1,8 +1,10 @@
 'use client'
 
+import { useTranslation } from 'react-i18next'
 import ServiceCard from '../components/ServiceCard'
 
 export default function ServicesSection() {
+  const { t } = useTranslation()
   const services = [
     {
       title: 'Apartment Renovation',
@@ -30,14 +32,14 @@ export default function ServicesSection() {
     >
       <div className="flex flex-col items-start gap-[2.5rem] self-stretch">
         <h2 className="text-[#1E1B28] text-[2.5rem] text-center font-[Roboto_Serif_Bold] font-[700] leading-[3.25rem] self-stretch h-[2.5rem]">
-          Our Services
+          {t('sections.services.title')}
         </h2>
       </div>
       <div className="flex items-center gap-[3.5rem] self-stretch">
         {services.map((service, index) => (
           <ServiceCard
-            title={service.title}
-            subtitle={service.subtitle}
+            title={t(`sections.services.service_${index + 1}.title`)}
+            subtitle={t(`sections.services.service_${index + 1}.subtitle`)}
             imageUrl={service.imageUrl}
             altText={service.altText}
             key={index}

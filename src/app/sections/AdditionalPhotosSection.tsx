@@ -1,8 +1,11 @@
 'use client'
 
 import Image from 'next/image'
+import { useSearchParams } from 'next/navigation'
 
 export default function AdditionalPhotosSection() {
+  const searchParams = useSearchParams()
+  const projectNumber = searchParams.get('project')
   return (
     <>
       <section
@@ -10,7 +13,7 @@ export default function AdditionalPhotosSection() {
         id="portfolio-text"
       >
         <div className="w-full"></div>
-        <p className="font-[Inter] text-[1.5rem] font-[400] leading-[2rem] tracking-[-0.0075rem] text-[#000] w-full">
+        <p className="font-[Inter_Var] text-[1.5rem] font-[400] leading-[2rem] tracking-[-0.0075rem] text-[#000] w-full">
           Explore our collection of beautifully renovated <br /> apartments,
           each designed to offer a unique blend of <br /> comfort and style.
           From modern urban lofts to cozy <br /> suburban retreats, our gallery
@@ -31,7 +34,7 @@ export default function AdditionalPhotosSection() {
             objectFit: 'cover',
           }}
           alt="main image"
-          src="/images/room-one.jpeg"
+          src={`/images/projects/${projectNumber}/photo-9.jpg`}
           className="rounded-[1.375rem] border-2 border-[lightgray] border-solid flex-[1_0_0]"
         />
         <Image
@@ -43,7 +46,7 @@ export default function AdditionalPhotosSection() {
             objectFit: 'cover',
           }}
           alt="main image"
-          src="/images/room-one.jpeg"
+          src={`/images/projects/${projectNumber}/photo-10.jpg`}
           className="rounded-[1.375rem] border-2 border-[lightgray] border-solid flex-[1_0_0]"
         />
       </section>
@@ -56,7 +59,7 @@ export default function AdditionalPhotosSection() {
           height={672}
           style={{ height: '42rem', width: '63rem', objectFit: 'cover' }}
           alt="main image"
-          src="/images/room-one.jpeg"
+          src={`/images/projects/${projectNumber}/photo-11.jpg`}
           className="rounded-[1.375rem] border-2 border-[lightgray] border-solid"
         />
       </section>
@@ -73,7 +76,7 @@ export default function AdditionalPhotosSection() {
             objectFit: 'cover',
           }}
           alt="main image"
-          src="/images/room-one.jpeg"
+          src={`/images/projects/${projectNumber}/photo-12.jpg`}
           className="rounded-[1.375rem] border-2 border-[lightgray] border-solid flex-[1_0_0]"
         />
         <Image
@@ -85,7 +88,7 @@ export default function AdditionalPhotosSection() {
             objectFit: 'cover',
           }}
           alt="main image"
-          src="/images/room-one.jpeg"
+          src={`/images/projects/${projectNumber}/photo-13.jpg`}
           className="rounded-[1.375rem] border-2 border-[lightgray] border-solid flex-[1_0_0]"
         />
       </section>

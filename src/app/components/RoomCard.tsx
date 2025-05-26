@@ -1,6 +1,7 @@
 // RoomCard.tsx
 import Image from 'next/image'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 // import { useRouter } from 'next/navigation'
 
 type RoomCardProps = {
@@ -15,6 +16,7 @@ const RoomCard = ({ title, subtitle, imageUrl }: RoomCardProps) => {
   //   router.push(`/project-${project}`)
   //   return
   // }
+  const searchParams = useSearchParams()
   return (
     <div className="flex h-[20.8125rem] items-start gap-[0.75rem] flex-col flex-[1_0_0] rounded-[0.75rem] justify-between">
       <Image
@@ -38,8 +40,9 @@ const RoomCard = ({ title, subtitle, imageUrl }: RoomCardProps) => {
           .toLowerCase()
           .trim()
           .replace(/[^a-z0-9]+/g, '-')
-          .replace(/^-+|-+$/g, '')}`}
-        // onClick={() => pushRouterTitle(title)}
+          .replace(/^-+|-+$/g, '')}?project=${imageUrl
+          .match(/\d/g)
+          .join('')}&lang=${searchParams.get('lang')}`}
       >
         <span className="text-[#000] overflow-ellipsis text-[1.25rem] font-[Inter_Var] font-[400]">
           {title}

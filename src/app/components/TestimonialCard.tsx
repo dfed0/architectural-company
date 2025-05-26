@@ -73,7 +73,7 @@ const TestimonialCard = ({
             text-ellipsis 
             [line-height:1.5em] 
             [max-height:6em] 
-            transition-all duration-300 ease-in-out  w-[max] border-solid border-l-[2px] pl-[2.5rem] border-[#52496e33] ml-[1.5rem]
+            transition-all duration-300 ease-in-out  w-[max] border-solid border-l-[2px] pl-[2.5rem] border-[#52496e33] ml-[1.5rem] hover:overflow-y-scroll
             "
           >
             {comment}

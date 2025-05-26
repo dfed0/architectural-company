@@ -57,38 +57,60 @@ export default function ContactUsSection() {
             name="access_key"
             value="dbd256a5-73eb-4bce-9e3d-030758e39866"
           /> */}
+          <div className="flex items-end gap-[1.5rem] self-stretch">
+            <div className="flex flex-col items-start gap-[0.25rem] flex-[1_0_0]">
+              <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">
+                First name
+              </p>
+              <input
+                className="flex p-[1rem] items-center gap-[0.5rem] flex-[1_0_0] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#0000005c] text-[1rem] bg-[#fff]"
+                placeholder="First name"
+                type="text"
+                name="name"
+                id="name"
+                required
+              ></input>
+            </div>
+            <div className="flex flex-col items-start gap-[0.25rem] flex-[1_0_0]">
+              <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">
+                Last name
+              </p>
+              <input
+                className="flex p-[1rem] items-center gap-[0.5rem] flex-[1_0_0] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#0000005c] text-[1rem] bg-[#fff]"
+                placeholder="Last name"
+                type="text"
+                name="surname"
+                id="surname"
+                required
+              ></input>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col items-start gap-[0.25rem] self-stretch">
+          <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">
+            Email
+          </p>
           <input
-            className="flex min-h-[2.75rem] p-[1rem] items-center gap-[0.5rem] flex-[1_0_0] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#0000005c] text-[1rem] bg-[#fff]"
-            placeholder="First name"
-            type="text"
-            name="name"
-            id="name"
-            required
-          ></input>
-          <input
-            className="flex min-h-[2.75rem] p-[1rem] items-center gap-[0.5rem] flex-[1_0_0] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#0000005c] text-[1rem] bg-[#fff]"
-            placeholder="Last name"
-            type="text"
-            name="surname"
-            id="surname"
+            className="flex p-[1rem] items-center gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#0000005c] w-full text-[1rem] bg-[#fff]"
+            placeholder="Email"
+            type="email"
+            name="email"
+            id="email"
             required
           ></input>
         </div>
-        <input
-          className="flex min-h-[2.75rem] p-[1rem] items-center gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#0000005c] w-full text-[1rem] bg-[#fff]"
-          placeholder="Email"
-          type="email"
-          name="email"
-          id="email"
-          required
-        ></input>
-        <textarea
-          className="flex min-h-[7.75rem] p-[1rem] items-start gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#0000005c] text-[1rem] bg-[#fff]"
-          placeholder="Placeholder"
-          name="message"
-          id="message"
-          required
-        ></textarea>
+        <div className="flex flex-col items-start gap-[0.25rem] self-stretch">
+          <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">
+            Placeholder
+          </p>
+          <textarea
+            className="flex p-[1rem] items-start gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#0000005c] text-[1rem] bg-[#fff] min-h-[7.75rem]"
+            placeholder="Placeholder"
+            name="message"
+            id="message"
+            required
+          ></textarea>
+        </div>
         <FilledStandardButton title="Submit" type="submit" />
         {success && (
           <p className="text-green-600 mt-4">Message sent successfully!</p>
