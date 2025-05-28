@@ -1,6 +1,7 @@
 // RoomCard.tsx
 
 import Image from 'next/image'
+import TooltipParagraph from './tooltip'
 
 type TestimonialCardProps = {
   name: string
@@ -46,8 +47,9 @@ const TestimonialCard = ({
           </p>
         </div>
       </div>
+
       {/* <div className=""> */}
-        {/* <div className="flex flex-col items-center self-stretch w-[3rem] h-auto overflow-hidden">
+      {/* <div className="flex flex-col items-center self-stretch w-[3rem] h-auto overflow-hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="2"
@@ -63,9 +65,23 @@ const TestimonialCard = ({
             />
           </svg>
         </div> */}
-        <div className="max-w-xl cursor-pointer overflow-hidden transition-all duration-300 ease-in-out h-auto w-[12rem]">
-          <p
-            className="flex-[1_0_0] text-[#000] font-[Inter_Var] text-[1rem] font-[400] leading-normal tracking-[-0.005rem] break-words whitespace-normal 
+      <div className="max-w-xl cursor-pointer overflow-hidden transition-all duration-300 ease-in-out h-auto w-[12rem]">
+        <TooltipParagraph
+          text={comment}
+          pClass={`flex-[1_0_0] text-[#000] font-[Inter_Var] text-[1rem] font-[400] leading-normal tracking-[-0.005rem] break-words whitespace-normal 
+            [display:-webkit-box] 
+            [webkit-box-orient:vertical] 
+            [webkit-line-clamp:4] 
+            line-clamp-4
+            overflow-hidden 
+            text-ellipsis 
+            [line-height:1.5em] 
+            [max-height:6em] 
+            transition-all duration-300 ease-in-out  w-[max] border-solid border-l-[2px] pl-[2.5rem] border-[#52496e33] ml-[1.5rem]`}
+        />
+        {/* <p
+          data-tooltip-target="tooltip-default"
+          className="flex-[1_0_0] text-[#000] font-[Inter_Var] text-[1rem] font-[400] leading-normal tracking-[-0.005rem] break-words whitespace-normal 
             [display:-webkit-box] 
             [webkit-box-orient:vertical] 
             [webkit-line-clamp:4] 
@@ -75,10 +91,11 @@ const TestimonialCard = ({
             [max-height:6em] 
             transition-all duration-300 ease-in-out  w-[max] border-solid border-l-[2px] pl-[2.5rem] border-[#52496e33] ml-[1.5rem] hover:overflow-y-scroll
             "
-          >
-            {comment}
-          </p>
-        </div>
+        >
+          {comment}
+        </p> */}
+      </div>
+
       {/* </div> */}
     </div>
   )

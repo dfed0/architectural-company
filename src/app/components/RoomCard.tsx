@@ -2,21 +2,29 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
+import { useTranslation } from 'react-i18next'
 // import { useRouter } from 'next/navigation'
 
 type RoomCardProps = {
   title: string
   subtitle: string
   imageUrl: string
+  titleForUrl: string
 }
 
-const RoomCard = ({ title, subtitle, imageUrl }: RoomCardProps) => {
+const RoomCard = ({
+  title,
+  titleForUrl,
+  subtitle,
+  imageUrl,
+}: RoomCardProps) => {
   // const router = useRouter()
   // function pushRouterTitle(project: string) {
   //   router.push(`/project-${project}`)
   //   return
   // }
   const searchParams = useSearchParams()
+  const { t } = useTranslation()
   return (
     <div className="flex h-[20.8125rem] items-start gap-[0.75rem] flex-col flex-[1_0_0] rounded-[0.75rem] justify-between">
       <Image
@@ -33,7 +41,7 @@ const RoomCard = ({ title, subtitle, imageUrl }: RoomCardProps) => {
       />
       <Link
         className="flex flex-col items-start self-stretch"
-        href={`project/${title
+        href={`project/${t(titleForUrl, { lng: 'en' })
           .toString()
           .normalize('NFKD')
           .replace(/[\u0300-\u036F]/g, '')

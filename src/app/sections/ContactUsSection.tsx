@@ -18,7 +18,6 @@ export default function ContactUsSection() {
   const emailRef = useRef(null)
   // const [success, setSuccess] = useState(false)
   // const [error, setError] = useState(false)
-
   function handleChange(e) {
     // e.target === firstNameRef.current &&
     // e.target === lastNameRef.current &&
@@ -29,7 +28,7 @@ export default function ContactUsSection() {
     if (target === firstNameRef.current) {
       if (
         target.value === '' ||
-        /[^a-zA-Zа-яА-ЯёЁіІїЇєЄ]/g.test(target.value)
+        /[^a-zA-Zа-яА-ЯёЁіІїЇєЄ ]/g.test(target.value)
       ) {
         setErrors((prev) => ({ ...prev, firstName: true }))
         target.classList.remove('border-[#00000029]')
@@ -52,7 +51,7 @@ export default function ContactUsSection() {
     if (target === lastNameRef.current) {
       if (
         target.value === '' ||
-        /[^a-zA-Zа-яА-ЯёЁіІїЇєЄ]/g.test(target.value)
+        /[^a-zA-Zа-яА-ЯёЁіІїЇєЄ ]/g.test(target.value)
       ) {
         setErrors((prev) => ({ ...prev, lastName: true }))
         target.classList.remove('border-[#00000029]')
@@ -73,7 +72,10 @@ export default function ContactUsSection() {
     }
 
     if (target === emailRef.current) {
-      if (!target.value.includes('@') && formSubmit) {
+      if (
+        (!target.value.includes('@') && formSubmit) ||
+        target.value.includes(' ')
+      ) {
         setErrors((prev) => ({ ...prev, email: true }))
         target.classList.remove('border-[#00000029]')
         target.classList.add('border-[#D62D30]')
@@ -120,7 +122,7 @@ export default function ContactUsSection() {
 
   return (
     <section
-      className="flex py-[3.5rem] items-start gap-[6rem] self-stretch scroll-mt-[6rem]"
+      className="flex md:flex-col xl:flex-row md:py-[1.25rem] xl:py-[3.5rem] items-start md:gap-[1.25rem] xl:gap-[3.5rem] self-stretch scroll-mt-[6rem]"
       id="contact"
     >
       <div className="self-stretch w-full">
@@ -133,7 +135,6 @@ export default function ContactUsSection() {
       </div>
       {/* <div className="w-full"> */}
       <form
-        action="https://api.web3forms.com/submit"
         method="POST"
         className="flex flex-col items-start gap-[1.5rem] w-full"
         onSubmit={handleSubmit}
@@ -198,11 +199,12 @@ export default function ContactUsSection() {
             onChange={handleChange}
             required
           ></input>
-          {formSubmit && errors.email && (
-            <p className="text-[#D62D30] text-ellipsis font-[Inter_Var] text-[0.75rem] font-[400] tracking-[-0.00375rem]">
-              {t('sections.clientsWork.contactUs.form.errors.email')}
-            </p>
-          )}
+          {(formSubmit && errors.email) ||
+            (emailRef.current?.value.includes(' ') && (
+              <p className="text-[#D62D30] text-ellipsis font-[Inter_Var] text-[0.75rem] font-[400] tracking-[-0.00375rem]">
+                {t('sections.clientsWork.contactUs.form.errors.email')}
+              </p>
+            ))}
         </div>
         <div className="flex flex-col items-start gap-[0.25rem] self-stretch">
           <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">

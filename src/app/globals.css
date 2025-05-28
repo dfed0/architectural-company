@@ -19,9 +19,12 @@
   --background: #ffffff;
   --foreground: #171717;
   --text-xl: 16px;
+  --font-fluid-md: calc(16px + (12.78 * ((100vw - 800px) / 639)));
+  --font-fluid-xl: calc(16px + (5.33 * ((100vw - 1440px) / 480)));
 }
 html {
-  font-size: 16px;
+  /* font-size: calc(16px + (5.33 * ((100vw - 1440px) / 480))); */
+  /* font-size: 16px; */
 }
 
 html,
@@ -30,8 +33,16 @@ body {
   /* box-sizing: border-box; */
   overflow-x: hidden;
 }
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
 @theme {
+  --breakpoint-md: 800;
   --breakpoint-xl: 1440px;
+  --breakpoint-2xl: 1920px;
   --color-background: #fbfaff;
 }
 @theme inline {

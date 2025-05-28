@@ -14,7 +14,7 @@ export default function CommentsSection() {
       <h2 className="text-[#1E1B28] font-[Roboto_Serif_Bold] text-[2.5rem] font-[700] leading-[3.25rem] tracking-[0.05rem]">
         {t('sections.comments.title')}
       </h2>
-      <div className="flex items-start gap-[3rem] self-stretch overflow-x-scroll">
+      <div className="flex items-start md:gap-[1.25rem] xl:gap-[3rem] self-stretch overflow-x-scroll">
         {/* {latestUsersComments.slice(0, 4).map((review, i) => {
           return (
             <TestimonialCard

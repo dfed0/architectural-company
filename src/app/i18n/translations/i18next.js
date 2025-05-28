@@ -67,6 +67,7 @@ export const rooms = [
     imageUrl: '/images/projects/9/photo-main.jpg',
   },
 ]
+
 i18next
   .use(initReactI18next)
   .use(I18nextBrowserLanguageDetector)
@@ -85,6 +86,7 @@ i18next
             firstRow: 'European',
             secondRow: 'Style',
             thirdRow: 'Renovations',
+            projectTitle: 'Gallery_of',
             location: 'Based in Kyiv, Ukraine',
             date: 'Established in 2005',
           },
@@ -133,6 +135,9 @@ i18next
               title: 'Modern Repair and <br /> Quality Service',
               subtitle:
                 'Our specialists will offer the best types of materials, taking <br /> into account modern aesthetics and functionality, creating <br /> the best living conditions for you.',
+              titleTablet: 'Modern Repair and Quality Service',
+              subtitleTablet:
+                'Our specialists will offer the best types of materials, taking into account modern aesthetics and functionality, creating the best living conditions for you.',
               btnTitle: 'Learn More',
             },
             comments: {
@@ -250,6 +255,7 @@ i18next
             firstRow: 'Ремонт',
             secondRow: 'В Європейському',
             thirdRow: 'Стилі',
+            projectTitle: 'Галерея_',
             location: 'Базуємося в Києві, Україна',
             date: 'Засновано у 2005 році',
           },
@@ -323,7 +329,7 @@ i18next
                 name: 'Олег',
                 tender: 'Ремонт Кухні (Київ)',
                 review:
-                  'Детально розрахована основна смета, добре виконання робіт в поставлені строки та бюджет.',
+                  'Детально розрахована основна мета, добре виконання робіт в поставлені строки та бюджет.',
               },
               5: {
                 name: 'Сергій',
@@ -388,7 +394,7 @@ i18next
                   errors: {
                     firstName: 'Недійсне Ім’я',
                     lastName: 'Недійсне Прізвище',
-                    email: 'Недійсний електронний лист',
+                    email: 'Недійсна електронна адреса',
                   },
                 },
               },

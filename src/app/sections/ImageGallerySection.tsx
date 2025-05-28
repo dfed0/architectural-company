@@ -97,13 +97,14 @@ export default function ImageGallerySection() {
         <div
           key={index}
           className={`${
-            index === 0 ? 'py-[3.5rem]' : 'pb-[3.5rem]'
+            index === 0 ? 'md:py-[1.25rem] xl:py-[3.5rem]' : 'md:py-[1.25rem] xl:pb-[3.5rem]'
           } flex items-start gap-[3.5rem] self-stretch`}
         >
           {group.map((room, i) => (
             <RoomCard
               key={i}
               title={t(`projects.title_${index * 3 + (i + 1)}`)}
+              titleForUrl={`projects.title_${index * 3 + (i + 1)}`}
               subtitle={t(`projects.subtitle_${index * 3 + (i + 1)}`)}
               imageUrl={room.imageUrl}
             />

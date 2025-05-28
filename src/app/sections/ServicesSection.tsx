@@ -27,7 +27,7 @@ export default function ServicesSection() {
   ]
   return (
     <section
-      className="py-[3.5rem] flex flex-col items-start gap-[2.5rem] self-stretch scroll-mt-[6rem]"
+      className="md:py-[1.25rem] xl:py-[3.5rem] flex flex-col items-start gap-[2.5rem] self-stretch scroll-mt-[6rem]"
       id="services"
     >
       <div className="flex flex-col items-start gap-[2.5rem] self-stretch">
@@ -35,7 +35,7 @@ export default function ServicesSection() {
           {t('sections.services.title')}
         </h2>
       </div>
-      <div className="flex items-center gap-[3.5rem] self-stretch">
+      <div className="flex items-center md:gap-[1.25rem] xl:gap-[3.5rem] self-stretch">
         {services.map((service, index) => (
           <ServiceCard
             title={t(`sections.services.service_${index + 1}.title`)}
