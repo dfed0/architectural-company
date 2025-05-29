@@ -10,22 +10,11 @@ import TestimonialCard from '../components/TestimonialCard'
 export default function CommentsSection() {
   const { t } = useTranslation()
   return (
-    <section className="flex flex-col justify-center items-center gap-[3.5rem] self-stretch">
+    <section className="flex flex-col justify-center items-center sm:gap-[1.25rem] gap-[3.5rem] self-stretch">
       <h2 className="text-[#1E1B28] font-[Roboto_Serif_Bold] text-[2.5rem] font-[700] leading-[3.25rem] tracking-[0.05rem]">
         {t('sections.comments.title')}
       </h2>
-      <div className="flex items-start md:gap-[1.25rem] xl:gap-[3rem] self-stretch overflow-x-scroll">
-        {/* {latestUsersComments.slice(0, 4).map((review, i) => {
-          return (
-            <TestimonialCard
-              key={i}
-              name={review.name}
-              tender={review.tender}
-              comment={review.comment}
-              imageUrl="/images/avatar.jpeg"
-            />
-          )
-        })} */}
+      <div className="flex items-start sm:gap-[1.25rem] xl:gap-[3rem] self-stretch overflow-x-scroll">
         <TestimonialCard
           key={t('sections.comments.1.review')}
           name={t('sections.comments.1.name')}

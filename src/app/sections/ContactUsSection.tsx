@@ -122,10 +122,10 @@ export default function ContactUsSection() {
 
   return (
     <section
-      className="flex md:flex-col xl:flex-row md:py-[1.25rem] xl:py-[3.5rem] items-start md:gap-[1.25rem] xl:gap-[3.5rem] self-stretch scroll-mt-[6rem]"
+      className="flex sm:flex-col xl:flex-row sm:pt-[1.25rem] sm:pb-[2.5rem]  xl:py-[3.5rem] items-start sm:gap-[1.25rem] xl:gap-[3.5rem] self-stretch scroll-mt-[6rem]"
       id="contact"
     >
-      <div className="self-stretch w-full">
+      <div className="flex flex-col self-stretch w-full sm:gap-[1.5rem] md:gap-[1.5rem]">
         <h2 className="text-[#1E1B28] font-[Roboto_Serif_Bold] text-[2.5rem] font-[700] leading-[3.25rem]">
           {t('sections.clientsWork.contactUs.title')}
         </h2>
@@ -139,12 +139,12 @@ export default function ContactUsSection() {
         className="flex flex-col items-start gap-[1.5rem] w-full"
         onSubmit={handleSubmit}
       >
-        <div className="flex items-start gap-[1.5rem] self-stretch">
+        <div className="flex sm:flex-col md:flex-row items-start gap-[1.5rem] self-stretch">
           {/* <div className="flex items-end gap-[1.5rem] self-stretch"> */}
-          <div className="flex flex-col items-start gap-[0.25rem] flex-[1_0_0]">
-            <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">
+          <div className="flex flex-col items-start gap-[0.25rem] flex-[1_0_0] self-stretch">
+            {/* <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">
               {t('sections.clientsWork.contactUs.form.input1')}
-            </p>
+            </p> */}
             <input
               className="flex p-[1rem] self-stretch items-center gap-[0.5rem] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
               placeholder={t('sections.clientsWork.contactUs.form.input1')}
@@ -162,10 +162,10 @@ export default function ContactUsSection() {
               </p>
             )}
           </div>
-          <div className="flex flex-col items-start gap-[0.25rem] flex-[1_0_0]">
-            <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">
+          <div className="flex flex-col items-start gap-[0.25rem] flex-[1_0_0] self-stretch">
+            {/* <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">
               {t('sections.clientsWork.contactUs.form.input2')}
-            </p>
+            </p> */}
             <input
               className="flex p-[1rem] self-stretch items-center gap-[0.5rem] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
               placeholder={t('sections.clientsWork.contactUs.form.input2')}
@@ -186,9 +186,9 @@ export default function ContactUsSection() {
           {/* </div> */}
         </div>
         <div className="flex flex-col items-start gap-[0.25rem] self-stretch">
-          <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">
+          {/* <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">
             {t('sections.clientsWork.contactUs.form.input3')}
-          </p>
+          </p> */}
           <input
             className="flex p-[1rem] items-center gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] w-full text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
             placeholder={t('sections.clientsWork.contactUs.form.input3')}
@@ -207,9 +207,9 @@ export default function ContactUsSection() {
             ))}
         </div>
         <div className="flex flex-col items-start gap-[0.25rem] self-stretch">
-          <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">
+          {/* <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">
             {t('sections.clientsWork.contactUs.form.textarea')}
-          </p>
+          </p> */}
           <textarea
             className="flex p-[1rem] items-start gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] min-h-[7.75rem] focus:outline-none focus:border-[#00000029]"
             placeholder={t('sections.clientsWork.contactUs.form.textarea')}

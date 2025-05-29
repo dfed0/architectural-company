@@ -20,10 +20,10 @@ export default function ClientsWorkSection() {
   return (
     <section
       id="about-us"
-      className="scroll-mt-[6rem] flex md:py-[1.25rem] xl:py-[3.5rem] flex-col justify-center items-center md:gap-[1.25rem] xl:gap-[3.5rem] self-stretch"
+      className="scroll-mt-[6rem] flex md:py-[1.25rem] xl:py-[3.5rem] flex-col justify-center items-center sm:gap-[1.25rem] xl:gap-[3.5rem] self-stretch"
     >
       <CommentsSection />
-      <div className="flex md:flex-col xl:flex-row md:py-[1.25rem] xl:py-[3.5rem] items-start md:gap-[1.25rem] xl:gap-[3.5rem] self-stretch">
+      <div className="flex sm:flex-col xl:flex-row md:py-[1.25rem] xl:py-[3.5rem] items-start md:gap-[1.25rem] xl:gap-[3.5rem] self-stretch">
         <h3 className="text-[#1E1B28] text-[2.5rem] font-[700] font-[Roboto_Serif_Bold] leading-[3.25rem]  w-full ">
           {t('sections.clientsWork.process.title')}
         </h3>
@@ -36,13 +36,13 @@ export default function ClientsWorkSection() {
       </div>
       {/* </section> */}
       {/* <section> */}
-      <div className="flex md:flex-col xl:flex-row md:py-[1.25rem] xl:py-[3.5rem] items-start md:gap-[1.25rem] xl:gap-[3.5rem] self-stretch">
+      <div className="flex sm:flex-col md:flex-row xl:flex-row sm:py-[1.25rem] xl:py-[3.5rem] items-start sm:gap-[1.25rem] xl:gap-[3.5rem] self-stretch">
         <h3 className="text-[#1E1B28] text-[2.5rem] font-[700] font-[Roboto_Serif_Bold] leading-[3.25rem] w-full ">
           {t('sections.clientsWork.achievements.title')}
         </h3>
         <div className="w-full">
-          <div className="flex items-center gap-[3.5rem] self-stretch">
-            <div className="flex pt-[3rem] pb-[3.5rem] flex-col justify-center items-start gap-[0.75rem] flex-[1_0_0] border-t-[2px] border-[#5c5c5c33] border-solid">
+          <div className="flex sm:flex-col md:flex-row items-center md:gap-[3.5rem] self-stretch">
+            <div className="flex sm:self-stretch pt-[3rem] pb-[3.5rem] flex-col justify-center items-start gap-[0.75rem] flex-[1_0_0] border-t-[2px] border-[#5c5c5c33] border-solid">
               <span className="line-clamp-1 self-stretch text-[#212121] overflow-ellipsis font-[Inter_Var] text-[3rem] font-[600] leading-[3.25rem] tracking-[-0.075rem]">
                 {t(
                   'sections.clientsWork.achievements.description.completedProjects.title'
@@ -54,7 +54,7 @@ export default function ClientsWorkSection() {
                 )}
               </span>
             </div>
-            <div className="flex pt-[3rem] pb-[3.5rem] flex-col justify-center items-start gap-[0.75rem] flex-[1_0_0] border-t-[2px] border-[#5c5c5c33] border-solid">
+            <div className="flex sm:self-stretch pt-[3rem] pb-[3.5rem] flex-col justify-center items-start gap-[0.75rem] flex-[1_0_0] border-t-[2px] border-[#5c5c5c33] border-solid">
               <span className="line-clamp-1 self-stretch text-[#212121] overflow-ellipsis font-[Inter_Var] text-[3rem] font-[600] leading-[3.25rem] tracking-[-0.075rem]">
                 {t(
                   'sections.clientsWork.achievements.description.industryExperience.title'
@@ -67,8 +67,8 @@ export default function ClientsWorkSection() {
               </span>
             </div>
           </div>
-          <div className="flex items-center gap-[3.5rem] self-stretch">
-            <div className="flex pt-[3rem] pb-[3.5rem] flex-col justify-center items-start gap-[0.75rem] flex-[1_0_0] border-t-[2px] border-[#5c5c5c33] border-solid">
+          <div className="flex sm:flex-col md:flex-row items-center md:gap-[3.5rem] self-stretch">
+            <div className="flex sm:self-stretch pt-[3rem] pb-[3.5rem] flex-col justify-center items-start gap-[0.75rem] flex-[1_0_0] border-t-[2px] border-[#5c5c5c33] border-solid">
               <span className="line-clamp-1 self-stretch text-[#212121] overflow-ellipsis font-[Inter_Var] text-[3rem] font-[600] leading-[3.25rem] tracking-[-0.075rem]">
                 {t(
                   'sections.clientsWork.achievements.description.clientSatisfaction.title'
@@ -80,7 +80,7 @@ export default function ClientsWorkSection() {
                 )}
               </span>
             </div>
-            <div className="flex pt-[3rem] pb-[3.5rem] flex-col justify-center items-start gap-[0.75rem] flex-[1_0_0] border-t-[2px] border-[#5c5c5c33] border-solid">
+            <div className="flex sm:self-stretch pt-[3rem] pb-[3.5rem] flex-col justify-center items-start gap-[0.75rem] flex-[1_0_0] border-t-[2px] border-[#5c5c5c33] border-solid">
               <span className="line-clamp-1 self-stretch text-[#212121] overflow-ellipsis font-[Inter_Var] text-[3rem] font-[600] leading-[3.25rem] tracking-[-0.075rem]">
                 {t(
                   'sections.clientsWork.achievements.description.teamMembers.title'
@@ -95,8 +95,7 @@ export default function ClientsWorkSection() {
           </div>
         </div>
       </div>
-      {/* </section> */}
-      <div className="flex md:flex-col xl:flex-row md:py-[1.25rem] xl:py-[3.5rem] items-start md:gap-[1.25rem] xl:gap-[3.5rem] self-stretch">
+      <div className="flex sm:flex-col xl:flex-row sm:py-[1.25rem] xl:py-[3.5rem] items-start sm:gap-[1.25rem] xl:gap-[3.5rem] self-stretch">
         <h3 className="text-[#1E1B28] text-[2.5rem] font-[700] font-[Roboto_Serif_Bold] leading-[3.25rem] w-full ">
           {t('sections.clientsWork.servings.title')}
         </h3>

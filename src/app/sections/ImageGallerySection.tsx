@@ -88,17 +88,13 @@ export default function ImageGallerySection() {
       />
 
       {groupedRooms.map((group, index) => (
-        // <section
-        //   key={index}
-        //   className={`${
-        //     index === 0 ? 'py-[3.5rem]' : 'pb-[3.5rem]'
-        //   } flex items-start gap-[3.5rem] self-stretch`}
-        // >
-        <div
+          <div
           key={index}
           className={`${
-            index === 0 ? 'md:py-[1.25rem] xl:py-[3.5rem]' : 'md:py-[1.25rem] xl:pb-[3.5rem]'
-          } flex items-start gap-[3.5rem] self-stretch`}
+            index === 0
+              ? ' md:flex-row sm:py-[1.25rem] xl:py-[3.5rem]'
+              : ' md:flex-row  sm:py-[1.25rem] xl:pb-[3.5rem]'
+          } flex sm:flex-col sm:self-center md:items-start sm:gap-[1.25rem] gap-[3.5rem] md:self-stretch`}
         >
           {group.map((room, i) => (
             <RoomCard
@@ -110,7 +106,6 @@ export default function ImageGallerySection() {
             />
           ))}
         </div>
-        // </section>
       ))}
     </>
   )

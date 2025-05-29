@@ -25,7 +25,7 @@ export default function Header() {
     console.log(flagHover)
   }, [flagHover])
   return (
-    <header className="z-10 fixed xl:left-[3.5rem] xl:right-[3.5rem] top-[0rem] bottom-[calc(100vh-6rem)] flex py-[1.5rem] md:px-[1.25rem] justify-between items-center self-stretch bg-background md:left-[1.25rem] md:right-[1.25rem] ">
+    <header className="z-10 fixed xl:left-[3.5rem] xl:right-[3.5rem] top-[0rem] bottom-[calc(100vh-6rem)] flex py-[1.5rem] md:px-[1.25rem] justify-between items-center self-stretch bg-background sm:left-[1.25rem] sm:right-[1.25rem] ">
       <div className="flex h-[3rem] items-center gap-1">
         <div className="flex h-[2rem] items-center gap-[0.375rem]">
           <Image
@@ -42,7 +42,7 @@ export default function Header() {
       <div
         role="navigation"
         aria-label="Main menu"
-        className="xl:flex items-start gap-[3rem] md:hidden "
+        className="xl:flex items-start gap-[3rem] sm:hidden"
       >
         <div className="flex content-center items-center gap-[0.625rem] h-[43.5px] font-[Inter_Var]">
           <Link
@@ -92,7 +92,7 @@ export default function Header() {
       </div>
       {flagHover.hover ? (
         <>
-          <div className="md:hidden xl:block">
+          <div className="sm:hidden xl:block">
             <Image
               height={24}
               width={34}
@@ -101,7 +101,7 @@ export default function Header() {
             />
           </div>
           <div
-            className="xl:flex w-[11.9375rem] flex-col items-start border-[#8F5E00] border-[1px] border-solid shadow-xl shadow-[rgba(15,42,81,0.08)] absolute right-0 top-[1.25rem] cursor-pointer md:hidden"
+            className="xl:flex w-[11.9375rem] flex-col items-start border-[#8F5E00] border-[1px] border-solid shadow-xl shadow-[rgba(15,42,81,0.08)] absolute right-0 top-[1.25rem] cursor-pointer sm:hidden"
             onMouseLeave={() =>
               setFlagHover((prevValue) => ({
                 engHover: false,
@@ -195,7 +195,7 @@ export default function Header() {
               hover: true,
             }))
           }
-          className="md:hidden xl:block"
+          className="sm:hidden xl:block"
         >
           <Image
             height={24}

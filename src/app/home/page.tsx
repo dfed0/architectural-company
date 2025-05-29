@@ -12,7 +12,7 @@ import Header from '@/app/header/page'
 import '../i18n/translations/i18next'
 export default function Home() {
   return (
-    <div className="xl:flex xl:w-[90rem] xl:min-h-[56.25rem] xl:px-[3.5rem] xl:flex-col xl:items-start bg-background md:flex md:w-[50rem] md:p-[1.25rem] ">
+    <div className="sm:flex xl:w-[90rem] xl:min-h-[56.25rem] xl:px-[3.5rem] sm:flex-col sm:items-start md:items-center md:content-center xl:items-start bg-background md:w-[50rem] sm:px-[1.25rem] ">
       <Header></Header>
       <main className="self-stretch w-[100%]">
         <HighlightedSection />
