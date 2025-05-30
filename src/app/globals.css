@@ -1,6 +1,15 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap'); */
 @import 'tailwindcss';
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important; /* заменяем цвет фона */
+  -webkit-text-fill-color: #000 !important; /* цвет текста */
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 @font-face {
   font-family: 'Roboto Serif Bold';
   src: url('/fonts/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf')
@@ -24,7 +33,6 @@
   --font-fluid-xl: calc(16px + (5.33 * ((100vw - 1440px) / 480)));
 }
 html {
-
 }
 
 html,

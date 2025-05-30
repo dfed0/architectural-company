@@ -82,7 +82,7 @@ export default function ImageGallerySection() {
         height={672}
         style={{ height: '42rem', width: '100%', objectFit: 'cover' }}
         alt="main image"
-        src="/images/projects/7/photo-13.jpg"
+        src="/images/page-present.svg"
         className="rounded-[0.75rem] border-2"
         priority={true}
       />

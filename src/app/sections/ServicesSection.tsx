@@ -9,19 +9,19 @@ export default function ServicesSection() {
     {
       title: 'Apartment Renovation',
       subtitle: 'Complete apartment renovations tailored to your needs.',
-      imageUrl: '/images/room-three.jpg',
+      imageUrl: '/images/first-service.svg',
       altText: 'Redesigned apatment',
     },
     {
       title: 'Office Renovation',
       subtitle: 'Expert renovation services to transform your space.',
-      imageUrl: '/images/room-three.jpg',
+      imageUrl: '/images/second-service.svg',
       altText: 'Redesigned office',
     },
     {
       title: 'Painting works',
       subtitle: 'Individual solutions in the field of painting work',
-      imageUrl: '/images/room-three.jpg',
+      imageUrl: '/images/third-service.svg',
       altText: 'Redesigned paintings',
     },
   ]

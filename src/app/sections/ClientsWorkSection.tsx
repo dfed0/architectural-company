@@ -20,7 +20,7 @@ export default function ClientsWorkSection() {
   return (
     <section
       id="about-us"
-      className="scroll-mt-[6rem] flex md:py-[1.25rem] xl:py-[3.5rem] flex-col justify-center items-center sm:gap-[1.25rem] xl:gap-[3.5rem] self-stretch"
+      className="scroll-mt-[6rem] flex sm:py-[1.25rem] xl:py-[3.5rem] flex-col justify-center items-center sm:gap-[1.25rem] xl:gap-[3.5rem] self-stretch"
     >
       <CommentsSection />
       <div className="flex sm:flex-col xl:flex-row md:py-[1.25rem] xl:py-[3.5rem] items-start md:gap-[1.25rem] xl:gap-[3.5rem] self-stretch">

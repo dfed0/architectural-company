@@ -16,13 +16,12 @@ export default function Home() {
       <Header></Header>
       <main className="self-stretch w-[100%]">
         <HighlightedSection />
-        <section className="py-[1.5rem] flex flex-col self-stretch items-start">
+        <section className="py-[1.5rem] sm:pb-[4.25rem] md:pb-[1.5rem] flex flex-col self-stretch items-start">
           <ImageGallerySection />
           <ServicesSection />
           <AdditionalInfoSection />
         </section>
         <ClientsWorkSection />
-        {/* <ContactUsSection /> */}
         <Footer />
       </main>
     </div>

@@ -66,6 +66,27 @@ export const rooms = [
     subtitleUk: 'Реновація',
     imageUrl: '/images/projects/9/photo-main.jpg',
   },
+  {
+    titleEn: 'Penthouse in Bucha',
+    titleUk: 'Пентхаус в Бучі',
+    subtitleEn: 'Renovation',
+    subtitleUk: 'Реновація',
+    imageUrl: '/images/projects/10/photo-main.jpg',
+  },
+  {
+    titleEn: 'House in Vasylkiv',
+    titleUk: 'Дім в Василькові',
+    subtitleEn: 'Renovation',
+    subtitleUk: 'Реновація',
+    imageUrl: '/images/projects/11/photo-main.jpg',
+  },
+  {
+    titleEn: `St Peter's Townhouse`,
+    titleUk: 'Свято-Петрівське Таунхаус',
+    subtitleEn: 'Renovation',
+    subtitleUk: 'Реновація',
+    imageUrl: '/images/projects/12/photo-main.jpg',
+  },
 ]
 
 i18next
@@ -103,6 +124,9 @@ i18next
             title_7: rooms[6].titleEn,
             title_8: rooms[7].titleEn,
             title_9: rooms[8].titleEn,
+            title_10: rooms[9].titleEn,
+            title_11: rooms[10].titleEn,
+            title_12: rooms[11].titleEn,
             subtitle_1: rooms[0].subtitleEn,
             subtitle_2: rooms[1].subtitleEn,
             subtitle_3: rooms[2].subtitleEn,

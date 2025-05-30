@@ -9,98 +9,95 @@ export default function ContactUsSection() {
   const { t } = useTranslation()
   const [formSubmit, setFormSubmit] = useState(false)
   const [errors, setErrors] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    notTouched: true,
+  })
+  const [focus, setFocus] = useState({
     firstName: false,
     lastName: false,
     email: false,
+    placeholder: false,
   })
   const firstNameRef = useRef(null)
   const lastNameRef = useRef(null)
   const emailRef = useRef(null)
   // const [success, setSuccess] = useState(false)
   // const [error, setError] = useState(false)
-  function handleChange(e) {
-    // e.target === firstNameRef.current &&
-    // e.target === lastNameRef.current &&
-    // e.target === emailRef.current &&
-    const target = e.target
-    console.log(firstNameRef.current, 'DDDDDDDDDDDD')
+  function inputValidation(target) {
     if (formSubmit === true) setFormSubmit(false)
-    if (target === firstNameRef.current) {
-      if (
-        target.value === '' ||
-        /[^a-zA-Zа-яА-ЯёЁіІїЇєЄ ]/g.test(target.value)
-      ) {
-        setErrors((prev) => ({ ...prev, firstName: true }))
-        target.classList.remove('border-[#00000029]')
-        target.classList.add('border-[#D62D30]')
-        target.classList.remove('text-[#000]')
-        target.classList.add('text-[#D62D30]')
-        target.classList.remove('focus:border-[#00000029]')
-        target.classList.add('focus:border-[#D62D30]')
-      } else if (target.classList.value.includes('border-[#D62D30]')) {
-        setErrors((prev) => ({ ...prev, firstName: false }))
-        target.classList.remove('border-[#D62D30]')
-        target.classList.add('border-[#00000029]')
-        target.classList.remove('text-[#D62D30]')
-        target.classList.add('text-[#000]')
-        target.classList.remove('focus:border-[#D62D30]')
-        target.classList.add('focus:border-[#00000029]')
-      }
+    const type = target.name
+    console.log(type)
+    if (target.value === '') {
+      setErrors((prev) => ({
+        ...prev,
+        [type]: 'This field must be filled in',
+      }))
+      target.classList.remove('border-[#00000029]')
+      target.classList.add('border-[#D62D30]')
+      target.classList.remove('text-[#000]')
+      target.classList.add('text-[#D62D30]')
+      target.classList.remove('focus:border-[#00000029]')
+      target.classList.add('focus:border-[#D62D30]')
+    } else if (
+      type !== 'email' &&
+      /[^a-zA-Zа-яА-ЯёЁіІїЇєЄ ]/g.test(target.value)
+    ) {
+      setErrors((prev) => ({
+        ...prev,
+        [type]: 'Only letters are supported',
+      }))
+      target.classList.remove('border-[#00000029]')
+      target.classList.add('border-[#D62D30]')
+      target.classList.remove('text-[#000]')
+      target.classList.add('text-[#D62D30]')
+      target.classList.remove('focus:border-[#00000029]')
+      target.classList.add('focus:border-[#D62D30]')
+    } else if (type === 'email' && !target.value.includes('@') && formSubmit) {
+      setErrors((prev) => ({
+        ...prev,
+        [type]: 'Email must have the @ symbol ',
+      }))
+      target.classList.remove('border-[#00000029]')
+      target.classList.add('border-[#D62D30]')
+      target.classList.remove('text-[#000]')
+      target.classList.add('text-[#D62D30]')
+      target.classList.remove('focus:border-[#00000029]')
+      target.classList.add('focus:border-[#D62D30]')
+    } else if (target.value.trimEnd().includes(' ')) {
+      setErrors((prev) => ({
+        ...prev,
+        [type]: 'Spaces are not supported',
+      }))
+      target.classList.remove('border-[#00000029]')
+      target.classList.add('border-[#D62D30]')
+      target.classList.remove('text-[#000]')
+      target.classList.add('text-[#D62D30]')
+      target.classList.remove('focus:border-[#00000029]')
+      target.classList.add('focus:border-[#D62D30]')
+    } else if (target.classList.value.includes('border-[#D62D30]')) {
+      setErrors((prev) => ({ ...prev, [type]: '' }))
+      target.classList.remove('border-[#D62D30]')
+      target.classList.add('border-[#00000029]')
+      target.classList.remove('text-[#D62D30]')
+      target.classList.add('text-[#000]')
+      target.classList.remove('focus:border-[#D62D30]')
+      target.classList.add('focus:border-[#00000029]')
     }
-
-    if (target === lastNameRef.current) {
-      if (
-        target.value === '' ||
-        /[^a-zA-Zа-яА-ЯёЁіІїЇєЄ ]/g.test(target.value)
-      ) {
-        setErrors((prev) => ({ ...prev, lastName: true }))
-        target.classList.remove('border-[#00000029]')
-        target.classList.add('border-[#D62D30]')
-        target.classList.remove('text-[#000]')
-        target.classList.add('text-[#D62D30]')
-        target.classList.remove('focus:border-[#00000029]')
-        target.classList.add('focus:border-[#D62D30]')
-      } else if (target.classList.value.includes('border-[#D62D30]')) {
-        setErrors((prev) => ({ ...prev, lastName: false }))
-        target.classList.remove('border-[#D62D30]')
-        target.classList.add('border-[#00000029]')
-        target.classList.remove('text-[#D62D30]')
-        target.classList.add('text-[#000]')
-        target.classList.remove('focus:border-[#D62D30]')
-        target.classList.add('focus:border-[#00000029]')
-      }
-    }
-
-    if (target === emailRef.current) {
-      if (
-        (!target.value.includes('@') && formSubmit) ||
-        target.value.includes(' ')
-      ) {
-        setErrors((prev) => ({ ...prev, email: true }))
-        target.classList.remove('border-[#00000029]')
-        target.classList.add('border-[#D62D30]')
-        target.classList.remove('text-[#000]')
-        target.classList.add('text-[#D62D30]')
-        target.classList.remove('focus:border-[#00000029]')
-        target.classList.add('focus:border-[#D62D30]')
-      } else if (target.classList.value.includes('border-[#D62D30]')) {
-        setErrors((prev) => ({ ...prev, email: false }))
-        target.classList.remove('border-[#D62D30]')
-        target.classList.add('border-[#00000029]')
-        target.classList.remove('text-[#D62D30]')
-        target.classList.add('text-[#000]')
-        target.classList.remove('focus:border-[#D62D30]')
-        target.classList.add('focus:border-[#00000029]')
-      }
-    }
+  }
+  function handleChange(e) {
+    setErrors((prev) => ({ ...prev, notTouched: false }))
+    const target = e.target
+    inputValidation(target)
   }
   const handleSubmit = async (e) => {
     setFormSubmit(true)
     e.preventDefault()
-    const hasErrors = Object.values(errors).some((error) => error === true)
-
+    const hasErrors = Object.values(errors).some((error) => error != false)
+    console.log(hasErrors, errors)
     if (hasErrors) {
-      return // не отправлять форму
+      return
     }
     const formData = new FormData(e.target)
     formData.append('access_key', 'dbd256a5-73eb-4bce-9e3d-030758e39866')
@@ -138,83 +135,118 @@ export default function ContactUsSection() {
         method="POST"
         className="flex flex-col items-start gap-[1.5rem] w-full"
         onSubmit={handleSubmit}
+        noValidate
       >
         <div className="flex sm:flex-col md:flex-row items-start gap-[1.5rem] self-stretch">
-          {/* <div className="flex items-end gap-[1.5rem] self-stretch"> */}
           <div className="flex flex-col items-start gap-[0.25rem] flex-[1_0_0] self-stretch">
-            {/* <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">
-              {t('sections.clientsWork.contactUs.form.input1')}
-            </p> */}
+            {!focus.firstName && <div className="h-[1.125rem] w-full"></div>}
+            {focus.firstName && (
+              <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
+                {t('sections.clientsWork.contactUs.form.input1')}
+              </p>
+            )}
             <input
               className="flex p-[1rem] self-stretch items-center gap-[0.5rem] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
-              placeholder={t('sections.clientsWork.contactUs.form.input1')}
+              placeholder={
+                !focus.firstName
+                  ? t('sections.clientsWork.contactUs.form.input1')
+                  : ''
+              }
               type="text"
-              name="name"
-              id="name"
+              name="firstName"
+              id="firstName"
               inputMode="text"
               ref={firstNameRef}
               onChange={handleChange}
+              onFocus={() => setFocus((prev) => ({ ...prev, firstName: true }))}
+              onBlur={() => setFocus((prev) => ({ ...prev, firstName: false }))}
               required
             ></input>
             {errors.firstName && (
               <p className="text-[#D62D30] text-ellipsis font-[Inter_Var] text-[0.75rem] font-[400] tracking-[-0.00375rem]">
-                {t('sections.clientsWork.contactUs.form.errors.firstName')}
+                {errors.firstName}
               </p>
             )}
           </div>
           <div className="flex flex-col items-start gap-[0.25rem] flex-[1_0_0] self-stretch">
-            {/* <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">
-              {t('sections.clientsWork.contactUs.form.input2')}
-            </p> */}
+            {!focus.lastName && <div className="h-[1.125rem] w-full"></div>}
+            {focus.lastName && (
+              <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
+                {t('sections.clientsWork.contactUs.form.input2')}
+              </p>
+            )}
             <input
               className="flex p-[1rem] self-stretch items-center gap-[0.5rem] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
-              placeholder={t('sections.clientsWork.contactUs.form.input2')}
+              placeholder={
+                !focus.lastName
+                  ? t('sections.clientsWork.contactUs.form.input2')
+                  : ''
+              }
               type="text"
-              name="surname"
-              id="surname"
+              name="lastName"
+              id="lastName"
               inputMode="text"
               ref={lastNameRef}
               onChange={handleChange}
+              onFocus={() => setFocus((prev) => ({ ...prev, lastName: true }))}
+              onBlur={() => setFocus((prev) => ({ ...prev, lastName: false }))}
               required
             ></input>
             {errors.lastName && (
               <p className="text-[#D62D30] text-ellipsis font-[Inter_Var] text-[0.75rem] font-[400] tracking-[-0.00375rem]">
-                {t('sections.clientsWork.contactUs.form.errors.lastName')}
+                {errors.lastName}
               </p>
             )}
           </div>
           {/* </div> */}
         </div>
         <div className="flex flex-col items-start gap-[0.25rem] self-stretch">
-          {/* <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">
-            {t('sections.clientsWork.contactUs.form.input3')}
-          </p> */}
+          {!focus.email && <div className="h-[1.125rem] w-full"></div>}
+          {focus.email && (
+            <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
+              {t('sections.clientsWork.contactUs.form.input3')}
+            </p>
+          )}
           <input
             className="flex p-[1rem] items-center gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] w-full text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
-            placeholder={t('sections.clientsWork.contactUs.form.input3')}
+            placeholder={
+              !focus.email
+                ? t('sections.clientsWork.contactUs.form.input3')
+                : ''
+            }
             type="email"
             name="email"
             id="email"
             ref={emailRef}
             onChange={handleChange}
+            onFocus={() => setFocus((prev) => ({ ...prev, email: true }))}
+            onBlur={() => setFocus((prev) => ({ ...prev, email: false }))}
             required
           ></input>
-          {(formSubmit && errors.email) ||
-            (emailRef.current?.value.includes(' ') && (
-              <p className="text-[#D62D30] text-ellipsis font-[Inter_Var] text-[0.75rem] font-[400] tracking-[-0.00375rem]">
-                {t('sections.clientsWork.contactUs.form.errors.email')}
-              </p>
-            ))}
+          {errors.email && (
+            <p className="text-[#D62D30] text-ellipsis font-[Inter_Var] text-[0.75rem] font-[400] tracking-[-0.00375rem]">
+              {errors.email}
+            </p>
+          )}
         </div>
         <div className="flex flex-col items-start gap-[0.25rem] self-stretch">
-          {/* <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[#000] font-[400] leading-[-0.00375rem]">
-            {t('sections.clientsWork.contactUs.form.textarea')}
-          </p> */}
+          {!focus.placeholder && <div className="h-[1.125rem] w-full"></div>}
+          {focus.placeholder && (
+            <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
+              {t('sections.clientsWork.contactUs.form.textarea')}
+            </p>
+          )}
           <textarea
             className="flex p-[1rem] items-start gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] min-h-[7.75rem] focus:outline-none focus:border-[#00000029]"
-            placeholder={t('sections.clientsWork.contactUs.form.textarea')}
-            name="message"
-            id="message"
+            placeholder={
+              !focus.placeholder
+                ? t('sections.clientsWork.contactUs.form.textarea')
+                : ''
+            }
+            name="placeholder"
+            id="placeholder"
+            onFocus={() => setFocus((prev) => ({ ...prev, placeholder: true }))}
+            onBlur={() => setFocus((prev) => ({ ...prev, placeholder: false }))}
             required
           ></textarea>
         </div>
