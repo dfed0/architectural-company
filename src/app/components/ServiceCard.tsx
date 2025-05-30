@@ -1,4 +1,5 @@
-// RoomCard.tsx
+'use client'
+
 
 import Image from 'next/image'
 import FilledStandardButton from './FilledStandardButton'

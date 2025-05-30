@@ -1,4 +1,5 @@
-// RoomCard.tsx
+'use client'
+
 
 import Image from 'next/image'
 import TooltipParagraph from './tooltip'
@@ -9,18 +10,7 @@ type TestimonialCardProps = {
   imageUrl: string
   comment: string
 }
-// break-words whitespace-normal
-//             [display:-webkit-box]
-//             [webkit-box-orient:vertical]
-//             [webkit-line-clamp:4]
-//             overflow-hidden
-//             text-ellipsis
-//             [line-height:1.5em]
-//             [max-height:6em]
-//             transition-all duration-300 ease-in-out
-//             group-hover:[webkit-line-clamp:unset]
-//             group-hover:[max-height:1000px]
-//             group-hover:overflow-visible"
+
 const TestimonialCard = ({
   name,
   tender,
@@ -48,23 +38,7 @@ const TestimonialCard = ({
         </div>
       </div>
 
-      {/* <div className=""> */}
-      {/* <div className="flex flex-col items-center self-stretch w-[3rem] h-auto overflow-hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="2"
-            height="100%"
-            viewBox="0 0 2 95"
-            fill="none"
-          >
-            <path
-              d="M1 0V95"
-              stroke="#52496E"
-              // stroke-opacity="0.2"
-              // stroke-width="1.5"
-            />
-          </svg>
-        </div> */}
+      
       <div className="max-w-xl cursor-pointer overflow-hidden transition-all duration-300 ease-in-out h-auto w-[12rem]">
         <TooltipParagraph
           text={comment}

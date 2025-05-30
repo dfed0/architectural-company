@@ -1,5 +1,4 @@
-// import Image from 'next/image'
-// import Link from 'next/link'
+
 'use client'
 import HighlightedSection from '@/app/sections/HighlightedSection'
 import ImageGalleryProductSection from '@/app/sections/ImageGalleryProductSection'

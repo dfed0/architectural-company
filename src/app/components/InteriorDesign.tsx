@@ -1,4 +1,4 @@
-// RoomCard.tsx
+'use client'
 
 type InteriorProps = {
   children: string

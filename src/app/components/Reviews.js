@@ -1,3 +1,5 @@
+'use client'
+
 import * as cheerio from 'cheerio'
 export async function getReviews() {
   const res = await fetch('https://www.rabotniki.ua/14758', {

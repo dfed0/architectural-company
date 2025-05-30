@@ -1,4 +1,5 @@
-// RoomCard.tsx
+'use client'
+
 
 type ButtonProps = {
   title: string
