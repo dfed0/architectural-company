@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
 import { useTranslation } from 'react-i18next'
 
 type ButtonProps = {
@@ -14,7 +15,7 @@ const FilledStandardButton = ({ title, type, link, project }: ButtonProps) => {
   const searchParams = useSearchParams()
   console.log('OGO', link)
   return (
-    <>
+    <Suspense>
       {link && project ? (
         <Link
           className="flex flex-col items-start self-stretch"
@@ -44,7 +45,7 @@ const FilledStandardButton = ({ title, type, link, project }: ButtonProps) => {
           {title}
         </button>
       )}
-    </>
+    </Suspense>
   )
 }
 

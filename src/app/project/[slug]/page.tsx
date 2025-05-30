@@ -13,59 +13,6 @@ import { Suspense } from 'react'
 export default function GalleryOfProject() {
   const searchParams = useSearchParams()
   const projectNumber = searchParams.get('project')
-  // const res = await fetch('https://www.rabotniki.ua/14758', {
-  //   headers: { 'User-Agent': 'Mozilla/5.0' },
-  // })
-  // const html = await res.text()
-  // const $ = cheerio.load(html)
-
-  // const name = $('.col-xl-10')
-  //   .children()
-  //   .map((_, el) => {
-  //     return $(el).find('.h5').text().trim()
-  //   })
-  //   .get()
-  //   .slice(1, 6)
-  // const tender = $('.col-xl-10')
-  //   .children()
-  //   .map((_, el) => {
-  //     return $(el)
-  //       .find('div.col-lg-8')
-  //       .children()
-  //       .map((_, el) => {
-  //         if ($(el).text().trim().includes('Отзыв на тендер:')) {
-  //           return $(el)
-  //             .text()
-  //             .trim()
-  //             .replace(/Отзыв на тендер:\s*|\r?\n|\r/g, '')
-  //         }
-  //       })
-  //       .get()
-  //   })
-  //   .get()
-  //   .slice(1, 6)
-
-  // const comment = $('.col-xl-10')
-  //   .children()
-  //   .map((_, el) => {
-  //     return $(el)
-  //       .find('div.col-lg-8')
-  //       .children()
-  //       .map((_, el) => {
-  //         if ($(el).text().trim().includes('Общие выводы:')) {
-  //           return $(el)
-  //             .text()
-  //             .trim()
-  //             .replace(/Общие выводы:\s*|\r?\n|\r/g, '')
-  //         }
-  //       })
-  //       .get()
-  //   })
-  //   .get()
-  //   .slice(1, 6)
-
-  // console.log({ name, tender, comment })
-  // // res.status(200).send({ name, tender, comment })
   const { t } = useTranslation()
   return (
     <Suspense>
