@@ -111,9 +111,11 @@ export default function ClientsWorkSection() {
                     <InteriorDesign key={index}>{text}</InteriorDesign>
                   ))}
                 </div>
-                {group.map((text, index) => (
-                  <InteriorDesign key={index}>{text}</InteriorDesign>
-                ))}
+                <div className='md:hidden'>
+                  {group.map((text, index) => (
+                    <InteriorDesign key={index}>{text}</InteriorDesign>
+                  ))}
+                </div>
               </>
             )
           })}
