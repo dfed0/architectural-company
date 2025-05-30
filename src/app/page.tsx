@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import './i18n/translations/i18next'
 
 export default function Home() {
@@ -10,5 +10,5 @@ export default function Home() {
     router.replace('/home?lang=en') // или router.push('/') — зависит от задачи
   }, [router])
 
-  return null
+  return <Suspense></Suspense>
 }

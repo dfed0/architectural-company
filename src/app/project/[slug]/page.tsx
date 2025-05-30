@@ -8,6 +8,7 @@ import Footer from '@/app/footer/page'
 import Header from '@/app/header/page'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
 // import * as cheerio from 'cheerio'
 export default function GalleryOfProject() {
   const searchParams = useSearchParams()
@@ -67,16 +68,18 @@ export default function GalleryOfProject() {
   // // res.status(200).send({ name, tender, comment })
   const { t } = useTranslation()
   return (
-    <div className="xl:flex xl:w-[90rem] xl:min-h-[56.25rem] xl:px-[3.5rem] xl:flex-col xl:items-start bg-background ">
-      <Header></Header>
-      <main className="self-stretch">
-        <HighlightedSection title={t(`projects.title_${projectNumber}`)} />
-        <div className="flex flex-col py-[3.5rem] items-start self-stretch">
-          <ImageGalleryProductSection />
-          <AdditionalPhotosSection />
-        </div>
-        <Footer />
-      </main>
-    </div>
+    <Suspense>
+      <div className="xl:flex xl:w-[90rem] xl:min-h-[56.25rem] xl:px-[3.5rem] xl:flex-col xl:items-start bg-background ">
+        <Header></Header>
+        <main className="self-stretch">
+          <HighlightedSection title={t(`projects.title_${projectNumber}`)} />
+          <div className="flex flex-col py-[3.5rem] items-start self-stretch">
+            <ImageGalleryProductSection />
+            <AdditionalPhotosSection />
+          </div>
+          <Footer />
+        </main>
+      </div>
+    </Suspense>
   )
 }
