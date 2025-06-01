@@ -20,7 +20,7 @@ const ServiceCard = ({
 }: ServiceCardProps) => {
   const { t } = useTranslation()
   return (
-    <div className="flex flex-col items-center self-center gap-[2.5rem] flex-[1_0_0]">
+    <div className="flex flex-col items-start self-center gap-[2.5rem] flex-[1_0_0]">
       <Image
         src={imageUrl}
         alt={altText}

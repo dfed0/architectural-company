@@ -262,6 +262,8 @@ i18next
               },
             },
           },
+          motivateTitle:
+            'Explore our collection of beautifully renovated apartments, each designed to offer a unique blend of comfort and style. From modern urban lofts to cozy suburban retreats, our gallery  howcases the finest in contemporary living spaces.',
           footer: {
             section1: 'Home_About Us_Our Services',
             section2: 'Gallery of Works_Contact Us',
@@ -426,6 +428,10 @@ i18next
               },
             },
           },
+          motivateTitle:
+            'Дослідіть нашу колекцію прекрасно відремонтованих квартир, кожна з яких створена для того, щоб запропонувати унікальне поєднання комфорту та стилю. Від сучасних міських лофтів до затишних заміських резиденцій, наша галерея демонструє найкращі зразки сучасного житла.',
+          motivateTitlePhone:
+            'Дослідіть нашу колекцію прекрасно відремонтованих квартир, <br /> кожна з яких створена для того, щоб запропонувати унікальне поєднання комфорту та стилю. <br /> Від сучасних міських лофтів до затишних заміських резиденцій, <br /> наша галерея демонструє найкращі зразки сучасного житла.',
           footer: {
             section1: 'Домашня_Про Нас_Наші Послуги',
             section2: 'Галерея Робіт_Контакти',

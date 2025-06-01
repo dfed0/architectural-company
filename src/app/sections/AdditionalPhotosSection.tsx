@@ -2,8 +2,10 @@
 
 import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
+import { useTranslation } from 'react-i18next'
 
 export default function AdditionalPhotosSection() {
+  const {t} = useTranslation()
   const searchParams = useSearchParams()
   const projectNumber = searchParams.get('project')
   return (
@@ -14,11 +16,7 @@ export default function AdditionalPhotosSection() {
       >
         <div className="w-full"></div>
         <p className="font-[Inter_Var] text-[1.5rem] font-[400] leading-[2rem] tracking-[-0.0075rem] text-[#000] w-full">
-          Explore our collection of beautifully renovated <br /> apartments,
-          each designed to offer a unique blend of <br /> comfort and style.
-          From modern urban lofts to cozy <br /> suburban retreats, our gallery
-          showcases the finest in <br />
-          contemporary living spaces.
+          {t('motivateTitle')}
         </p>
       </section>
       <section
