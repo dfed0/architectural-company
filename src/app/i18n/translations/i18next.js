@@ -250,6 +250,7 @@ i18next
                   input1: 'First name',
                   input2: 'Last name',
                   input3: 'Email',
+                  input4: 'Phone',
                   textarea: 'Placeholder',
                   btnTitle: 'Submit',
                   errors: {
@@ -413,6 +414,7 @@ i18next
                   input1: `Ім'я`,
                   input2: 'Фамілія',
                   input3: 'Адреса електронної пошти',
+                  input4: 'Телефон',
                   textarea: 'Поле для тексту',
                   btnTitle: 'Надіслати',
                   errors: {

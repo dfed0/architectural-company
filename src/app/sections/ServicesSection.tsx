@@ -35,7 +35,7 @@ export default function ServicesSection() {
           {t('sections.services.title')}
         </h2>
       </div>
-      <div className="flex sm:items-start md:items-center sm:flex-col md:flex-row sm:justify-center sm:gap-[1.25rem] xl:gap-[3.5rem] self-stretch">
+      <div className="flex sm:items-center md:items-center sm:flex-col md:flex-row sm:justify-center sm:gap-[1.25rem] xl:gap-[3.5rem] self-stretch">
         {services.map((service, index) => (
           <ServiceCard
             title={t(`sections.services.service_${index + 1}.title`)}

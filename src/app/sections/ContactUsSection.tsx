@@ -1,9 +1,10 @@
 'use client'
-
+import 'react-phone-input-2/lib/style.css'
 import { useRef, useState } from 'react'
 // import { useState } from 'react'
 import FilledStandardButton from '../components/FilledStandardButton'
 import { useTranslation } from 'react-i18next'
+import PhoneInput from 'react-phone-input-2'
 
 export default function ContactUsSection() {
   const { t } = useTranslation()
@@ -12,12 +13,14 @@ export default function ContactUsSection() {
     firstName: '',
     lastName: '',
     email: '',
+    phone: '',
     notTouched: true,
   })
   const [focus, setFocus] = useState({
     firstName: false,
     lastName: false,
     email: false,
+    phone: false,
     placeholder: false,
   })
   const firstNameRef = useRef(null)
@@ -40,6 +43,7 @@ export default function ContactUsSection() {
       target.classList.add('text-[#D62D30]')
       target.classList.remove('focus:border-[#00000029]')
       target.classList.add('focus:border-[#D62D30]')
+    } else if (type === 'phone') {
     } else if (
       type !== 'email' &&
       /[^a-zA-Zа-яА-ЯёЁіІїЇєЄ ]/g.test(target.value)
@@ -141,9 +145,12 @@ export default function ContactUsSection() {
           <div className="flex flex-col items-start gap-[0.25rem] flex-[1_0_0] self-stretch">
             {!focus.firstName && <div className="h-[1.125rem] w-full"></div>}
             {focus.firstName && (
-              <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
-                {t('sections.clientsWork.contactUs.form.input1')}
-              </p>
+              <div className="flex">
+                <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
+                  {t('sections.clientsWork.contactUs.form.input1')}
+                </p>
+                <p className="text-red-700 text-[0.75rem]">*</p>
+              </div>
             )}
             <input
               className="flex p-[1rem] self-stretch items-center gap-[0.5rem] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
@@ -171,9 +178,12 @@ export default function ContactUsSection() {
           <div className="flex flex-col items-start gap-[0.25rem] flex-[1_0_0] self-stretch">
             {!focus.lastName && <div className="h-[1.125rem] w-full"></div>}
             {focus.lastName && (
-              <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
-                {t('sections.clientsWork.contactUs.form.input2')}
-              </p>
+              <div className="flex">
+                <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
+                  {t('sections.clientsWork.contactUs.form.input2')}
+                </p>
+                <p className="text-red-700 text-[0.75rem]">*</p>
+              </div>
             )}
             <input
               className="flex p-[1rem] self-stretch items-center gap-[0.5rem] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
@@ -203,9 +213,12 @@ export default function ContactUsSection() {
         <div className="flex flex-col items-start gap-[0.25rem] self-stretch">
           {!focus.email && <div className="h-[1.125rem] w-full"></div>}
           {focus.email && (
-            <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
-              {t('sections.clientsWork.contactUs.form.input3')}
-            </p>
+            <div className="flex">
+              <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
+                {t('sections.clientsWork.contactUs.form.input3')}
+              </p>
+              <p className="text-red-700 text-[0.75rem]">*</p>
+            </div>
           )}
           <input
             className="flex p-[1rem] items-center gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] w-full text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
@@ -223,6 +236,31 @@ export default function ContactUsSection() {
             onBlur={() => setFocus((prev) => ({ ...prev, email: false }))}
             required
           ></input>
+          {errors.email && (
+            <p className="text-[#D62D30] text-ellipsis font-[Inter_Var] text-[0.75rem] font-[400] tracking-[-0.00375rem]">
+              {errors.email}
+            </p>
+          )}
+        </div>
+        <div className="flex flex-col items-start gap-[0.25rem] self-stretch">
+          {!focus.phone && <div className="h-[1.125rem] w-full"></div>}
+          {focus.phone && (
+            <div className="flex">
+              <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
+                {t('sections.clientsWork.contactUs.form.input4')}
+              </p>
+            </div>
+          )}
+          <PhoneInput
+            inputProps={{
+              name: 'phone',
+              required: true,
+              autoFocus: true,
+              onFocus: () => setFocus((prev) => ({ ...prev, phone: true })),
+              onBlur: () => setFocus((prev) => ({ ...prev, phone: false })),
+              placeholder: `${!focus.phone? t('sections.clientsWork.contactUs.form.input4') : ''}`,
+            }}
+          />
           {errors.email && (
             <p className="text-[#D62D30] text-ellipsis font-[Inter_Var] text-[0.75rem] font-[400] tracking-[-0.00375rem]">
               {errors.email}

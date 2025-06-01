@@ -213,7 +213,6 @@ export default function HeaderComponent() {
             width={24}
             height={24}
             className="object-fill"
-            // objectFit="fill"
           />
         </div>
       </header>

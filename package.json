@@ -18,7 +18,8 @@
     "radix-ui": "^1.4.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-i18next": "^15.5.2"
+    "react-i18next": "^15.5.2",
+    "react-phone-input-2": "^2.15.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

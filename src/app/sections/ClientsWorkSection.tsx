@@ -102,7 +102,7 @@ export default function ClientsWorkSection() {
         <div className="flex flex-col justify-center items-start gap-[1.5rem]  w-full">
           {grouped.map((group, i) => {
             return (
-              <div key={'i' + i}>
+              <div key={'i' + i} className="self-stretch">
                 <div
                   className="sm:hidden md:flex items-center gap-[3.5rem] self-stretch w-full "
                   key={i}
@@ -111,7 +111,7 @@ export default function ClientsWorkSection() {
                     <InteriorDesign key={index}>{text}</InteriorDesign>
                   ))}
                 </div>
-                <div className="md:hidden">
+                <div className="flex flex-col md:hidden gap-[1.25rem]">
                   {group.map((text, index) => (
                     <InteriorDesign key={'index' + index}>
                       {text}

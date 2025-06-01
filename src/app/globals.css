@@ -78,3 +78,16 @@ body {
 .element {
   font-size: 24px;
 }
+.react-tel-input .country-list .country{
+    color: #000000 !important;   
+}
+.react-tel-input .form-control {
+  color: #000 !important;
+  height: 3.75rem;
+  padding-bottom: 2rem;
+  font-size: 1rem !important;
+  padding-top: 2rem;
+  width: 100% !important;
+  border-radius: 0.75rem !important;
+  border: solid 2px #00000029 !important;
+}
