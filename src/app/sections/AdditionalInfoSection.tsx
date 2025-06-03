@@ -14,6 +14,7 @@ export default function AdditionalInfoSection() {
         height="2"
         viewBox="0 0 1328 2"
         fill="none"
+        className='w-full'
       >
         <path d="M-96 1H1410" className="stroke-[#00000029]" />
       </svg>
@@ -100,7 +101,7 @@ export default function AdditionalInfoSection() {
         height="2"
         viewBox="0 0 1328 2"
         fill="none"
-        className="sm:hidden xl:block"
+        className="sm:hidden xl:block w-full"
       >
         <path d="M-96 1H1410" className="stroke-[#00000029]" />
       </svg>

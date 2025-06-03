@@ -1,7 +1,6 @@
 import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import I18nextBrowserLanguageDetector from 'i18next-browser-languagedetector'
-// import { rooms } from '@/app/sections/ImageGallerySection'
 export const rooms = [
   {
     titleEn: 'Renovation of 2 flats',
@@ -9,6 +8,9 @@ export const rooms = [
     subtitleEn: 'Renovation',
     subtitleUk: 'Реновація',
     imageUrl: '/images/projects/1/photo-main.jpg',
+    date: '21.08.2023',
+    locationEn: 'Kyiv, Ukraine',
+    locationUk: 'Київ, Україна',
   },
   {
     titleEn: 'Rusanovka',
@@ -16,6 +18,9 @@ export const rooms = [
     subtitleEn: 'Renovation',
     subtitleUk: 'Реновація',
     imageUrl: '/images/projects/2/photo-main.jpg',
+    date: '15.01.2015',
+    locationEn: 'Kyiv, Ukraine',
+    locationUk: 'Київ, Україна',
   },
   {
     titleEn: 'Housing Estate Republic',
@@ -23,6 +28,9 @@ export const rooms = [
     subtitleEn: 'Renovation',
     subtitleUk: 'Реновація',
     imageUrl: '/images/projects/3/photo-main.jpg',
+    date: '21.07.2021',
+    locationEn: 'Kyiv, Ukraine',
+    locationUk: 'Київ, Україна',
   },
   {
     titleEn: 'Forest Area',
@@ -30,6 +38,9 @@ export const rooms = [
     subtitleEn: 'Renovation',
     subtitleUk: 'Реновація',
     imageUrl: '/images/projects/4/photo-main.jpg',
+    date: '7.01.2016',
+    locationEn: 'Kyiv, Ukraine',
+    locationUk: 'Київ, Україна',
   },
   {
     titleEn: 'House Renovation',
@@ -37,6 +48,9 @@ export const rooms = [
     subtitleEn: 'Renovation',
     subtitleUk: 'Реновація',
     imageUrl: '/images/projects/5/photo-main.jpg',
+    date: '22.09.2012',
+    locationEn: 'Kyiv, Ukraine',
+    locationUk: 'Київ, Україна',
   },
   {
     titleEn: 'Obolon',
@@ -44,6 +58,9 @@ export const rooms = [
     subtitleEn: 'Renovation',
     subtitleUk: 'Реновація',
     imageUrl: '/images/projects/6/photo-main.jpg',
+    date: '01.08.2020',
+    locationEn: 'Kyiv, Ukraine',
+    locationUk: 'Київ, Україна',
   },
   {
     titleEn: 'Gostomel Duplex',
@@ -51,6 +68,9 @@ export const rooms = [
     subtitleEn: 'Renovation',
     subtitleUk: 'Реновація',
     imageUrl: '/images/projects/7/photo-main.jpg',
+    date: '21.08.2021',
+    locationEn: 'Kyiv, Ukraine',
+    locationUk: 'Київ, Україна',
   },
   {
     titleEn: 'Zazimier Penthouse',
@@ -58,6 +78,9 @@ export const rooms = [
     subtitleEn: 'Renovation',
     subtitleUk: 'Реновація',
     imageUrl: '/images/projects/8/photo-main.jpg',
+    date: '31.12.2019',
+    locationEn: 'Kyiv, Ukraine',
+    locationUk: 'Київ, Україна',
   },
   {
     titleEn: 'Sofievska Borschagivka',
@@ -65,6 +88,9 @@ export const rooms = [
     subtitleEn: 'Renovation',
     subtitleUk: 'Реновація',
     imageUrl: '/images/projects/9/photo-main.jpg',
+    date: '19.01.2012',
+    locationEn: 'Kyiv, Ukraine',
+    locationUk: 'Київ, Україна',
   },
   {
     titleEn: 'Penthouse in Bucha',
@@ -72,6 +98,9 @@ export const rooms = [
     subtitleEn: 'Renovation',
     subtitleUk: 'Реновація',
     imageUrl: '/images/projects/10/photo-main.jpg',
+    date: '17.08.2017',
+    locationEn: 'Kyiv, Ukraine',
+    locationUk: 'Київ, Україна',
   },
   {
     titleEn: 'House in Vasylkiv',
@@ -79,6 +108,9 @@ export const rooms = [
     subtitleEn: 'Renovation',
     subtitleUk: 'Реновація',
     imageUrl: '/images/projects/11/photo-main.jpg',
+    date: '08.02.2018',
+    locationEn: 'Kyiv, Ukraine',
+    locationUk: 'Київ, Україна',
   },
   {
     titleEn: `St Peter's Townhouse`,
@@ -86,6 +118,9 @@ export const rooms = [
     subtitleEn: 'Renovation',
     subtitleUk: 'Реновація',
     imageUrl: '/images/projects/12/photo-main.jpg',
+    date: '10.09.2024',
+    locationEn: 'Kyiv, Ukraine',
+    locationUk: 'Київ, Україна',
   },
 ]
 

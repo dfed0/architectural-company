@@ -78,16 +78,35 @@ body {
 .element {
   font-size: 24px;
 }
-.react-tel-input .country-list .country{
-    color: #000000 !important;   
+.react-tel-input .country-list .country {
+  color: #000000 !important;
 }
 .react-tel-input .form-control {
   color: #000 !important;
   height: 3.75rem;
   padding-bottom: 2rem;
+  padding-left: 8.25rem !important;
   font-size: 1rem !important;
   padding-top: 2rem;
   width: 100% !important;
   border-radius: 0.75rem !important;
   border: solid 2px #00000029 !important;
+}
+.react-tel-input .flag-dropdown .flag {
+  /* width: 60px !important; */
+  transform: scale(1.5);
+}
+.react-tel-input .flag-dropdown {
+  width: 7.25rem !important;
+}
+.react-tel-input .arrow {
+  transform: scale(6.6666);
+  margin-left: 1.5rem;
+}
+.react-tel-input .flag {
+  margin-left: 0.5rem;
+}
+
+.react-tel-input .selected-flag {
+  width: 7.15rem !important;
 }

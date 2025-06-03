@@ -13,12 +13,15 @@ const TooltipParagraph = ({ text, pClass }) => {
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Content
-            className="TooltipConten max-w-[500px] px-4 py-2 rounded-lg bg-[#e9e6f3] text-[#000] text-sm shadow-md z-50"
+            className="flex  w-[18rem] p-[0.5rem] flex-col content-center items-center gap-[0.625rem] bg-[#AD7C00] text-[#fff] font-[Inter_Var] text-[1rem] font-[400] leading-[-0.005rem] mr-[1.5rem] rounded-[0.25rem]"
             side="bottom"
             sideOffset={3 * 16}
           >
             {text}
-            <Tooltip.Arrow className="TooltipArrow h-[2rem] w-[2rem] fill-[#e9e6f3]"/>
+            <Tooltip.Arrow
+              className="w-[0.75rem] h-[0.5625rem]"
+              fill="#AD7C00"
+            />
           </Tooltip.Content>
         </Tooltip.Portal>
       </Tooltip.Root>

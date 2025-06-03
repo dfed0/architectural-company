@@ -18,7 +18,7 @@ export default function GalleryOfProject() {
       <div className="xl:flex xl:w-[90rem] xl:min-h-[56.25rem] xl:px-[3.5rem] xl:flex-col xl:items-start bg-background ">
         <Header></Header>
         <main className="self-stretch">
-          <HighlightedSection title={t(`projects.title_${projectNumber}`)} />
+          <HighlightedSection title={t(`projects.title_${projectNumber}`)} projectNumber={projectNumber}/>
           <div className="flex flex-col py-[3.5rem] items-start self-stretch">
             <ImageGalleryProductSection />
             <AdditionalPhotosSection />

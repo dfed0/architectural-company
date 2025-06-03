@@ -26,8 +26,7 @@ export default function ContactUsSection() {
   const firstNameRef = useRef(null)
   const lastNameRef = useRef(null)
   const emailRef = useRef(null)
-  // const [success, setSuccess] = useState(false)
-  // const [error, setError] = useState(false)
+  const placeholderRef = useRef(null)
   function inputValidation(target) {
     if (formSubmit === true) setFormSubmit(false)
     const type = target.name
@@ -95,12 +94,25 @@ export default function ContactUsSection() {
     const target = e.target
     inputValidation(target)
   }
+  
   const handleSubmit = async (e) => {
     setFormSubmit(true)
     e.preventDefault()
     const hasErrors = Object.values(errors).some((error) => error != false)
-    console.log(hasErrors, errors)
-    if (hasErrors) {
+    console.log(
+      hasErrors ||
+      (!firstNameRef.current?.value ||
+        !lastNameRef.current?.value ||
+        !emailRef.current?.value ||
+        !placeholderRef.current?.value)
+    )
+    if (
+      hasErrors ||
+      (!firstNameRef.current?.value ||
+        !lastNameRef.current?.value ||
+        !emailRef.current?.value ||
+        !placeholderRef.current?.value)
+    ) {
       return
     }
     const formData = new FormData(e.target)
@@ -111,14 +123,7 @@ export default function ContactUsSection() {
       body: formData,
     })
     await res.json()
-    // const data = await res.json()
-    e.target.reset() // очистка формы
-
-    // if (data.success) {
-    //   setSuccess(true)
-    // } else {
-    //   setError(true)
-    // }
+    e.target.reset()
   }
 
   return (
@@ -258,7 +263,11 @@ export default function ContactUsSection() {
               autoFocus: true,
               onFocus: () => setFocus((prev) => ({ ...prev, phone: true })),
               onBlur: () => setFocus((prev) => ({ ...prev, phone: false })),
-              placeholder: `${!focus.phone? t('sections.clientsWork.contactUs.form.input4') : ''}`,
+              placeholder: `${
+                !focus.phone
+                  ? t('sections.clientsWork.contactUs.form.input4')
+                  : ''
+              }`,
             }}
           />
           {errors.email && (
@@ -285,6 +294,8 @@ export default function ContactUsSection() {
             id="placeholder"
             onFocus={() => setFocus((prev) => ({ ...prev, placeholder: true }))}
             onBlur={() => setFocus((prev) => ({ ...prev, placeholder: false }))}
+            ref={placeholderRef}
+            onChange={handleChange}
             required
           ></textarea>
         </div>

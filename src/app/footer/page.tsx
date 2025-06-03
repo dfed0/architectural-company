@@ -14,6 +14,7 @@ export default function Footer() {
         height="2"
         viewBox="0 0 1328 2"
         fill="none"
+        className='w-full'
       >
         <path d="M-96 1H1410" className="stroke-[#00000029]" />
       </svg>
@@ -85,15 +86,15 @@ export default function Footer() {
             </p>
           </div>
           <div className="sm:hidden xl:flex w-[12.5rem] flex-col justify-center items-start gap-[1rem]">
-            <p className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
+            {/* <p className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
               {t('footer.section2').split('_')[0]}
-            </p>
-            <p className="text-[#00000099] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
+            </p> */}
+            <p className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
               {t('footer.section2').split('_')[1]}
             </p>
           </div>
           <div className="flex sm:w-full md:px-[1.25rem] xl:px-0 xl:w-[25rem] sm:flex-row xl:flex-col justify-center items-start gap-[2.5rem]">
-            <div className="flex sm:flex-col md:flex-row sm:w-full xl:flex-col items-start self-stretch sm:gap-[1.25rem] xl:gap-[2.5rem]">
+            <div className="flex sm:flex-col md:flex-row sm:w-full xl:flex-col items-start self-stretch sm:gap-[1.25rem] xl:gap-[1.5rem] sm:left-[1.25rem] sm:right-[1.25rem] xl:left-[3.5rem] xl:right-[3.5rem]">
               <div className="flex flex-col items-start self-stretch gap-[0.375rem] sm:w-full">
                 <p className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[500] leading-[1.25rem] self-stretch">
                   {t('footer.section3.title')}
