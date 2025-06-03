@@ -1,19 +1,15 @@
 'use client'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-// import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
-// import { useTranslation } from 'react-i18next'
 
 export default function Burger({ setMenuActive }) {
   const searchParams = useSearchParams()
-  // const router = useRouter()
   const pathname = usePathname()
   useEffect(() => {
     setMenuActive((prevValue) => !prevValue)
-    console.log(setMenuActive, 'aaa')
+    console.log('happens')
   }, [setMenuActive, searchParams, pathname])
-  // const { t } = useTranslation()
   function spanHover(e) {
     console.log(e.target)
     if (e.type === 'mouseenter') {
@@ -36,12 +32,6 @@ export default function Burger({ setMenuActive }) {
           href={`/home?lang=${searchParams.get('lang')}`}
           className="hover:text-[#FFF] text-[#1E1B28] text-[1.25rem] font-[Inter_Var] font-[600] leading-[2rem] w-full text-center"
           aria-label="Go to about home page"
-          // onClick={() =>
-          //   router. .on(
-          //     'routeChangeComplete',
-          //     setMenuActive((prevValue) => !prevValue)
-          //   )
-          // }
         >
           Home
         </Link>
@@ -55,7 +45,6 @@ export default function Burger({ setMenuActive }) {
           href={`/home?lang=${searchParams.get('lang')}#services`}
           className="hover:text-[#FFF] text-[#1E1B28] text-[1.25rem] font-[Inter_Var] font-[600] leading-[2rem] w-full text-center"
           aria-label="Go to about home page"
-          // onClick={() => setMenuActive((prevValue) => !prevValue)}
         >
           Our Services
         </Link>
@@ -69,7 +58,6 @@ export default function Burger({ setMenuActive }) {
           href={`/home?lang=${searchParams.get('lang')}#about-us`}
           className="hover:text-[#FFF] text-[#1E1B28] text-[1.25rem] font-[Inter_Var] font-[600] leading-[2rem] w-full text-center"
           aria-label="Go to about home page"
-          // onClick={() => setMenuActive((prevValue) => !prevValue)}
         >
           About Us
         </Link>
@@ -83,7 +71,6 @@ export default function Burger({ setMenuActive }) {
           href={`/home?lang=${searchParams.get('lang')}#contact`}
           className="hover:text-[#FFF] text-[#1E1B28] text-[1.25rem] font-[Inter_Var] font-[600] leading-[2rem] w-full text-center"
           aria-label="Go to about home page"
-          // onClick={() => setMenuActive((prevValue) => !prevValue)}
         >
           Contact
         </Link>

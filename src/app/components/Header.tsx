@@ -69,7 +69,7 @@ export default function HeaderComponent() {
                 <Link
                   href={`/home?lang=${searchParams.get('lang')}#services`}
                   className="text-[#1E1B28] text-[1.25rem] font-[500] hover:text-[#8F5E00]"
-                  aria-label="Go to services section"                  
+                  aria-label="Go to services section"
                 >
                   {t('header.text').split('_')[1]}
                 </Link>
@@ -232,7 +232,11 @@ export default function HeaderComponent() {
               )}
             </div>
           </div>
-          {menuActive && <Burger setMenuActive={setMenuActive} />}
+          {menuActive && (
+            <Suspense>
+              <Burger setMenuActive={setMenuActive} />
+            </Suspense>
+          )}
         </div>
       </header>
     </Suspense>
