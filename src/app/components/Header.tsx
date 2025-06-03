@@ -232,11 +232,7 @@ export default function HeaderComponent() {
               )}
             </div>
           </div>
-          {menuActive && (
-            <Suspense>
-              <Burger setMenuActive={setMenuActive} />
-            </Suspense>
-          )}
+          {menuActive && <Burger setMenuActive={setMenuActive} />}
         </div>
       </header>
     </Suspense>

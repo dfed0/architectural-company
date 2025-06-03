@@ -9,7 +9,7 @@ export default function Burger({ setMenuActive }) {
   useEffect(() => {
     setMenuActive((prevValue) => !prevValue)
     console.log('happens')
-  }, [setMenuActive, searchParams, pathname])
+  }, [searchParams, pathname])
   function spanHover(e) {
     console.log(e.target)
     if (e.type === 'mouseenter') {
