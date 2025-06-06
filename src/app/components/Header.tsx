@@ -203,7 +203,7 @@ export default function HeaderComponent() {
               >
                 <Image
                   height={24}
-                  width={34}
+                  width={24}
                   alt="flag"
                   src={`/images/flag-${flagHover.flag}.svg`}
                 />

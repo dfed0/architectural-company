@@ -11,22 +11,25 @@ import Header from '@/app/header/page'
 // import Link from 'next/link'
 import '../i18n/translations/i18next'
 import { Suspense } from 'react'
+import { WindowSizeProvider } from '../contexts/WindowSizeContext'
 export default function Home() {
   return (
     <Suspense>
-      <div className="sm:flex xl:w-[90rem] xl:min-h-[56.25rem] xl:px-[3.5rem] sm:flex-col sm:items-start md:items-center md:content-center xl:items-start bg-background md:w-[50rem] sm:px-[1.25rem] ">
-        <Header></Header>
-        <main className="self-stretch w-[100%]">
-          <HighlightedSection />
-          <section className="py-[1.5rem] sm:pb-[4.25rem] md:pb-[1.5rem] flex flex-col self-stretch items-start">
-            <ImageGallerySection />
-            <ServicesSection />
-            <AdditionalInfoSection />
-          </section>
-          <ClientsWorkSection />
-          <Footer />
-        </main>
-      </div>
+      <WindowSizeProvider>
+        <div className="sm:flex xl:w-[90rem] xl:min-h-[56.25rem] xl:px-[3.5rem] sm:flex-col sm:items-start md:items-center md:content-center xl:items-start bg-background md:w-[50rem] sm:px-[1.25rem] ">
+          <Header></Header>
+          <main className="self-stretch w-[100%]">
+            <HighlightedSection />
+            <section className="py-[1.5rem] sm:pb-[4.25rem] md:pb-[1.5rem] flex flex-col self-stretch items-start">
+              <ImageGallerySection />
+              <ServicesSection />
+              <AdditionalInfoSection />
+            </section>
+            <ClientsWorkSection />
+            <Footer />
+          </main>
+        </div>
+      </WindowSizeProvider>
     </Suspense>
   )
 }
