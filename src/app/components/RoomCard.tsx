@@ -28,18 +28,18 @@ const RoomCard = ({
   const { t } = useTranslation()
   return (
     <Suspense>
-      <div className="flex h-[20.8125rem] items-start gap-[0.75rem] flex-col flex-[1_0_0] rounded-[0.75rem] justify-between">
+      <div className="flex h-[20.8125rem] items-start gap-[0.75rem] flex-col flex-[1_0_0] rounded-[0.75rem] justify-between self-stretch">
         <Image
           width={576}
           height={384}
           style={{
             height: '17.0625rem',
-            width: '25.33333rem',
+            width: '100%',
             objectFit: 'cover',
           }}
           alt="main image"
           src={imageUrl}
-          className="rounded-[0.75rem] border-2"
+          className="rounded-[0.75rem] border-2 sm:w-max"
         />
         <Link
           className="flex flex-col items-start self-stretch"

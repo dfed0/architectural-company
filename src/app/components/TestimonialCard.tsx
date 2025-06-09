@@ -62,7 +62,7 @@ const { windowWidth } = useWindowSize()
         <div className="max-w-xl cursor-pointer overflow-hidden transition-all duration-300 ease-in-out h-auto w-[12rem]">
           <TooltipParagraph
             text={comment}
-            pClass={`flex-[1_0_0] text-[#000] font-[Inter_Var] text-[1rem] font-[400] leading-normal tracking-[-0.005rem] break-words whitespace-normal 
+            pClass={`flex-[1_0_0] text-[#000] text-start font-[Inter_Var] text-[1rem] font-[400] leading-normal tracking-[-0.005rem] break-words whitespace-normal 
             [display:-webkit-box] 
             [webkit-box-orient:vertical] 
             [webkit-line-clamp:4] 

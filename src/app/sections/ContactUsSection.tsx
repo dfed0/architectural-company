@@ -1,10 +1,10 @@
 'use client'
 import 'react-phone-input-2/lib/style.css'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 // import { useState } from 'react'
 import FilledStandardButton from '../components/FilledStandardButton'
 import { useTranslation } from 'react-i18next'
-import PhoneInput from 'react-phone-input-2'
+// import PhoneInput from 'react-phone-input-2'
 
 export default function ContactUsSection() {
   const { t } = useTranslation()
@@ -14,6 +14,7 @@ export default function ContactUsSection() {
     lastName: '',
     email: '',
     phone: '',
+    placeholder: '',
     notTouched: true,
   })
   const [focus, setFocus] = useState({
@@ -23,96 +24,175 @@ export default function ContactUsSection() {
     phone: false,
     placeholder: false,
   })
+  function addValidationClasses(target, type, message) {
+    setErrors((prev) => ({
+      ...prev,
+      [type]: message,
+    }))
+    target.classList.remove('border-[#00000029]')
+    target.classList.add('border-[#D62D30]')
+    target.classList.remove('text-[#000]')
+    target.classList.add('text-[#D62D30]')
+    target.classList.remove('focus:border-[#00000029]')
+    target.classList.add('focus:border-[#D62D30]')
+  }
+  function removeValidationClasses(target, type) {
+    setErrors((prev) => ({ ...prev, [type]: '' }))
+    target.classList.remove('border-[#D62D30]')
+    target.classList.add('border-[#00000029]')
+    target.classList.remove('text-[#D62D30]')
+    target.classList.add('text-[#000]')
+    target.classList.remove('focus:border-[#D62D30]')
+    target.classList.add('focus:border-[#00000029]')
+  }
   const firstNameRef = useRef(null)
   const lastNameRef = useRef(null)
   const emailRef = useRef(null)
+  const phoneRef = useRef(null)
   const placeholderRef = useRef(null)
   function inputValidation(target) {
     if (formSubmit === true) setFormSubmit(false)
     const type = target.name
     console.log(type)
-    if (target.value === '') {
-      setErrors((prev) => ({
-        ...prev,
-        [type]: 'This field must be filled in',
-      }))
-      target.classList.remove('border-[#00000029]')
-      target.classList.add('border-[#D62D30]')
-      target.classList.remove('text-[#000]')
-      target.classList.add('text-[#D62D30]')
-      target.classList.remove('focus:border-[#00000029]')
-      target.classList.add('focus:border-[#D62D30]')
+    if (target.value === '' && target !== phoneRef.current) {
+      // setErrors((prev) => ({
+      //   ...prev,
+      //   [type]: 'This field must be filled in',
+      // }))
+      // target.classList.remove('border-[#00000029]')
+      // target.classList.add('border-[#D62D30]')
+      // target.classList.remove('text-[#000]')
+      // target.classList.add('text-[#D62D30]')
+      // target.classList.remove('focus:border-[#00000029]')
+      // target.classList.add('focus:border-[#D62D30]')
+      addValidationClasses(
+        target,
+        type,
+        t('sections.clientsWork.projectTitle.errors.emptyField')
+      )
+      console.log(t('sections.clientsWork.contactUs.form.errors.emptyField'))
     } else if (type === 'phone') {
     } else if (
       type !== 'email' &&
+      type !== 'placeholder' &&
       /[^a-zA-Zа-яА-ЯёЁіІїЇєЄ ]/g.test(target.value)
     ) {
-      setErrors((prev) => ({
-        ...prev,
-        [type]: 'Only letters are supported',
-      }))
-      target.classList.remove('border-[#00000029]')
-      target.classList.add('border-[#D62D30]')
-      target.classList.remove('text-[#000]')
-      target.classList.add('text-[#D62D30]')
-      target.classList.remove('focus:border-[#00000029]')
-      target.classList.add('focus:border-[#D62D30]')
+      console.log(type)
+      // setErrors((prev) => ({
+      //   ...prev,
+      //   [type]: 'Only letters are supported',
+      // }))
+      // target.classList.remove('border-[#00000029]')
+      // target.classList.add('border-[#D62D30]')
+      // target.classList.remove('text-[#000]')
+      // target.classList.add('text-[#D62D30]')
+      // target.classList.remove('focus:border-[#00000029]')
+      // target.classList.add('focus:border-[#D62D30]')
+      addValidationClasses(
+        target,
+        type,
+        t('sections.clientsWork.projectTitle.errors.notLetter')
+      )
     } else if (type === 'email' && !target.value.includes('@') && formSubmit) {
-      setErrors((prev) => ({
-        ...prev,
-        [type]: 'Email must have the @ symbol ',
-      }))
-      target.classList.remove('border-[#00000029]')
-      target.classList.add('border-[#D62D30]')
-      target.classList.remove('text-[#000]')
-      target.classList.add('text-[#D62D30]')
-      target.classList.remove('focus:border-[#00000029]')
-      target.classList.add('focus:border-[#D62D30]')
+      // setErrors((prev) => ({
+      //   ...prev,
+      //   [type]: 'Email must have the @ symbol ',
+      // }))
+      // target.classList.remove('border-[#00000029]')
+      // target.classList.add('border-[#D62D30]')
+      // target.classList.remove('text-[#000]')
+      // target.classList.add('text-[#D62D30]')
+      // target.classList.remove('focus:border-[#00000029]')
+      // target.classList.add('focus:border-[#D62D30]')
+      addValidationClasses(
+        target,
+        type,
+        t('sections.services.clientsWork.contactUs.form.errors.email')
+      )
     } else if (target.value.trimEnd().includes(' ')) {
-      setErrors((prev) => ({
-        ...prev,
-        [type]: 'Spaces are not supported',
-      }))
-      target.classList.remove('border-[#00000029]')
-      target.classList.add('border-[#D62D30]')
-      target.classList.remove('text-[#000]')
-      target.classList.add('text-[#D62D30]')
-      target.classList.remove('focus:border-[#00000029]')
-      target.classList.add('focus:border-[#D62D30]')
+      // setErrors((prev) => ({
+      //   ...prev,
+      //   [type]: 'Spaces are not supported',
+      // }))
+      // target.classList.remove('border-[#00000029]')
+      // target.classList.add('border-[#D62D30]')
+      // target.classList.remove('text-[#000]')
+      // target.classList.add('text-[#D62D30]')
+      // target.classList.remove('focus:border-[#00000029]')
+      // target.classList.add('focus:border-[#D62D30]')
+      addValidationClasses(
+        target,
+        type,
+        t('sections.services.clientsWork.contactUs.form.errors.emptyField')
+      )
     } else if (target.classList.value.includes('border-[#D62D30]')) {
-      setErrors((prev) => ({ ...prev, [type]: '' }))
-      target.classList.remove('border-[#D62D30]')
-      target.classList.add('border-[#00000029]')
-      target.classList.remove('text-[#D62D30]')
-      target.classList.add('text-[#000]')
-      target.classList.remove('focus:border-[#D62D30]')
-      target.classList.add('focus:border-[#00000029]')
+      // setErrors((prev) => ({ ...prev, [type]: '' }))
+      // target.classList.remove('border-[#D62D30]')
+      // target.classList.add('border-[#00000029]')
+      // target.classList.remove('text-[#D62D30]')
+      // target.classList.add('text-[#000]')
+      // target.classList.remove('focus:border-[#D62D30]')
+      // target.classList.add('focus:border-[#00000029]')
+      removeValidationClasses(target, type)
     }
   }
   function handleChange(e) {
+    // console.log(errors)
     setErrors((prev) => ({ ...prev, notTouched: false }))
+    // console.log(errors)
+
     const target = e.target
     inputValidation(target)
   }
-  
+
+  useEffect(() => {
+    console.log(errors)
+  }, [errors])
   const handleSubmit = async (e) => {
     setFormSubmit(true)
     e.preventDefault()
     const hasErrors = Object.values(errors).some((error) => error != false)
     console.log(
       hasErrors ||
-      (!firstNameRef.current?.value ||
+        !firstNameRef.current?.value ||
         !lastNameRef.current?.value ||
         !emailRef.current?.value ||
-        !placeholderRef.current?.value)
+        !placeholderRef.current?.value
     )
     if (
       hasErrors ||
-      (!firstNameRef.current?.value ||
-        !lastNameRef.current?.value ||
-        !emailRef.current?.value ||
-        !placeholderRef.current?.value)
+      !firstNameRef.current?.value ||
+      !lastNameRef.current?.value ||
+      !emailRef.current?.value ||
+      !placeholderRef.current?.value
     ) {
+      // setErrors((prevValue) => ({
+      //   ...prevValue,
+      //   firstName: !firstNameRef.current?.value
+      //     ? 'This field must be filled in'
+      //     : prevValue.firstName,
+      //   lastName: !lastNameRef.current?.value
+      //     ? 'This field must be filled in'
+      //     : prevValue.lastName,
+      //   email: !emailRef.current?.value
+      //     ? 'This field must be filled in'
+      //     : prevValue.email,
+      //   placeholder: !placeholderRef.current?.value
+      //     ? 'This field must be filled in'
+      //     : prevValue.placeholder,
+      //   notTouched: true,
+      // }))
+      const requiredRefs = [firstNameRef, lastNameRef, emailRef, placeholderRef]
+      requiredRefs.map((ref) => {
+        if (!ref.current?.value) {
+          addValidationClasses(
+            ref.current,
+            ref.current?.name,
+            'This field must be filled in'
+          )
+        }
+      })
+
       return
     }
     const formData = new FormData(e.target)
@@ -256,7 +336,29 @@ export default function ContactUsSection() {
               </p>
             </div>
           )}
-          <PhoneInput
+          <input
+            className="flex p-[1rem] items-center gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] w-full text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
+            placeholder={`${
+              !focus.phone
+                ? t('sections.clientsWork.contactUs.form.input4')
+                : ''
+            }`}
+            type="tel"
+            name="phone"
+            id="phone"
+            onChange={handleChange}
+            ref={phoneRef}
+            onFocus={() => setFocus((prev) => ({ ...prev, phone: true }))}
+            onBlur={() => setFocus((prev) => ({ ...prev, phone: false }))}
+            inputMode="numeric"
+            pattern="[0-9]*"
+            onInput={(e) => {
+              const input = e.target as HTMLInputElement
+              input.value = input.value.replace(/[^0-9]/g, '')
+            }}
+            required
+          />
+          {/* <PhoneInput
             inputProps={{
               name: 'phone',
               required: true,
@@ -269,19 +371,22 @@ export default function ContactUsSection() {
                   : ''
               }`,
             }}
-          />
-          {errors.email && (
+          /> */}
+          {errors.phone && (
             <p className="text-[#D62D30] text-ellipsis font-[Inter_Var] text-[0.75rem] font-[400] tracking-[-0.00375rem]">
-              {errors.email}
+              {errors.phone}
             </p>
           )}
         </div>
         <div className="flex flex-col items-start gap-[0.25rem] self-stretch">
           {!focus.placeholder && <div className="h-[1.125rem] w-full"></div>}
           {focus.placeholder && (
-            <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
-              {t('sections.clientsWork.contactUs.form.textarea')}
-            </p>
+            <div className="flex">
+              <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
+                {t('sections.clientsWork.contactUs.form.textarea')}
+              </p>
+              <p className="text-red-700 text-[0.75rem]">*</p>
+            </div>
           )}
           <textarea
             className="flex p-[1rem] items-start gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] min-h-[7.75rem] focus:outline-none focus:border-[#00000029]"
@@ -297,7 +402,12 @@ export default function ContactUsSection() {
             ref={placeholderRef}
             onChange={handleChange}
             required
-          ></textarea>
+          />
+          {errors.placeholder && (
+            <p className="text-[#D62D30] text-ellipsis font-[Inter_Var] text-[0.75rem] font-[400] tracking-[-0.00375rem]">
+              {errors.placeholder}
+            </p>
+          )}
         </div>
         <FilledStandardButton
           title={t('sections.clientsWork.contactUs.form.btnTitle')}

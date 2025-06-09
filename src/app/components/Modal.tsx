@@ -7,7 +7,6 @@ import {
 } from 'react'
 import Portal, { createContainer } from './Portal'
 import Image from 'next/image'
-import { useWindowSize } from '../contexts/WindowSizeContext'
 
 const MODAL_CONTAINER_ID = 'modal-container-id'
 type Props = {
@@ -24,7 +23,6 @@ const Modal = (props: Props) => {
   const rootRef = useRef<HTMLDivElement>(null)
   const btnRef = useRef<HTMLButtonElement>(null)
   const modalText = useRef<HTMLParagraphElement>(null)
-  const { windowWidth } = useWindowSize()
   const handleClose: MouseEventHandler<HTMLDivElement | HTMLButtonElement> =
     useCallback(() => {
       onClose?.()
@@ -80,10 +78,10 @@ const Modal = (props: Props) => {
         ref={rootRef}
       >
         <div
-          className="absolute top-[20vh] left-[10vw] right-[10vw] bg-white p-[5%] rounded-[20px] flex items-center flex-col"
+          className="absolute left-[10vw] right-[10vw] bg-white p-[5%] rounded-[20px] flex items-center flex-col"
           style={{
             boxShadow: '0 0 30px rgba(0,0,0,0.15)',
-            bottom: `calc(30vh - ${windowWidth})`,
+            top: '20vh',
           }}
           onClick={(e) => e.stopPropagation()}
           ref={focusRef}

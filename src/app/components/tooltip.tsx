@@ -1,10 +1,29 @@
 'use client'
 
-import * as React from 'react'
+// import * as React from 'react'
 import { Tooltip } from 'radix-ui'
+import { useWindowSize } from '../contexts/WindowSizeContext'
+import { useEffect, useState } from 'react'
 // import '../globals.css'
 
 const TooltipParagraph = ({ text, pClass }) => {
+  const [remInPx, setRemInPx] = useState(16)
+
+  useEffect(() => {
+    
+    if (typeof window !== 'undefined') {
+      const rem = parseFloat(getComputedStyle(document.documentElement).fontSize)
+      setRemInPx(rem)
+    }
+  }, [])
+  const { clientWidth } = useWindowSize()
+  let sideOffset
+  if (clientWidth > 799 && clientWidth < 1440) {
+    sideOffset = 0 + 3 * remInPx + 4
+  } else if (clientWidth > 1439) {
+    sideOffset = 0 + 3 * remInPx + 4
+  }
+
   return (
     <Tooltip.Provider>
       <Tooltip.Root>
@@ -13,9 +32,9 @@ const TooltipParagraph = ({ text, pClass }) => {
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Content
-            className="flex  w-[18rem] p-[0.5rem] flex-col content-center items-center gap-[0.625rem] bg-[#AD7C00] text-[#fff] font-[Inter_Var] text-[1rem] font-[400] leading-[-0.005rem] mr-[1.5rem] rounded-[0.25rem]"
+            className="sm:hidden md:flex w-[18rem] p-[0.5rem] flex-col content-center items-center gap-[0.625rem] bg-[#AD7C00] text-[#fff] font-[Inter_Var] text-[1rem] font-[400] leading-[-0.005rem] mr-[1.5rem] rounded-[0.25rem]"
             side="bottom"
-            sideOffset={3 * 16}
+            sideOffset={sideOffset}
           >
             {text}
             <Tooltip.Arrow

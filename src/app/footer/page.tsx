@@ -18,7 +18,7 @@ export default function Footer() {
       >
         <path d="M-96 1H1410" className="stroke-[#00000029]" />
       </svg>
-      <footer className="flex pt-[3.5rem] flex-col items-start gap-[3.5rem] self-stretch">
+      <footer className="flex md:pt-[1.25rem] xl:pt-[3.5rem] flex-col items-start gap-[3.5rem] self-stretch">
         <section className="flex sm:py-[1.25rem] xl:py-[3.5rem] sm:flex-col xl:flex-row items-start sm:gap-[1.25rem] xl:gap-[2.5rem] self-stretch">
           <div className="flex flex-col xl:h-[3rem] items-start md:px-[1.25rem] xl:py-[0] gap-[1.5rem] flex-[1_0_0] self-stretch">
             <div className="flex h-[2rem] items-center gap-[0.375rem]">
@@ -53,8 +53,8 @@ export default function Footer() {
               />
             </div>
           </div>
-          <div className="sm:flex sm:flex-col xl:hidden w-full md:px-[1.25rem] items-start gap-[1.25rem] self-stretch">
-            <div className="sm:flex xl:hidden w-full flex-col justify-center items-start gap-[1rem]">
+          <div className="sm:hidden md:flex sm:flex-col md:flex-row xl:flex-col xl:hidden w-full md:px-[1.25rem] items-start gap-[1.25rem] self-stretch">
+            <div className="sm:hidden md:flex xl:hidden w-full flex-col justify-center items-start gap-[1rem]">
               <p className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
                 {t('footer.section1').split('_')[0]}
               </p>
@@ -65,9 +65,25 @@ export default function Footer() {
                 {t('footer.section1').split('_')[2]}
               </p>
             </div>
-            <div className="sm:flex xl:hidden w-full flex-col justify-center items-start gap-[1rem]">
+            <div className="sm:hidden md:flex xl:hidden w-full flex-col justify-center items-start gap-[1rem]">
               <p className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
                 {t('footer.section2').split('_')[0]}
+              </p>
+              <p className="text-[#00000099] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
+                {t('footer.section2').split('_')[1]}
+              </p>
+            </div>
+          </div>
+          <div className="sm:flex md:hidden sm:flex-col md:flex-row xl:flex-col xl:hidden w-full md:px-[1.25rem] items-start gap-[1.25rem] self-stretch">
+            <div className="sm:flex md:hidden xl:hidden w-full flex-col justify-center items-start gap-[1rem]">
+              <p className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
+                {t('footer.section1').split('_')[0]}
+              </p>
+              <p className="text-[#00000099] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
+                {t('footer.section1').split('_')[1]}
+              </p>
+              <p className="text-[#00000099] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
+                {t('footer.section1').split('_')[2]}
               </p>
               <p className="text-[#00000099] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
                 {t('footer.section2').split('_')[1]}
@@ -86,9 +102,6 @@ export default function Footer() {
             </p>
           </div>
           <div className="sm:hidden xl:flex w-[12.5rem] flex-col justify-center items-start gap-[1rem]">
-            {/* <p className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
-              {t('footer.section2').split('_')[0]}
-            </p> */}
             <p className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]">
               {t('footer.section2').split('_')[1]}
             </p>

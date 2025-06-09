@@ -94,7 +94,7 @@ export default function ImageGallerySection() {
             index === 0
               ? ' md:flex-row sm:py-[1.25rem] xl:py-[3.5rem]'
               : ' md:flex-row  sm:py-[1.25rem] xl:pb-[3.5rem]'
-          } flex sm:flex-col sm:self-center md:items-start sm:gap-[1.25rem] gap-[3.5rem] md:self-stretch`}
+          } flex sm:flex-col sm:self-center md:items-start sm:gap-[1.25rem] gap-[3.5rem] md:self-stretch w-full`}
         >
           {group.map((room, i) => (
             <RoomCard

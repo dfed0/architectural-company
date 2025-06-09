@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="md:[font-size:var(--font-fluid-md)] xl:[font-size:var(--font-fluid-xl)]">
+    <html lang="en" className="sm:[font-size:var(--font-fluid-sm)] md:[font-size:var(--font-fluid-md)] xl:[font-size:var(--font-fluid-xl)]">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
