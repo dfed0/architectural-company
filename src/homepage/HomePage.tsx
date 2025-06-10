@@ -18,7 +18,6 @@ export default function HomePage() {
   }, [])
 
   if (!mounted) {
-    // Показываем что-то нейтральное, либо минимальный UI без clientWidth-зависимых данных
     return (
       <div className="bg-[#fff] fixed left-[0vw] right-[0vw] top-[0vh] bottom-[0vh]"></div>
     )

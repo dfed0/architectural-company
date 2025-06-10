@@ -8,6 +8,7 @@ import {
 import Portal, { createContainer } from './Portal'
 import Image from 'next/image'
 import TooltipParagraph from './tooltip'
+import { useWindowSize } from '../contexts/WindowSizeContext'
 
 const MODAL_CONTAINER_ID = 'modal-container-id'
 type Props = {
@@ -18,6 +19,7 @@ type Props = {
   children?: React.ReactNode
 }
 const Modal = (props: Props) => {
+  const {clientWidth} = useWindowSize()
   const focusRef = useRef<HTMLDivElement>(null)
   const { imageUrl, name, tender, children } = props
   const { onClose } = props
@@ -124,7 +126,11 @@ const Modal = (props: Props) => {
         ref={rootRef}
       >
         <div
-          className="fixed top-[20%] bottom-[20%] left-[1.25rem] right-[1.25rem] flex p-[3rem] flex-col items-center gap-[1.5rem] rounded-[1.375rem] border-[1px] border-solid border-[rgba(0, 0, 0, 0.00)] bg-[#edebf2]"
+          className="fixed top-[25%] bottom-[25%] flex p-[3rem] flex-col items-center gap-[1.5rem] rounded-[1.375rem] border-[1px] border-solid border-[rgba(0, 0, 0, 0.00)] bg-[#edebf2]"
+           style={{
+            left: `calc(1.25rem + ${(clientWidth - 390) / 2}px)`,
+            right: `calc(1.25rem + ${(clientWidth - 390) / 2}px)`,
+          }}
           // #edebf2 #3a257e17
           //  flex w-[18rem] p-[3rem] flex-col items-center gap-[1.5rem] rounded-[1.375rem] border-[1px] border-solid border-[rgba(0, 0, 0, 0.00)] bg-[#edebf2]
           onClick={(e) => e.stopPropagation()}

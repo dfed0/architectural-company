@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 type MenuActiveState = {
   navigation: boolean
@@ -38,13 +38,15 @@ export default function Burger(props: Props) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const params = new URLSearchParams(searchParams.toString())
-
-  // useEffect(() => {
-  //   if (props.setMenuActive) {
-  //     props?.setMenuActive((prevValue) => !prevValue)
-  //   }
-  //   console.log('happens')
-  // }, [searchParams, pathname])
+  const [closeBurger, setCloseBurger] = useState(false)
+  useEffect(() => {
+    if (props.setMenuActive && closeBurger) {
+      props.setMenuActive(() => ({
+        navigation: false,
+        language: false,
+      }))
+    }
+  }, [searchParams, pathname])
 
   // !!!!
   // function spanHover(e) {
@@ -60,7 +62,7 @@ export default function Burger(props: Props) {
   //   }
   // }
   return (
-    <div className="fixed bottom-[0px] top-[6rem] left-[1.25rem] right-[1.25rem] flex flex-col content-center items-center self-stretch bg-[#FFF] xl:hidden">
+    <div className="fixed bottom-[0px] top-[6rem] left-[1.25rem] right-[1.25rem] flex flex-col content-center items-center self-stretch bg-[#FFF] xl:hidden gap-[1.5rem]">
       {/* gap-[1.5rem] */}
       <div
         className="z-5 fixed bottom-[0px] top-[0rem] left-[0rem] right-[0rem] bg-[#FFF]"
@@ -108,9 +110,10 @@ export default function Burger(props: Props) {
               href={`${navItemUrl}`}
               className="active:text-[#FFF] text-[#1E1B28] text-[1.25rem] font-[Inter_Var] font-[600] leading-[2rem] w-full text-center"
               aria-label="Go to about home page"
-              onClick={() =>
-                itemName.lang ? i18n.changeLanguage(itemName.lang) : ''
-              }
+              onClick={() => {
+                if (itemName.lang) i18n.changeLanguage(itemName.lang)
+                setCloseBurger(() => true)
+              }}
             >
               {itemName.name}
             </Link>
