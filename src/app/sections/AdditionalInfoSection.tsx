@@ -16,7 +16,7 @@ export default function AdditionalInfoSection() {
         fill="none"
         className='w-full'
       >
-        <path d="M-96 1H1410" className="stroke-[#00000029]" />
+        <path d="M-96 1H1410" className="stroke-[#00000029]" strokeWidth="2"/>
       </svg>
       <section className=" xl:h-[56.25rem] self-stretch flex sm:flex-col xl:flex-row items-center">
         <div className="sm:py-[0] py-[2.5rem]">
@@ -103,7 +103,7 @@ export default function AdditionalInfoSection() {
         fill="none"
         className="sm:hidden xl:block w-full"
       >
-        <path d="M-96 1H1410" className="stroke-[#00000029]" />
+        <path d="M-96 1H1410" className="stroke-[#00000029]" strokeWidth="2"/>
       </svg>
     </>
   )

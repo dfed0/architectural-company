@@ -16,7 +16,7 @@ export default function Footer() {
         fill="none"
         className='w-full'
       >
-        <path d="M-96 1H1410" className="stroke-[#00000029]" />
+        <path d="M-96 1H1410" className="stroke-[#00000029]" strokeWidth="2"/>
       </svg>
       <footer className="flex md:pt-[1.25rem] xl:pt-[3.5rem] flex-col items-start gap-[3.5rem] self-stretch">
         <section className="flex sm:py-[1.25rem] xl:py-[3.5rem] sm:flex-col xl:flex-row items-start sm:gap-[1.25rem] xl:gap-[2.5rem] self-stretch">

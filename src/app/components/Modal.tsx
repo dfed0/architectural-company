@@ -19,7 +19,7 @@ type Props = {
   children?: React.ReactNode
 }
 const Modal = (props: Props) => {
-  const {clientWidth} = useWindowSize()
+  const { clientWidth } = useWindowSize()
   const focusRef = useRef<HTMLDivElement>(null)
   const { imageUrl, name, tender, children } = props
   const { onClose } = props
@@ -32,7 +32,6 @@ const Modal = (props: Props) => {
     useCallback(() => {
       onClose?.()
     }, [onClose])
-
   useEffect(() => {
     createContainer({ id: MODAL_CONTAINER_ID })
     setMounted(true)
@@ -121,15 +120,15 @@ const Modal = (props: Props) => {
         </div>
       </div> */}
       <div
-        className="fixed top-0 left-0 w-full h-full bg-black/50 z-50 text-[#000]"
+        className="fixed flex items-center justify-center top-0 left-0 w-full h-full bg-black/50 z-50 text-[#000]"
         onClick={handleClose}
         ref={rootRef}
       >
         <div
-          className="fixed top-[25%] bottom-[25%] flex p-[3rem] flex-col items-center gap-[1.5rem] rounded-[1.375rem] border-[1px] border-solid border-[rgba(0, 0, 0, 0.00)] bg-[#edebf2]"
-           style={{
-            left: `calc(1.25rem + ${(clientWidth - 390) / 2}px)`,
-            right: `calc(1.25rem + ${(clientWidth - 390) / 2}px)`,
+          className="h-min w-[100%] flex p-[3rem] flex-col items-center gap-[1.5rem] rounded-[1.375rem] border-[1px] border-solid border-[rgba(0, 0, 0, 0.00)] bg-[#edebf2]"
+          style={{
+            marginLeft: `calc(1.25rem + ${(clientWidth - 390) / 2}px)`,
+            marginRight: `calc(1.25rem + 15px + ${(clientWidth - 390) / 2}px)`,
           }}
           // #edebf2 #3a257e17
           //  flex w-[18rem] p-[3rem] flex-col items-center gap-[1.5rem] rounded-[1.375rem] border-[1px] border-solid border-[rgba(0, 0, 0, 0.00)] bg-[#edebf2]
@@ -143,13 +142,11 @@ const Modal = (props: Props) => {
               alt="avatar"
               width={48}
               height={48}
-              style={{objectFit: 'cover' }}
+              style={{ objectFit: 'cover' }}
               className="w-[3rem] h-[3rem] rounded-[1.5rem] border-[2px] border-solid border-[rgba(82, 73, 110, 0.00)] shrink-0 object-top"
             />
             <div className="flex flex-col items-start flex-[1_0_0]">
-              <strong
-                className="text-[#1E1B28] font-[Roboto_Serif_Bold] font-[700] text-[1rem] leading-[1.25rem] tracking-[-0.005rem] self-stretch text-left"
-              >
+              <strong className="text-[#1E1B28] font-[Roboto_Serif_Bold] font-[700] text-[1rem] leading-[1.25rem] tracking-[-0.005rem] self-stretch text-left">
                 {name}
               </strong>
               <p className="text-[#1a142e9e] font-[Inter_Var] font-[400] text-[1rem] leading-[1.25rem] tracking-[-0.005rem] self-stretch text-left">

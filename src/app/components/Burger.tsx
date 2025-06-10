@@ -108,11 +108,13 @@ export default function Burger(props: Props) {
           >
             <Link
               href={`${navItemUrl}`}
+              scroll={!itemName.lang}
               className="active:text-[#FFF] text-[#1E1B28] text-[1.25rem] font-[Inter_Var] font-[600] leading-[2rem] w-full text-center"
               aria-label="Go to about home page"
               onClick={() => {
-                if (itemName.lang) i18n.changeLanguage(itemName.lang)
-                // setCloseBurger(() => true)
+                if (itemName.lang) {
+                  i18n.changeLanguage(itemName.lang)
+                }
               }}
             >
               {itemName.name}

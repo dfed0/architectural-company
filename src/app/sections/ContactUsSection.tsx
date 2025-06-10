@@ -65,7 +65,11 @@ export default function ContactUsSection() {
       // target.classList.add('text-[#D62D30]')
       // target.classList.remove('focus:border-[#00000029]')
       // target.classList.add('focus:border-[#D62D30]')
-      addValidationClasses(target, type, t('This field must be filled in'))
+      addValidationClasses(
+        target,
+        type,
+        t('sections.clientsWork.contactUs.form.errors.emptyField')
+      )
       console.log(t('sections.clientsWork.contactUs.form.errors.emptyField'))
     } else if (type === 'phone') {
     } else if (
@@ -84,19 +88,11 @@ export default function ContactUsSection() {
       // target.classList.add('text-[#D62D30]')
       // target.classList.remove('focus:border-[#00000029]')
       // target.classList.add('focus:border-[#D62D30]')
-      addValidationClasses(target, type, t('Only letters are supported'))
-    } else if (type === 'email' && !target.value.includes('@') && formSubmit) {
-      // setErrors((prev) => ({
-      //   ...prev,
-      //   [type]: 'Email must have the @ symbol ',
-      // }))
-      // target.classList.remove('border-[#00000029]')
-      // target.classList.add('border-[#D62D30]')
-      // target.classList.remove('text-[#000]')
-      // target.classList.add('text-[#D62D30]')
-      // target.classList.remove('focus:border-[#00000029]')
-      // target.classList.add('focus:border-[#D62D30]')
-      addValidationClasses(target, type, t('Email must have the @ symbol '))
+      addValidationClasses(
+        target,
+        type,
+        t(t('sections.clientsWork.contactUs.form.errors.notLetter'))
+      )
     } else if (target.value.trimEnd().includes(' ')) {
       // setErrors((prev) => ({
       //   ...prev,
@@ -108,7 +104,11 @@ export default function ContactUsSection() {
       // target.classList.add('text-[#D62D30]')
       // target.classList.remove('focus:border-[#00000029]')
       // target.classList.add('focus:border-[#D62D30]')
-      addValidationClasses(target, type, t('Spaces are not supported'))
+      addValidationClasses(
+        target,
+        type,
+        t('sections.clientsWork.contactUs.form.errors.spaces')
+      )
     } else if (target.classList.value.includes('border-[#D62D30]')) {
       // setErrors((prev) => ({ ...prev, [type]: '' }))
       // target.classList.remove('border-[#D62D30]')
@@ -137,6 +137,7 @@ export default function ContactUsSection() {
   }, [errors])
   const handleSubmit = async (e) => {
     setFormSubmit(true)
+
     e.preventDefault()
     const hasErrors = Object.values(errors).some((error) => error != false)
     console.log(
@@ -175,11 +176,20 @@ export default function ContactUsSection() {
           addValidationClasses(
             ref.current,
             ref.current?.name,
-            'This field must be filled in'
+            t('sections.clientsWork.contactUs.form.errors.emptyField')
           )
         }
       })
-
+      if (
+        !emailRef.current?.value.includes('@') &&
+        emailRef.current?.value !== ''
+      ) {
+        addValidationClasses(
+          emailRef.current,
+          'email',
+          t('sections.clientsWork.contactUs.form.errors.email')
+        )
+      }
       return
     }
     const formData = new FormData(e.target)
