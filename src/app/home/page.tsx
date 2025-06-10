@@ -10,18 +10,14 @@
 
 import '../i18n/translations/i18next'
 import { Suspense } from 'react'
-import {
-  WindowSizeProvider,
-} from '../contexts/WindowSizeContext'
-import HomePage from '../pages/HomePage'
+import { WindowSizeProvider } from '../contexts/WindowSizeContext'
+import HomePage from '../../homepage/HomePage'
 export default function Home() {
- 
   return (
     <Suspense>
       <WindowSizeProvider>
-    
-         <HomePage />
-        
+        <HomePage />
+
         {/* <div className="sm:flex xl:w-[90rem] xl:min-h-[56.25rem] xl:px-[3.5rem] sm:flex-col sm:items-start md:items-center md:content-center xl:items-start bg-background md:w-[50rem] sm:px-[1.25rem] ">
           <Header></Header>
           <main className="self-stretch w-[100%]">

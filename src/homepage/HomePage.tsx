@@ -1,17 +1,17 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { useWindowSize } from '../contexts/WindowSizeContext'
-import Footer from '../footer/page'
-import Header from '../header/page'
-import AdditionalInfoSection from '../sections/AdditionalInfoSection'
-import ClientsWorkSection from '../sections/ClientsWorkSection'
-import HighlightedSection from '../sections/HighlightedSection'
-import ImageGallerySection from '../sections/ImageGallerySection'
-import ServicesSection from '../sections/ServicesSection'
+import { useWindowSize } from '../app/contexts/WindowSizeContext'
+import Footer from '../app/footer/page'
+import Header from '../app/header/page'
+import AdditionalInfoSection from '../app/sections/AdditionalInfoSection'
+import ClientsWorkSection from '../app/sections/ClientsWorkSection'
+import HighlightedSection from '../app/sections/HighlightedSection'
+import ImageGallerySection from '../app/sections/ImageGallerySection'
+import ServicesSection from '../app/sections/ServicesSection'
 
 export default function HomePage() {
   const { clientWidth } = useWindowSize()
-    const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -19,7 +19,9 @@ export default function HomePage() {
 
   if (!mounted) {
     // Показываем что-то нейтральное, либо минимальный UI без clientWidth-зависимых данных
-    return <div className="bg-[#fff] fixed left-[0vw] right-[0vw] top-[0vh] bottom-[0vh]"></div>
+    return (
+      <div className="bg-[#fff] fixed left-[0vw] right-[0vw] top-[0vh] bottom-[0vh]"></div>
+    )
   }
   return (
     <>
