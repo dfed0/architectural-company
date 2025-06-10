@@ -5,7 +5,6 @@ import { Dispatch, SetStateAction } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 import { useWindowSize } from '../contexts/WindowSizeContext'
-import Burger from './Burger'
 type FlagState = {
   engHover: boolean
   ukrHover: boolean
@@ -147,7 +146,7 @@ export default function LanguagePicker({ mode, setFlag, flag }: Props) {
               />
             </div> */}
             <div
-              className="sm:hidden w-[11.9375rem] flex-col items-start border-[#8F5E00] border-[1px] border-solid shadow-xl shadow-[rgba(15,42,81,0.08)] absolute right-0 top-[1.25rem] cursor-pointer"
+              className="sm:hidden xl:flex w-[11.9375rem] flex-col items-start border-[#8F5E00] border-[1px] border-solid shadow-xl shadow-[rgba(15,42,81,0.08)] absolute right-0 top-[1.25rem] cursor-pointer"
               onMouseLeave={() =>
                 setFlag((prevValue) => ({
                   engHover: false,

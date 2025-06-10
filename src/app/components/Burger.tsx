@@ -1,9 +1,12 @@
 'use client'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { Dispatch, SetStateAction, useEffect } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import { useTranslation } from 'react-i18next'
-type MenuActiveState = boolean
+type MenuActiveState = {
+  navigation: boolean
+  language: boolean
+}
 type FlagState = {
   engHover: boolean
   ukrHover: boolean
@@ -36,12 +39,12 @@ export default function Burger(props: Props) {
   const searchParams = useSearchParams()
   const params = new URLSearchParams(searchParams.toString())
 
-  useEffect(() => {
-    if (props.setMenuActive) {
-      props?.setMenuActive((prevValue) => !prevValue)
-    }
-    console.log('happens')
-  }, [searchParams, pathname])
+  // useEffect(() => {
+  //   if (props.setMenuActive) {
+  //     props?.setMenuActive((prevValue) => !prevValue)
+  //   }
+  //   console.log('happens')
+  // }, [searchParams, pathname])
 
   // !!!!
   // function spanHover(e) {
@@ -57,7 +60,8 @@ export default function Burger(props: Props) {
   //   }
   // }
   return (
-    <div className="fixed bottom-[0px] top-[6rem] left-[1.25rem] right-[1.25rem] flex flex-col content-center items-center gap-[1.5rem] self-stretch bg-[#FFF] xl:hidden">
+    <div className="fixed bottom-[0px] top-[6rem] left-[1.25rem] right-[1.25rem] flex flex-col content-center items-center self-stretch bg-[#FFF] xl:hidden">
+      {/* gap-[1.5rem] */}
       <div
         className="z-5 fixed bottom-[0px] top-[0rem] left-[0rem] right-[0rem] bg-[#FFF]"
         id="background-burger"

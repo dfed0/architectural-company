@@ -28,9 +28,13 @@ input:-webkit-autofill:active {
   --background: #ffffff;
   --foreground: #171717;
   --text-xl: 16px;
-  --font-fluid-sm: calc(14px + (16.82 * ((100vw - 390px) / 410)));
-  --font-fluid-md: calc(16px + (12.78 * ((100vw - 800px) / 639)));
+  --font-fluid-sm: 16px;
+  --font-fluid-md: 16px;
   --font-fluid-xl: calc(16px + (5.33 * ((100vw - 1440px) / 480)));
+  /* !!!! */
+   /* --font-fluid-sm: calc(16px + (16.82 * ((100vw - 390px) / 410)));
+  --font-fluid-md: calc(16px + (12.78 * ((100vw - 800px) / 639)));
+  --font-fluid-xl: calc(16px + (5.33 * ((100vw - 1440px) / 480))); */
 }
 html {
 }

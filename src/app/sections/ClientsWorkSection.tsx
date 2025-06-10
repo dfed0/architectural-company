@@ -36,7 +36,7 @@ export default function ClientsWorkSection() {
       </div>
       {/* </section> */}
       {/* <section> */}
-      <div className="flex sm:flex-col md:flex-row xl:flex-row sm:py-[1.25rem] xl:py-[3.5rem] items-start sm:gap-[1.25rem] xl:gap-[3.5rem] self-stretch">
+      <div className="flex sm:flex-col xl:flex-row sm:py-[1.25rem] xl:py-[3.5rem] items-start sm:gap-[1.25rem] xl:gap-[3.5rem] self-stretch">
         <h3 className="text-[#1E1B28] text-[2.5rem] font-[700] font-[Roboto_Serif_Bold] leading-[3.25rem] w-full ">
           {t('sections.clientsWork.achievements.title')}
         </h3>

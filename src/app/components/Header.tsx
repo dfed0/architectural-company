@@ -8,38 +8,44 @@ import { Suspense, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Burger from './Burger'
 import LanguagePicker from './LanguagePicker'
+import { useWindowSize } from '../contexts/WindowSizeContext'
 // import { useWindowSize } from '../contexts/WindowSizeContext'
 export default function HeaderComponent() {
   const { t } = useTranslation()
+  const { clientWidth } = useWindowSize()
   // const { i18n } = useTranslation()
   // const { scrollSize, divWidth } = useWindowSize()
   const searchParams = useSearchParams()
   // const params = new URLSearchParams(searchParams.toString())
   const router = useRouter()
-  const [menuActive, setMenuActive] = useState(false)
+  const [menuActive, setMenuActive] = useState({
+    navigation: false,
+    language: false,
+  })
   console.log(menuActive)
+  const langParam = searchParams.get('lang')
   const [flag, setFlag] = useState(() => ({
     engHover: false,
     ukrHover: false,
     hover: false,
-    flag: searchParams.get('lang'),
+    flag: langParam,
     click: false,
   }))
   console.log(router)
-
   useEffect(() => {
-    console.log(flag)
-  }, [flag])
-
+    setFlag((prevValue) => ({ ...prevValue, flag: langParam }))
+  }, [langParam])
+  useEffect(() => {}, [flag.flag])
   return (
     <Suspense>
       <header
-        className={`z-10 fixed xl:left-[3.5rem] xl:right-[3.5rem] top-[0rem] flex flex-col py-[1.5rem]  md:px-[1.25rem] justify-between items-center self-stretch bg-background sm:left-[1.25rem] sm:right-[calc(1.25rem+15px)] md:right-[calc(1.25rem)] ${
-          menuActive
+        className={`z-10 fixed xl:left-[3.5rem] xl:right-[3.5rem] top-[0rem] flex flex-col py-[1.5rem]  md:px-[1.25rem] justify-between items-center self-stretch bg-background sm:left-[1.25rem] sm:right-[calc(1.25rem)] md:right-[calc(1.25rem)] bottom-[calc(100vh-6rem)]`}
+      >
+        {/* ${
+          menuActive.language || menuActive.navigation
             ? 'bottom-[calc(100vh-30.54rem)]'
             : 'bottom-[calc(100vh-6rem)]'
-        }`}
-      >
+        } */}
         <div className="flex flex-col w-full h-full gap-[2.5rem]">
           <div className="z-15 flex justify-between">
             <div className="flex h-[3rem] items-center gap-1">
@@ -122,11 +128,14 @@ export default function HeaderComponent() {
                 <div
                   className="flex items-center xl:hidden"
                   onClick={() => {
-                    setMenuActive((prevValue) => !prevValue)
+                    setMenuActive((prevValue) => ({
+                      ...prevValue,
+                      navigation: !prevValue.navigation,
+                    }))
                     setFlag((prevValue) => ({ ...prevValue, click: false }))
                   }}
                 >
-                  {menuActive ? (
+                  {menuActive.navigation || menuActive.language ? (
                     <div className="flex items-center xl:hidden">
                       <Image
                         alt="menu icon"
@@ -151,35 +160,70 @@ export default function HeaderComponent() {
               </div>
             ) : (
               <div className="flex">
-                <div
-                  // onMouseEnter={() =>
-                  //   setFlag((prevValue) => ({
-                  //     ...prevValue,
-                  //     engHover: true,
-                  //     hover: true,
-                  //   }))
-                  // }
-                  onClick={() => {
-                    setFlag((prevValue) => ({ ...prevValue, click: true }))
-                    setMenuActive(() => false)
-                  }}
-                  className="sm:mr-[24px] xl:mr-[0px] self-center"
-                >
-                  <Image
-                    height={24}
-                    width={34}
-                    alt="flag"
-                    src={`/images/flag-${flag.flag}.svg`}
-                  />
-                </div>
+                {!(menuActive.language || menuActive.navigation) && (
+                  <>
+                    {(clientWidth >= 390 && clientWidth < 1440) && (
+                      <div
+                        onClick={() => {
+                          setFlag((prevValue) => ({
+                            ...prevValue,
+                            click: true,
+                          }))
+                          setMenuActive(() => ({
+                            navigation: false,
+                            language: true,
+                          }))
+                        }}
+                        className="sm:mr-[24px] xl:mr-[0px] self-center"
+                      >
+                        <Image
+                          height={24}
+                          width={34}
+                          alt="flag"
+                          src={`/images/flag-${flag.flag}.svg`}
+                        />
+                      </div>
+                    )}
+                    {(clientWidth < 390 || clientWidth >= 1440) && (
+                      <div
+                        onMouseEnter={() =>
+                          setFlag((prevValue) => ({
+                            ...prevValue,
+                            engHover: true,
+                            hover: true,
+                          }))
+                        }
+                        className="sm:mr-[24px] xl:mr-[0px] self-center"
+                      >
+                        <Image
+                          height={24}
+                          width={34}
+                          alt="flag"
+                          src={`/images/flag-${flag.flag}.svg`}
+                        />
+                      </div>
+                    )}
+                  </>
+                )}
                 <div
                   className="flex items-center xl:hidden"
                   onClick={() => {
-                    setMenuActive((prevValue) => !prevValue)
+                    if (Object.is(menuActive.navigation, menuActive.language)) {
+                      setMenuActive(() => ({
+                        navigation: true,
+                        language: false,
+                      }))
+                    } else {
+                      setMenuActive(() => ({
+                        navigation: false,
+                        language: false,
+                      }))
+                    }
+
                     setFlag((prevValue) => ({ ...prevValue, click: false }))
                   }}
                 >
-                  {menuActive ? (
+                  {menuActive.navigation || menuActive.language ? (
                     <Image
                       alt="menu icon"
                       src="/images/close.svg"
@@ -222,7 +266,7 @@ export default function HeaderComponent() {
               )}
             </div> */}
           </div>
-          {menuActive && (
+          {menuActive.navigation && (
             <Burger
               setMenuActive={setMenuActive}
               navItems={[
@@ -261,7 +305,7 @@ export default function HeaderComponent() {
               // ['Home', 'Our Services', 'About Us', 'Contact']
             />
           )}
-          {flag.click && (
+          {menuActive.language && (
             <Burger
               setMenuActive={setMenuActive}
               navItems={[

@@ -33,7 +33,7 @@ const { windowWidth } = useWindowSize()
     <button type="button" onClick={handleModalOpen}>
       {isModalActive && windowWidth <= 800 && (
         <div className="md:hidden">
-          <Modal image={imageUrl} title={name} onClose={handleModalClose}>
+          <Modal imageUrl={imageUrl} name={name} tender={tender} onClose={handleModalClose}>
             {comment}
           </Modal>
         </div>
@@ -50,10 +50,10 @@ const { windowWidth } = useWindowSize()
             className="rounded-[1.5rem] border-[2px] border-solid border-[rgba(82, 73, 110, 0.00)] shrink-0 object-top"
           />
           <div className="flex flex-col items-start flex-[1_0_0]">
-            <strong className="text-[#1E1B28] font-[Roboto_Serif_Bold] text-[1rem] font-[700] leading-[1.25rem] tracking-[-0.005rem] self-stretch">
+            <strong className="text-[#1E1B28] font-[Roboto_Serif_Bold] text-[1rem] font-[700] leading-[1.25rem] tracking-[-0.005rem] self-stretch text-left">
               {name}
             </strong>
-            <p className="text-[#1a142e9e] font-[Inter_Var] text-[1rem] font-[400] leading-[1.25rem] tracking-[-0.005rem] self-stretch">
+            <p className="text-[#1a142e9e] font-[Inter_Var] text-[1rem] font-[400] leading-[1.25rem] tracking-[-0.005rem] self-stretch text-left">
               {tender}
             </p>
           </div>

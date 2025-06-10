@@ -65,11 +65,7 @@ export default function ContactUsSection() {
       // target.classList.add('text-[#D62D30]')
       // target.classList.remove('focus:border-[#00000029]')
       // target.classList.add('focus:border-[#D62D30]')
-      addValidationClasses(
-        target,
-        type,
-        t('sections.clientsWork.projectTitle.errors.emptyField')
-      )
+      addValidationClasses(target, type, t('This field must be filled in'))
       console.log(t('sections.clientsWork.contactUs.form.errors.emptyField'))
     } else if (type === 'phone') {
     } else if (
@@ -88,11 +84,7 @@ export default function ContactUsSection() {
       // target.classList.add('text-[#D62D30]')
       // target.classList.remove('focus:border-[#00000029]')
       // target.classList.add('focus:border-[#D62D30]')
-      addValidationClasses(
-        target,
-        type,
-        t('sections.clientsWork.projectTitle.errors.notLetter')
-      )
+      addValidationClasses(target, type, t('Only letters are supported'))
     } else if (type === 'email' && !target.value.includes('@') && formSubmit) {
       // setErrors((prev) => ({
       //   ...prev,
@@ -104,11 +96,7 @@ export default function ContactUsSection() {
       // target.classList.add('text-[#D62D30]')
       // target.classList.remove('focus:border-[#00000029]')
       // target.classList.add('focus:border-[#D62D30]')
-      addValidationClasses(
-        target,
-        type,
-        t('sections.services.clientsWork.contactUs.form.errors.email')
-      )
+      addValidationClasses(target, type, t('Email must have the @ symbol '))
     } else if (target.value.trimEnd().includes(' ')) {
       // setErrors((prev) => ({
       //   ...prev,
@@ -120,11 +108,7 @@ export default function ContactUsSection() {
       // target.classList.add('text-[#D62D30]')
       // target.classList.remove('focus:border-[#00000029]')
       // target.classList.add('focus:border-[#D62D30]')
-      addValidationClasses(
-        target,
-        type,
-        t('sections.services.clientsWork.contactUs.form.errors.emptyField')
-      )
+      addValidationClasses(target, type, t('Spaces are not supported'))
     } else if (target.classList.value.includes('border-[#D62D30]')) {
       // setErrors((prev) => ({ ...prev, [type]: '' }))
       // target.classList.remove('border-[#D62D30]')
@@ -138,6 +122,9 @@ export default function ContactUsSection() {
   }
   function handleChange(e) {
     // console.log(errors)
+    if (e.target === phoneRef.current && e.nativeEvent.data?.match(/^\d*$/)) {
+      console.log(e)
+    }
     setErrors((prev) => ({ ...prev, notTouched: false }))
     // console.log(errors)
 
@@ -208,10 +195,10 @@ export default function ContactUsSection() {
 
   return (
     <section
-      className="flex sm:flex-col xl:flex-row sm:pt-[1.25rem] sm:pb-[2.5rem]  xl:py-[3.5rem] items-start sm:gap-[1.25rem] xl:gap-[3.5rem] self-stretch scroll-mt-[6rem]"
+      className="flex sm:flex-col xl:flex-row sm:pt-[0.125rem] sm:pb-[2.5rem]  xl:pb-[3.5rem] xl:pt-[2.375rem] items-start sm:gap-[0px] xl:gap-[3.5rem] self-stretch scroll-mt-[6rem]"
       id="contact"
     >
-      <div className="flex flex-col self-stretch w-full sm:gap-[1.5rem] md:gap-[1.5rem]">
+      <div className="flex flex-col self-stretch w-full sm:gap-[1.5rem] mt-[1.125rem]">
         <h2 className="text-[#1E1B28] font-[Roboto_Serif_Bold] text-[2.5rem] font-[700] leading-[3.25rem]">
           {t('sections.clientsWork.contactUs.title')}
         </h2>
@@ -222,11 +209,11 @@ export default function ContactUsSection() {
       {/* <div className="w-full"> */}
       <form
         method="POST"
-        className="flex flex-col items-start gap-[1.5rem] w-full"
+        className="flex flex-col items-start gap-[0.125rem] w-full"
         onSubmit={handleSubmit}
         noValidate
       >
-        <div className="flex sm:flex-col md:flex-row items-start gap-[1.5rem] self-stretch">
+        <div className="flex sm:flex-col md:flex-row items-start sm:gap-[0.125rem] md:gap-[1.5rem] self-stretch">
           <div className="flex flex-col items-start gap-[0.25rem] flex-[1_0_0] self-stretch">
             {!focus.firstName && <div className="h-[1.125rem] w-full"></div>}
             {focus.firstName && (
@@ -348,13 +335,25 @@ export default function ContactUsSection() {
             id="phone"
             onChange={handleChange}
             ref={phoneRef}
-            onFocus={() => setFocus((prev) => ({ ...prev, phone: true }))}
-            onBlur={() => setFocus((prev) => ({ ...prev, phone: false }))}
+            onFocus={() => {
+              const phone = phoneRef.current
+              if (phone && phone.value === '') {
+                phone.value = '+380 '
+              }
+              setFocus((prev) => ({ ...prev, phone: true }))
+            }}
+            onBlur={() => {
+              const phone = phoneRef.current
+              if (phone && phone.value === '+380 ') {
+                phone.value = ''
+              }
+              setFocus((prev) => ({ ...prev, phone: false }))
+            }}
             inputMode="numeric"
-            pattern="[0-9]*"
+            pattern="[0-9+\s]*"
             onInput={(e) => {
               const input = e.target as HTMLInputElement
-              input.value = input.value.replace(/[^0-9]/g, '')
+              input.value = input.value.replace(/[^0-9+\s]/g, '')
             }}
             required
           />
@@ -409,10 +408,12 @@ export default function ContactUsSection() {
             </p>
           )}
         </div>
-        <FilledStandardButton
-          title={t('sections.clientsWork.contactUs.form.btnTitle')}
-          type="submit"
-        />
+        <div className="mt-[1.125rem]">
+          <FilledStandardButton
+            title={t('sections.clientsWork.contactUs.form.btnTitle')}
+            type="submit"
+          />
+        </div>
       </form>
     </section>
   )

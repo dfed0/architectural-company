@@ -8,15 +8,21 @@ import { useEffect, useState } from 'react'
 
 const TooltipParagraph = ({ text, pClass }) => {
   const [remInPx, setRemInPx] = useState(16)
+  const { clientWidth } = useWindowSize()
+  // let dynamicFontSize
+  // if (dynamicText) {
+  //   dynamicFontSize = (16 + 16.82 * ((clientWidth - 390) / 410)) - (16.82 * ((clientWidth - 390) / 410)) / 4
+  // }
 
   useEffect(() => {
-    
     if (typeof window !== 'undefined') {
-      const rem = parseFloat(getComputedStyle(document.documentElement).fontSize)
+      const rem = parseFloat(
+        getComputedStyle(document.documentElement).fontSize
+      )
       setRemInPx(rem)
     }
   }, [])
-  const { clientWidth } = useWindowSize()
+
   let sideOffset
   if (clientWidth > 799 && clientWidth < 1440) {
     sideOffset = 0 + 3 * remInPx + 4

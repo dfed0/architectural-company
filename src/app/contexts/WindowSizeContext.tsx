@@ -47,7 +47,7 @@ export const WindowSizeProvider = ({
     window.addEventListener('resize', handleResize)
   }, [handleResize])
   useEffect(() => {
-    console.log(document.querySelector('div').clientWidth)
+    // console.log(document.querySelector('div').clientWidth)
     handleResize()
     return () => window.removeEventListener('resize', handleResize)
   }, [handleResize])
