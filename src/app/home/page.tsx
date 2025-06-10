@@ -11,7 +11,7 @@
 import '../i18n/translations/i18next'
 import { Suspense } from 'react'
 import { WindowSizeProvider } from '../contexts/WindowSizeContext'
-import HomePage from '../../homepage/HomePage'
+import HomePage from '../homepage/HomePage'
 export default function Home() {
   return (
     <Suspense>

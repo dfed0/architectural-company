@@ -1,13 +1,13 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { useWindowSize } from '../app/contexts/WindowSizeContext'
-import Footer from '../app/footer/Footer'
-import Header from '../app/header/Header'
-import AdditionalInfoSection from '../app/sections/AdditionalInfoSection'
-import ClientsWorkSection from '../app/sections/ClientsWorkSection'
-import HighlightedSection from '../app/sections/HighlightedSection'
-import ImageGallerySection from '../app/sections/ImageGallerySection'
-import ServicesSection from '../app/sections/ServicesSection'
+import { useWindowSize } from '../contexts/WindowSizeContext'
+import Footer from '../footer/Footer'
+import Header from '../header/Header'
+import AdditionalInfoSection from '../sections/AdditionalInfoSection'
+import ClientsWorkSection from '../sections/ClientsWorkSection'
+import HighlightedSection from '../sections/HighlightedSection'
+import ImageGallerySection from '../sections/ImageGallerySection'
+import ServicesSection from '../sections/ServicesSection'
 
 export default function HomePage() {
   const { clientWidth } = useWindowSize()
