@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import { useTranslation } from 'react-i18next'
 type MenuActiveState = {
   navigation: boolean
@@ -38,15 +38,15 @@ export default function Burger(props: Props) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const params = new URLSearchParams(searchParams.toString())
-  const [closeBurger, setCloseBurger] = useState(false)
-  useEffect(() => {
-    if (props.setMenuActive && closeBurger) {
-      props.setMenuActive(() => ({
-        navigation: false,
-        language: false,
-      }))
-    }
-  }, [searchParams, pathname])
+  // const [closeBurger, setCloseBurger] = useState(false)
+  // useEffect(() => {
+  //   if (props.setMenuActive && closeBurger) {
+  //     props.setMenuActive(() => ({
+  //       navigation: false,
+  //       language: false,
+  //     }))
+  //   }
+  // }, [searchParams, pathname, closeBurger])
 
   // !!!!
   // function spanHover(e) {
@@ -112,7 +112,7 @@ export default function Burger(props: Props) {
               aria-label="Go to about home page"
               onClick={() => {
                 if (itemName.lang) i18n.changeLanguage(itemName.lang)
-                setCloseBurger(() => true)
+                // setCloseBurger(() => true)
               }}
             >
               {itemName.name}

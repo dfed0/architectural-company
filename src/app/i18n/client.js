@@ -27,7 +27,7 @@ export const useT = function useT(ns, options) {
     if (activeLng !== i18next.resolvedLanguage) {
       setActiveLng(i18next.resolvedLanguage)
     }
-  }, [activeLng, i18next.resolvedLanguage])
+  }, [activeLng])
 
   // Этот useEffect меняет язык i18next, если lng отличается от текущего языка
   useEffect(() => {
