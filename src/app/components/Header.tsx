@@ -39,7 +39,25 @@ export default function HeaderComponent() {
   return (
     <Suspense>
       <header
-        className={`z-10 fixed xl:left-[3.5rem] xl:right-[3.5rem] top-[0rem] flex flex-col py-[1.5rem]  md:px-[1.25rem] justify-between items-center self-stretch bg-background sm:left-[1.25rem] sm:right-[calc(1.25rem)] md:right-[calc(1.25rem)] bottom-[calc(100vh-6rem)]`}
+        className={`z-10 fixed xl:left-[3.5rem] xl:right-[3.5rem] top-[0rem] flex flex-col py-[1.5rem] md:px-[1.25rem] justify-between items-center self-stretch bg-background md:right-[calc(1.25rem)] bottom-[calc(100vh-6rem)]`}
+// sm:left-[1.25rem] sm:right-[1.25rem] 
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        style={{
+          left: `calc(1.25rem + ${
+            clientWidth >= 390 && clientWidth < 800
+              ? (clientWidth - 390) / 2
+              : clientWidth >= 800 && clientWidth < 1440
+              ? (clientWidth - 800) / 2
+              : clientWidth >= 1440 ? '2.25rem' : ''
+          }px)`,
+          right: `calc(1.25rem + ${
+            clientWidth >= 390 && clientWidth < 800
+              ? (clientWidth - 390) / 2 + 15
+              : clientWidth >= 800 && clientWidth < 1440
+              ? (clientWidth - 800) / 2
+              : clientWidth >= 1440 ? '2.25rem' : ''
+          }px)`,
+        }}
       >
         {/* ${
           menuActive.language || menuActive.navigation
@@ -162,7 +180,7 @@ export default function HeaderComponent() {
               <div className="flex">
                 {!(menuActive.language || menuActive.navigation) && (
                   <>
-                    {(clientWidth >= 390 && clientWidth < 1440) && (
+                    {clientWidth >= 390 && clientWidth < 1440 && (
                       <div
                         onClick={() => {
                           setFlag((prevValue) => ({

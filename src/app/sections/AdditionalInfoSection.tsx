@@ -31,7 +31,7 @@ export default function AdditionalInfoSection() {
         </div>
         <div className="inline-flex flex-col items-start sm:gap-[2.25rem] xl:gap-[3rem] xl:w-[50rem] md:w-full">
           <div className="flex flex-col items-start gap-[1rem] xl:hidden">
-            <h3 className="self-stretch text-[#1E1B28] font-[Roboto_Serif_Bold] text-[2.5rem] leading-[3.25rem]">
+            <h3 className="self-stretch text-[#1E1B28] font-[Roboto_Serif_Bold] text-[2.5rem] leading-[3.25rem] ">
               <Trans
                 i18nKey="sections.additionalInfo.titleTablet"
                 components={{ br: <br /> }}
