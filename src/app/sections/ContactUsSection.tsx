@@ -4,6 +4,11 @@ import { useEffect, useRef, useState } from 'react'
 // import { useState } from 'react'
 import FilledStandardButton from '../components/FilledStandardButton'
 import { useTranslation } from 'react-i18next'
+import {
+  formatPhoneNumber,
+  getFormattedCursorPosition,
+  getRawCursorPosition,
+} from '../components/phoneMask'
 // import PhoneInput from 'react-phone-input-2'
 
 export default function ContactUsSection() {
@@ -42,7 +47,7 @@ export default function ContactUsSection() {
     setErrors((prev) => ({ ...prev, [type]: '' }))
     target.classList.remove('border-[#D62D30]')
     target.classList.add('border-[#00000029]')
-     target.classList.remove('placeholder-[#D62D30]')
+    target.classList.remove('placeholder-[#D62D30]')
     target.classList.add('placeholder-[#00000029]')
     target.classList.remove('text-[#D62D30]')
     target.classList.add('text-[#000]')
@@ -57,7 +62,6 @@ export default function ContactUsSection() {
   function inputValidation(target) {
     if (formSubmit === true) setFormSubmit(false)
     const type = target.name
-    console.log(type)
     if (target.value === '' && target !== phoneRef.current) {
       // setErrors((prev) => ({
       //   ...prev,
@@ -74,14 +78,12 @@ export default function ContactUsSection() {
         type,
         t('sections.clientsWork.contactUs.form.errors.emptyField')
       )
-      console.log(t('sections.clientsWork.contactUs.form.errors.emptyField'))
     } else if (type === 'phone') {
     } else if (
       type !== 'email' &&
       type !== 'placeholder' &&
       /[^a-zA-Zа-яА-ЯёЁіІїЇєЄ ]/g.test(target.value)
     ) {
-      console.log(type)
       // setErrors((prev) => ({
       //   ...prev,
       //   [type]: 'Only letters are supported',
@@ -124,33 +126,39 @@ export default function ContactUsSection() {
       removeValidationClasses(target, type)
     }
   }
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.target
+    const oldValue = input.value
+    const selectionStart = input.selectionStart ?? oldValue.length
+
+    const rawPos = getRawCursorPosition(oldValue, selectionStart)
+
+    const digits = oldValue.replace(/\D/g, '')
+    const formatted = formatPhoneNumber(digits)
+
+    input.value = formatted
+
+    const newCursorPos = getFormattedCursorPosition(digits, rawPos)
+
+    requestAnimationFrame(() => {
+      input.setSelectionRange(newCursorPos, newCursorPos)
+    })
+  }
   function handleChange(e) {
-    // console.log(errors)
-    if (e.target === phoneRef.current && e.nativeEvent.data?.match(/^\d*$/)) {
-      console.log(e)
-    }
     setErrors((prev) => ({ ...prev, notTouched: false }))
-    // console.log(errors)
 
     const target = e.target
     inputValidation(target)
   }
 
   useEffect(() => {
-    console.log(errors)
   }, [errors])
   const handleSubmit = async (e) => {
     setFormSubmit(true)
 
     e.preventDefault()
     const hasErrors = Object.values(errors).some((error) => error != false)
-    console.log(
-      hasErrors ||
-        !firstNameRef.current?.value ||
-        !lastNameRef.current?.value ||
-        !emailRef.current?.value ||
-        !placeholderRef.current?.value
-    )
+  
     if (
       hasErrors ||
       !firstNameRef.current?.value ||
@@ -209,11 +217,11 @@ export default function ContactUsSection() {
 
   return (
     <section
-      className="flex sm:flex-col xl:flex-row sm:pt-[0.125rem] sm:pb-[2.5rem]  xl:pb-[3.5rem] xl:pt-[2.375rem] items-start sm:gap-[0px] xl:gap-[3.5rem] self-stretch scroll-mt-[6rem]"
+      className="flex sm:flex-col xl:flex-row sm:pt-[1.25rem] sm:pb-[1.25rem]  xl:py-[3.5rem] items-start sm:gap-[1.25rem] xl:gap-[6rem] self-stretch scroll-mt-[6rem]"
       id="contact"
     >
-      <div className="flex flex-col self-stretch w-full sm:gap-[1.5rem] mt-[1.125rem]">
-        <h2 className="text-[#1E1B28] font-[Roboto_Serif_Bold] text-[2.5rem] font-[700] leading-[3.25rem]">
+      <div className='flex flex-col self-stretch w-full sm:gap-[1.5rem]'>
+        <h2 className="text-[#1E1B28] font-[Roboto_Serif_Bold] text-[2.5rem] font-[700] leading-[3.25rem] sm:h-[2.5rem]">
           {t('sections.clientsWork.contactUs.title')}
         </h2>
         <p className="self-stretch text-[#000] font-[Inter_Var] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem]">
@@ -223,13 +231,13 @@ export default function ContactUsSection() {
       {/* <div className="w-full"> */}
       <form
         method="POST"
-        className="flex flex-col items-start gap-[0.125rem] w-full"
+        className="flex flex-col items-start gap-[1.5rem] w-full"
         onSubmit={handleSubmit}
         noValidate
       >
-        <div className="flex sm:flex-col md:flex-row items-start sm:gap-[0.125rem] md:gap-[1.5rem] self-stretch">
+        {/* absolute top-[-1.375rem] left-0    relative */}
+        <div className={`flex sm:flex-col md:flex-row items-start ${focus.firstName ? 'sm:gap-[1.5rem]' : 'sm:gap-[1.5rem]'} self-stretch`}>
           <div className="flex flex-col items-start gap-[0.25rem] flex-[1_0_0] self-stretch">
-            {!focus.firstName && <div className="h-[1.125rem] w-full"></div>}
             {focus.firstName && (
               <div className="flex">
                 <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
@@ -239,7 +247,9 @@ export default function ContactUsSection() {
               </div>
             )}
             <input
-              className="flex p-[1rem] self-stretch items-center gap-[0.5rem] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
+              className={`h-[4rem] flex p-[1rem] self-stretch items-center gap-[0.5rem] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029] ${
+                focus.lastName ? 'md:mt-[1.375rem]' : ''
+              }`}
               placeholder={
                 !focus.firstName
                   ? t('sections.clientsWork.contactUs.form.input1')
@@ -262,7 +272,6 @@ export default function ContactUsSection() {
             )}
           </div>
           <div className="flex flex-col items-start gap-[0.25rem] flex-[1_0_0] self-stretch">
-            {!focus.lastName && <div className="h-[1.125rem] w-full"></div>}
             {focus.lastName && (
               <div className="flex">
                 <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
@@ -272,7 +281,9 @@ export default function ContactUsSection() {
               </div>
             )}
             <input
-              className="flex p-[1rem] self-stretch items-center gap-[0.5rem] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
+              className={`h-[4rem] flex p-[1rem] self-stretch items-center gap-[0.5rem] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029] ${
+                focus.firstName ? 'md:mt-[1.375rem]' : ''
+              }`}
               placeholder={
                 !focus.lastName
                   ? t('sections.clientsWork.contactUs.form.input2')
@@ -297,7 +308,6 @@ export default function ContactUsSection() {
           {/* </div> */}
         </div>
         <div className="flex flex-col items-start gap-[0.25rem] self-stretch">
-          {!focus.email && <div className="h-[1.125rem] w-full"></div>}
           {focus.email && (
             <div className="flex">
               <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
@@ -307,7 +317,7 @@ export default function ContactUsSection() {
             </div>
           )}
           <input
-            className="flex p-[1rem] items-center gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] w-full text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
+            className="h-[4rem] flex p-[1rem] items-center gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] w-full text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
             placeholder={
               !focus.email
                 ? t('sections.clientsWork.contactUs.form.input3')
@@ -329,7 +339,6 @@ export default function ContactUsSection() {
           )}
         </div>
         <div className="flex flex-col items-start gap-[0.25rem] self-stretch">
-          {!focus.phone && <div className="h-[1.125rem] w-full"></div>}
           {focus.phone && (
             <div className="flex">
               <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
@@ -339,7 +348,7 @@ export default function ContactUsSection() {
           )}
           <input
             className="flex p-[1rem] items-center gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] w-full text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
-            placeholder={`${
+            placeholder={`+380 ${
               !focus.phone
                 ? t('sections.clientsWork.contactUs.form.input4')
                 : ''
@@ -347,44 +356,29 @@ export default function ContactUsSection() {
             type="tel"
             name="phone"
             id="phone"
-            onChange={handleChange}
+            onChange={handlePhoneChange}
             ref={phoneRef}
             onFocus={() => {
               const phone = phoneRef.current
-              if (phone && phone.value === '') {
-                phone.value = '+380 '
+              if (phone && phone.value < 5) {
+                phone.value = '+380'
               }
               setFocus((prev) => ({ ...prev, phone: true }))
             }}
             onBlur={() => {
               const phone = phoneRef.current
-              if (phone && phone.value === '+380 ') {
+              if (phone && phone.value.length < 5) {
                 phone.value = ''
               }
               setFocus((prev) => ({ ...prev, phone: false }))
             }}
             inputMode="numeric"
-            pattern="[0-9+\s]*"
             onInput={(e) => {
               const input = e.target as HTMLInputElement
-              input.value = input.value.replace(/[^0-9+\s]/g, '')
+              input.value = input.value.replace(/[^0-9+\s()]/g, '')
             }}
             required
           />
-          {/* <PhoneInput
-            inputProps={{
-              name: 'phone',
-              required: true,
-              autoFocus: true,
-              onFocus: () => setFocus((prev) => ({ ...prev, phone: true })),
-              onBlur: () => setFocus((prev) => ({ ...prev, phone: false })),
-              placeholder: `${
-                !focus.phone
-                  ? t('sections.clientsWork.contactUs.form.input4')
-                  : ''
-              }`,
-            }}
-          /> */}
           {errors.phone && (
             <p className="text-[#D62D30] text-ellipsis font-[Inter_Var] text-[0.75rem] font-[400] tracking-[-0.00375rem]">
               {errors.phone}
@@ -392,7 +386,6 @@ export default function ContactUsSection() {
           )}
         </div>
         <div className="flex flex-col items-start gap-[0.25rem] self-stretch">
-          {!focus.placeholder && <div className="h-[1.125rem] w-full"></div>}
           {focus.placeholder && (
             <div className="flex">
               <p className="self-stretch overflow-hidden text-ellipsis font-[Inter_Var] text-[0.75rem] text-[#000] font-[400] leading-[-0.00375rem]">
@@ -422,12 +415,11 @@ export default function ContactUsSection() {
             </p>
           )}
         </div>
-        <div className="mt-[1.125rem]">
-          <FilledStandardButton
-            title={t('sections.clientsWork.contactUs.form.btnTitle')}
-            type="submit"
-          />
-        </div>
+
+        <FilledStandardButton
+          title={t('sections.clientsWork.contactUs.form.btnTitle')}
+          type="submit"
+        />
       </form>
     </section>
   )

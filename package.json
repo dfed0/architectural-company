@@ -2,6 +2,7 @@
   "name": "masters",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -9,7 +10,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.6.1",
+    "@supabase/supabase-js": "^2.50.0",
     "cheerio": "^1.0.0",
+    "child_process": "^1.0.2",
+    "google-auth-library": "^10.1.0",
+    "googleapis": "^150.0.1",
     "i18next": "^25.2.0",
     "i18next-browser-languagedetector": "^8.1.0",
     "i18next-resources-to-backend": "^1.2.1",
@@ -19,7 +25,9 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-i18next": "^15.5.2",
-    "react-phone-input-2": "^2.15.1"
+    "react-input-mask": "^2.0.4",
+    "react-phone-input-2": "^2.15.1",
+    "react-phone-number-input": "^3.4.12"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -16,7 +16,6 @@ export default function ClientsWorkSection() {
   // ) {
   //   grouped.push(t('sections.clientsWork.servings.description').slice(i, i + 2))
   // }
-  console.log('OOOOOOOOOOOO', grouped)
   return (
     <section
       id="about-us"
@@ -41,7 +40,7 @@ export default function ClientsWorkSection() {
           {t('sections.clientsWork.achievements.title')}
         </h3>
         <div className="w-full">
-          <div className="flex sm:flex-col md:flex-row items-center md:gap-[3.5rem] self-stretch">
+          <div className="flex sm:flex-col md:flex-row items-center md:gap-[1.25rem] self-stretch">
             <div className="flex sm:self-stretch pt-[3rem] pb-[3.5rem] flex-col justify-center items-start gap-[0.75rem] flex-[1_0_0] border-t-[2px] border-[#5c5c5c33] border-solid">
               <span className="line-clamp-1 self-stretch text-[#212121] overflow-ellipsis font-[Inter_Var] text-[3rem] font-[600] leading-[3.25rem] tracking-[-0.075rem]">
                 {t(
@@ -67,7 +66,7 @@ export default function ClientsWorkSection() {
               </span>
             </div>
           </div>
-          <div className="flex sm:flex-col md:flex-row items-center md:gap-[3.5rem] self-stretch">
+          <div className="flex sm:flex-col md:flex-row items-center md:gap-[1.25rem] self-stretch">
             <div className="flex sm:self-stretch pt-[3rem] pb-[3.5rem] flex-col justify-center items-start gap-[0.75rem] flex-[1_0_0] border-t-[2px] border-[#5c5c5c33] border-solid">
               <span className="line-clamp-1 self-stretch text-[#212121] overflow-ellipsis font-[Inter_Var] text-[3rem] font-[600] leading-[3.25rem] tracking-[-0.075rem]">
                 {t(
@@ -104,7 +103,7 @@ export default function ClientsWorkSection() {
             return (
               <div key={'i' + i} className="self-stretch">
                 <div
-                  className="sm:hidden md:flex items-center gap-[3.5rem] self-stretch w-full "
+                  className="sm:hidden md:flex items-center  md:gap-[2.5rem] xl:gap-[3.5rem] self-stretch w-full "
                   key={i}
                 >
                   {group.map((text, index) => (

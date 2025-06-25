@@ -1,140 +1,23 @@
 import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import I18nextBrowserLanguageDetector from 'i18next-browser-languagedetector'
-export const rooms = [
-  {
-    titleEn: 'Renovation of 2 flats',
-    titleUk: 'Реконструкція 2 квартир',
-    subtitleEn: 'Renovation',
-    subtitleUk: 'Реновація',
-    imageUrl: '/images/projects/1/photo-main.jpg',
-    date: '21.08.2023',
-    locationEn: 'Kyiv, Ukraine',
-    locationUk: 'Київ, Україна',
-  },
-  {
-    titleEn: 'Rusanovka',
-    titleUk: 'Русанівка',
-    subtitleEn: 'Renovation',
-    subtitleUk: 'Реновація',
-    imageUrl: '/images/projects/2/photo-main.jpg',
-    date: '15.01.2015',
-    locationEn: 'Kyiv, Ukraine',
-    locationUk: 'Київ, Україна',
-  },
-  {
-    titleEn: 'Housing Estate Republic',
-    titleUk: 'ЖК Республіка',
-    subtitleEn: 'Renovation',
-    subtitleUk: 'Реновація',
-    imageUrl: '/images/projects/3/photo-main.jpg',
-    date: '21.07.2021',
-    locationEn: 'Kyiv, Ukraine',
-    locationUk: 'Київ, Україна',
-  },
-  {
-    titleEn: 'Forest Area',
-    titleUk: 'Лісовий масив',
-    subtitleEn: 'Renovation',
-    subtitleUk: 'Реновація',
-    imageUrl: '/images/projects/4/photo-main.jpg',
-    date: '7.01.2016',
-    locationEn: 'Kyiv, Ukraine',
-    locationUk: 'Київ, Україна',
-  },
-  {
-    titleEn: 'House Renovation',
-    titleUk: 'Реновація Будинку',
-    subtitleEn: 'Renovation',
-    subtitleUk: 'Реновація',
-    imageUrl: '/images/projects/5/photo-main.jpg',
-    date: '22.09.2012',
-    locationEn: 'Kyiv, Ukraine',
-    locationUk: 'Київ, Україна',
-  },
-  {
-    titleEn: 'Obolon',
-    titleUk: 'Оболонь',
-    subtitleEn: 'Renovation',
-    subtitleUk: 'Реновація',
-    imageUrl: '/images/projects/6/photo-main.jpg',
-    date: '01.08.2020',
-    locationEn: 'Kyiv, Ukraine',
-    locationUk: 'Київ, Україна',
-  },
-  {
-    titleEn: 'Gostomel Duplex',
-    titleUk: 'Гостомель Дуплекс',
-    subtitleEn: 'Renovation',
-    subtitleUk: 'Реновація',
-    imageUrl: '/images/projects/7/photo-main.jpg',
-    date: '21.08.2021',
-    locationEn: 'Kyiv, Ukraine',
-    locationUk: 'Київ, Україна',
-  },
-  {
-    titleEn: 'Zazimier Penthouse',
-    titleUk: `Пентхаус "Зазим'я"`,
-    subtitleEn: 'Renovation',
-    subtitleUk: 'Реновація',
-    imageUrl: '/images/projects/8/photo-main.jpg',
-    date: '31.12.2019',
-    locationEn: 'Kyiv, Ukraine',
-    locationUk: 'Київ, Україна',
-  },
-  {
-    titleEn: 'Sofievska Borschagivka',
-    titleUk: 'Софієвська Боршагівка',
-    subtitleEn: 'Renovation',
-    subtitleUk: 'Реновація',
-    imageUrl: '/images/projects/9/photo-main.jpg',
-    date: '19.01.2012',
-    locationEn: 'Kyiv, Ukraine',
-    locationUk: 'Київ, Україна',
-  },
-  {
-    titleEn: 'Penthouse in Bucha',
-    titleUk: 'Пентхаус в Бучі',
-    subtitleEn: 'Renovation',
-    subtitleUk: 'Реновація',
-    imageUrl: '/images/projects/10/photo-main.jpg',
-    date: '17.08.2017',
-    locationEn: 'Kyiv, Ukraine',
-    locationUk: 'Київ, Україна',
-  },
-  {
-    titleEn: 'House in Vasylkiv',
-    titleUk: 'Дім в Василькові',
-    subtitleEn: 'Renovation',
-    subtitleUk: 'Реновація',
-    imageUrl: '/images/projects/11/photo-main.jpg',
-    date: '08.02.2018',
-    locationEn: 'Kyiv, Ukraine',
-    locationUk: 'Київ, Україна',
-  },
-  {
-    titleEn: `St Peter's Townhouse`,
-    titleUk: 'Свято-Петрівське Таунхаус',
-    subtitleEn: 'Renovation',
-    subtitleUk: 'Реновація',
-    imageUrl: '/images/projects/12/photo-main.jpg',
-    date: '10.09.2024',
-    locationEn: 'Kyiv, Ukraine',
-    locationUk: 'Київ, Україна',
-  },
-]
 
 i18next
   .use(initReactI18next)
   .use(I18nextBrowserLanguageDetector)
   .init({
     fallbackLng: 'en',
+  detection: {
+  order: ['querystring'], // только query
+  lookupQuerystring: 'lang',
+  caches: [], // отключаем кэширование вообще
+},
     debug: true,
-    detection: {
-      order: ['localStorage', 'navigator'],
-      caches: ['localStorage'],
-      lookupLocalStorage: 'i18nextLng',
-    },
+    // detection: {
+    //   order: ['localStorage', 'navigator'],
+    //   caches: ['localStorage'],
+    //   lookupLocalStorage: 'i18nextLng',
+    // },
     resources: {
       en: {
         translation: {
@@ -144,33 +27,12 @@ i18next
             thirdRow: 'Renovations',
             projectTitle: 'Gallery_of',
             location: 'Based in Kyiv, Ukraine',
+            locationProject: 'Kyiv, Ukraine',
+            subtitleProjects: 'Renovation',
             date: 'Established in 2005',
           },
           header: {
             text: 'Home_Our Services_About Us_Gallery of Works_Contact',
-          },
-          projects: {
-            title_1: rooms[0].titleEn,
-            title_2: rooms[1].titleEn,
-            title_3: rooms[2].titleEn,
-            title_4: rooms[3].titleEn,
-            title_5: rooms[4].titleEn,
-            title_6: rooms[5].titleEn,
-            title_7: rooms[6].titleEn,
-            title_8: rooms[7].titleEn,
-            title_9: rooms[8].titleEn,
-            title_10: rooms[9].titleEn,
-            title_11: rooms[10].titleEn,
-            title_12: rooms[11].titleEn,
-            subtitle_1: rooms[0].subtitleEn,
-            subtitle_2: rooms[1].subtitleEn,
-            subtitle_3: rooms[2].subtitleEn,
-            subtitle_4: rooms[3].subtitleEn,
-            subtitle_5: rooms[4].subtitleEn,
-            subtitle_6: rooms[5].subtitleEn,
-            subtitle_7: rooms[6].subtitleEn,
-            subtitle_8: rooms[7].subtitleEn,
-            subtitle_9: rooms[8].subtitleEn,
           },
           sections: {
             services: {
@@ -227,7 +89,7 @@ i18next
               5: {
                 name: 'Serhii',
                 tender: 'Puttying walls for wallpapering and wallpapering',
-                review: `I don't understand why these guys still don't have any reviews. very professional craftsmen. constantly checking themselves, no need to follow them and ‘poke their noses in’. I am very satisfied with the quality of work.`,
+                review: `I don't understand why these guys still don't have any feedback. very professional craftsmen. constantly checking themselves, no need to follow them and ‘poke their noses in’. I am very satisfied with the quality of work.`,
               },
             },
             clientsWork: {
@@ -299,12 +161,16 @@ i18next
             },
           },
           motivateTitle:
-            'Explore our collection of beautifully renovated apartments, each designed to offer a unique blend of comfort and style. From modern urban lofts to cozy suburban retreats, our gallery  howcases the finest in contemporary living spaces.',
+            'Explore our collection of beautifully renovated <br> apartments, each designed to offer a unique blend of <br> comfort and style. From modern urban lofts to cozy <br> suburban retreats, our gallery  showcases the finest in <br> contemporary living spaces.',
+          motivateTitleTablet:
+            'Explore our collection of <br> beautifully renovated <br> apartments, each designed to <br> offer a unique blend of comfort <br> and style. From modern urban <br> lofts to cozy suburban retreats, <br> our gallery  showcases the finest <br> in contemporary living spaces.',
+          motivateTitlePhone:
+            'Explore our collection of <br> beautifully renovated <br> apartments, each designed to <br> offer a unique blend of comfort <br> and style. From modern urban <br> lofts to cozy suburban <br> retreats, our gallery <br> showcases the finest in contemporary living spaces.',
           footer: {
-            section1: 'Home_About Us_Our Services',
-            section2: 'Gallery of Works_Contact Us',
+            section1: { title1: 'Home', title2: 'About Us' },
+            section2: { title1: 'Our Services', title2: 'Contact Us' },
             section3: {
-              title: 'Subscribe to our newsletter',
+              title: 'Subscribe to our facebook',
               subtitle:
                 'Stay updated with our latest renovation tips and offers!',
             },
@@ -316,35 +182,37 @@ i18next
         translation: {
           title: {
             firstRow: 'Ремонт',
-            secondRow: 'В Євро',
+            secondRow: 'в Європейському',
             thirdRow: 'Стилі',
             projectTitle: 'Галерея_',
-            location: 'Базуємося в Києві, Україна',
+            location: 'Знаходимося в Києві, Україна',
             date: 'Засновано у 2005 році',
+            locationProject: 'Київ, Україна',
+            subtitleProjects: 'ремонт',
           },
           header: {
-            text: 'Домашня_Наші Послуги_Про Нас_Галерея Робіт_Контакти',
+            text: 'Домашня_Наші послуги_Про нас_Галерея Робіт_Контакти',
           },
-          projects: {
-            title_1: rooms[0].titleUk,
-            title_2: rooms[1].titleUk,
-            title_3: rooms[2].titleUk,
-            title_4: rooms[3].titleUk,
-            title_5: rooms[4].titleUk,
-            title_6: rooms[5].titleUk,
-            title_7: rooms[6].titleUk,
-            title_8: rooms[7].titleUk,
-            title_9: rooms[8].titleUk,
-            subtitle_1: rooms[0].subtitleUk,
-            subtitle_2: rooms[1].subtitleUk,
-            subtitle_3: rooms[2].subtitleUk,
-            subtitle_4: rooms[3].subtitleUk,
-            subtitle_5: rooms[4].subtitleUk,
-            subtitle_6: rooms[5].subtitleUk,
-            subtitle_7: rooms[6].subtitleUk,
-            subtitle_8: rooms[7].subtitleUk,
-            subtitle_9: rooms[8].subtitleUk,
-          },
+          // projects: {
+          //   title_1: rooms[0].titleUk,
+          //   title_2: rooms[1].titleUk,
+          //   title_3: rooms[2].titleUk,
+          //   title_4: rooms[3].titleUk,
+          //   title_5: rooms[4].titleUk,
+          //   title_6: rooms[5].titleUk,
+          //   title_7: rooms[6].titleUk,
+          //   title_8: rooms[7].titleUk,
+          //   title_9: rooms[8].titleUk,
+          //   subtitle_1: rooms[0].subtitleUk,
+          //   subtitle_2: rooms[1].subtitleUk,
+          //   subtitle_3: rooms[2].subtitleUk,
+          //   subtitle_4: rooms[3].subtitleUk,
+          //   subtitle_5: rooms[4].subtitleUk,
+          //   subtitle_6: rooms[5].subtitleUk,
+          //   subtitle_7: rooms[6].subtitleUk,
+          //   subtitle_8: rooms[7].subtitleUk,
+          //   subtitle_9: rooms[8].subtitleUk,
+          // },
           sections: {
             services: {
               title: 'Наші послуги',
@@ -354,14 +222,13 @@ i18next
               },
               service_2: {
                 title: 'Ремонт офісу',
-                subtitle:
-                  'Експертні ремонтні послуги для перетворення вашого простору.',
+                subtitle: 'Професійний ремонт для оновлення вашого простору.',
               },
               service_3: {
                 title: 'Малярні роботи',
                 subtitle: 'Індивідуальні рішення в галузі малярних робіт.',
               },
-              buttonTitle: 'Дізнайтеся Більше',
+              buttonTitle: 'дізнайтеся більше',
             },
             additionalInfo: {
               title: 'Сучасний ремонт та якісний сервіс',
@@ -370,10 +237,10 @@ i18next
               titleTablet: 'Сучасний ремонт та <br /> якісний сервіс',
               subtitleTablet:
                 'Наші фахівці запропонують найкращі види матеріалів, враховуючи сучасну естетику та функціональність, створюючи для вас найкращі умови для життя.',
-              btnTitle: 'Дізнайтеся Більше',
+              btnTitle: 'дізнайтеся більше',
             },
             comments: {
-              title: 'Що Кажуть Наші Клієнти',
+              title: 'Відгуки наших клієнтів',
               1: {
                 name: 'Віктор',
                 tender: 'Штукатурка підвалу 35 м.кв. (Київ)',
@@ -393,19 +260,19 @@ i18next
               },
               4: {
                 name: 'Олег',
-                tender: 'Ремонт Кухні (Київ)',
+                tender: 'Ремонт кухні (Київ)',
                 review:
                   'Детально розрахована основна мета, добре виконання робіт в поставлені строки та бюджет.',
               },
               5: {
                 name: 'Сергій',
                 tender: 'Шпаклювання стін під шпалери та поклейка шпалер',
-                review: `Я не розумію чому у цих хлопців досі немає відгуків. дуже професійні майстри. постійно самі себе перевіряють, не потрібно ходити за ними і «тикати носом». Я дуже задоволений якістю робіт.`,
+                review: `Я не розумію чому у цих хлопців досі немає відгуків. Дуже професійні майстри. Постійно самі себе перевіряють, не потрібно ходити за ними і «тикати носом». Я дуже задоволений якістю робіт.`,
               },
             },
             clientsWork: {
               process: {
-                title: 'Наша робота',
+                title: 'Наш робочий процес',
                 description:
                   'Професійно, якісно, швидко і недорого виконуємо оздоблювальні роботи (шпаклівка, штукатурка, шпалери, фарбування), гіпсокартон, плиточні роботи, стяжка, ламінат, лінолеум, плінтуси тощо.',
               },
@@ -422,7 +289,7 @@ i18next
                   },
                   clientSatisfaction: {
                     title: '100%',
-                    description: 'Задоволеність клієнта',
+                    description: 'Задоволених клієнтів',
                   },
                   teamMembers: {
                     title: '10+',
@@ -448,7 +315,7 @@ i18next
                 ],
               },
               contactUs: {
-                title: `Зв'яжіться з нами`,
+                title: `Напишіть нам`,
                 subtitle:
                   'Зв’яжіться з нашою командою для отримання додаткової інформації або планування.',
                 form: {
@@ -469,14 +336,16 @@ i18next
             },
           },
           motivateTitle:
-            'Дослідіть нашу колекцію прекрасно відремонтованих квартир, кожна з яких створена для того, щоб запропонувати унікальне поєднання комфорту та стилю. Від сучасних міських лофтів до затишних заміських резиденцій, наша галерея демонструє найкращі зразки сучасного житла.',
+            'Ознайомтеся з нашою колекцією відремонтованих квартир, кожна з яких створена для того, щоб запропонувати унікальне поєднання комфорту та стилю. Від сучасних міських лофтів до затишних заміських резиденцій наша галерея демонструє найкращі зразки сучасного житла.',
+          motivateTitleTablet:
+            'Ознайомтеся з нашою колекцією відремонтованих квартир, кожна з яких створена для того, щоб запропонувати унікальне поєднання комфорту та стилю. Від сучасних міських лофтів до затишних заміських резиденцій наша галерея демонструє найкращі зразки сучасного житла.',
           motivateTitlePhone:
-            'Дослідіть нашу колекцію прекрасно відремонтованих квартир, <br /> кожна з яких створена для того, щоб запропонувати унікальне поєднання комфорту та стилю. <br /> Від сучасних міських лофтів до затишних заміських резиденцій, <br /> наша галерея демонструє найкращі зразки сучасного житла.',
+            'Ознайомтеся з нашою колекцією відремонтованих квартир, <br /> кожна з яких створена для того, щоб запропонувати унікальне поєднання комфорту та стилю. <br /> Від сучасних міських лофтів до затишних заміських резиденцій <br /> наша галерея демонструє найкращі зразки сучасного житла.',
           footer: {
-            section1: 'Домашня_Про Нас_Наші Послуги',
-            section2: 'Галерея Робіт_Контакти',
+            section1: { title1: 'Домашня', title2: 'Про нас' },
+            section2: { title1: 'Наші послуги', title2: 'Контакти' },
             section3: {
-              title: 'Підпишіться на нашу розсилку',
+              title: 'Підпишіться на наш фейсбук',
               subtitle:
                 'Слідкуйте за нашими останніми порадами та пропозиціями щодо ремонту!',
             },

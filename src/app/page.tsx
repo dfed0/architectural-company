@@ -11,5 +11,11 @@ export default function Home() {
     router.replace('/home?lang=en') // или router.push('/') — зависит от задачи
   }, [router])
 
-  return <Suspense><WindowSizeProvider><div></div></WindowSizeProvider></Suspense>
+  return (
+    <Suspense>
+      <WindowSizeProvider>
+        <div></div>
+      </WindowSizeProvider>
+    </Suspense>
+  )
 }

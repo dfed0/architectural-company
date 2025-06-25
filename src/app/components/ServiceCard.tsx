@@ -1,6 +1,5 @@
 'use client'
 
-
 import Image from 'next/image'
 import FilledStandardButton from './FilledStandardButton'
 import { useTranslation } from 'react-i18next'
@@ -10,6 +9,8 @@ type ServiceCardProps = {
   subtitle: string
   imageUrl: string
   altText: string
+  projectTitleEn: string
+  serviceIndex: number
 }
 
 const ServiceCard = ({
@@ -17,10 +18,12 @@ const ServiceCard = ({
   subtitle,
   imageUrl,
   altText,
+  projectTitleEn,
+  serviceIndex
 }: ServiceCardProps) => {
   const { t } = useTranslation()
   return (
-    <div className="flex flex-col items-start self-center gap-[2.5rem] flex-[1_0_0]">
+    <div className="flex flex-col items-start self-start gap-[2.5rem] flex-[1_0_0]">
       <Image
         src={imageUrl}
         alt={altText}
@@ -40,8 +43,10 @@ const ServiceCard = ({
         </p>
       </div>
       <FilledStandardButton
-        title={t('sections.services.buttonTitle')}
+        title={t('sections.additionalInfo.btnTitle')}
         type="button"
+        link={projectTitleEn}
+        project={serviceIndex.toString()}
       />
     </div>
   )

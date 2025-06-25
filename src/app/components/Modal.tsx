@@ -125,7 +125,7 @@ const Modal = (props: Props) => {
         ref={rootRef}
       >
         <div
-          className="h-min w-[100%] flex p-[3rem] flex-col items-center gap-[1.5rem] rounded-[1.375rem] border-[1px] border-solid border-[rgba(0, 0, 0, 0.00)] bg-[#edebf2]"
+          className="relative h-min w-[100%] flex p-[3rem] flex-col items-center gap-[1.5rem] rounded-[1.375rem] border-[1px] border-solid border-[rgba(0, 0, 0, 0.00)] bg-[#edebf2]"
           style={{
             marginLeft: `calc(1.25rem + ${(clientWidth - 390) / 2}px)`,
             marginRight: `calc(1.25rem + 15px + ${(clientWidth - 390) / 2}px)`,
@@ -167,7 +167,7 @@ const Modal = (props: Props) => {
           </div>
           <button
             ref={btnRef}
-            className="absolute top-[5%] bottom-[85%] left-[85%] right-[5%] flex items-center justify-center"
+            className="absolute top-[5%] right-[5%] flex items-center justify-center"
             onClick={handleClose}
           >
             <Image

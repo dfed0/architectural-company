@@ -14,7 +14,6 @@ type ButtonProps = {
 const FilledStandardButton = ({ title, type, link, project }: ButtonProps) => {
   const { t } = useTranslation()
   const searchParams = useSearchParams()
-  console.log('OGO', link)
   return (
     <Suspense>
       {link && project ? (

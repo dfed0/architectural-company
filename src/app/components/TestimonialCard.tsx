@@ -28,7 +28,6 @@ const { windowWidth } = useWindowSize()
   const handleModalClose = () => {
     setModalActive(false)
   }
-  console.log(isModalActive)
   return (
     <button type="button" onClick={handleModalOpen}>
       {isModalActive && windowWidth <= 800 && (

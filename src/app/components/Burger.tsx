@@ -26,6 +26,7 @@ type Props = {
     lang?: string
     deleteFragment?: boolean
     fragment?: string
+    thisPage?: boolean
   }[]
 }
 // navItems: object[] | string[]
@@ -62,7 +63,7 @@ export default function Burger(props: Props) {
   //   }
   // }
   return (
-    <div className="fixed bottom-[0px] top-[6rem] left-[1.25rem] right-[1.25rem] flex flex-col content-center items-center self-stretch bg-[#FFF] xl:hidden gap-[1.5rem]">
+    <div className="fixed bottom-[0px] top-[6rem] left-[1.25rem] right-[1.25rem] flex flex-col content-center items-center self-stretch bg-[#FFF] xl:hidden gap-[0px]">
       {/* gap-[1.5rem] */}
       <div
         className="z-5 fixed bottom-[0px] top-[0rem] left-[0rem] right-[0rem] bg-[#FFF]"
@@ -75,12 +76,13 @@ export default function Burger(props: Props) {
           //     params.delete(param)
           //   }
           // })
-          ;[...params.keys()]
-            .map((param) =>
-              !itemName.paramsToSave.includes(param) ? param : null
-            )
-            .filter(Boolean)
-            .forEach((param) => params.delete(param!))
+          if (itemName.deleteParams && itemName.paramsToSave) {
+            for (const key of params.keys()) {
+              if (!itemName.paramsToSave.includes(key)) {
+                params.delete(key)
+              }
+            }
+          }
         }
 
         if (itemName.lang) {
@@ -95,9 +97,7 @@ export default function Burger(props: Props) {
             : ''
         }
         const navItemUrl = `${itemName.path ? itemName.path : pathname}?${
-          itemName.paramsToSave || !itemName.deleteParams
-            ? params.toString()
-            : ''
+          params.toString() ? params.toString() : ''
         }${hash ? hash : ''}`
         return (
           <div

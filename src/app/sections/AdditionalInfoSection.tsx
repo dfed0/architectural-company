@@ -8,16 +8,10 @@ export default function AdditionalInfoSection() {
   const { t } = useTranslation()
   return (
     <>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="1328"
-        height="2"
-        viewBox="0 0 1328 2"
-        fill="none"
-        className='w-full'
-      >
-        <path d="M-96 1H1410" className="stroke-[#00000029]" strokeWidth="2"/>
-      </svg>
+      <div
+        id="divider"
+        className="flex flex-col items-start self-stretch bg-[#00000029] h-[2px]"
+      ></div>
       <section className=" xl:h-[56.25rem] self-stretch flex sm:flex-col xl:flex-row items-center">
         <div className="sm:py-[0] py-[2.5rem]">
           <Image
@@ -57,7 +51,7 @@ export default function AdditionalInfoSection() {
               title={t('sections.additionalInfo.btnTitle')}
               type="button"
               link={`projects.title_${5}`}
-                project="10"
+              project="10"
             />
           </div>
           <div className="flex flex-col items-start gap-[1rem] sm:hidden xl:flex">
@@ -81,7 +75,7 @@ export default function AdditionalInfoSection() {
               title={t('sections.additionalInfo.btnTitle')}
               type="button"
               link={`projects.title_${5}`}
-                project="10"
+              project="10"
             />
           </div>
         </div>
@@ -95,16 +89,10 @@ export default function AdditionalInfoSection() {
         />
         {/* </div> */}
       </section>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="1328"
-        height="2"
-        viewBox="0 0 1328 2"
-        fill="none"
-        className="sm:hidden xl:block w-full"
-      >
-        <path d="M-96 1H1410" className="stroke-[#00000029]" strokeWidth="2"/>
-      </svg>
+      <div
+        id="divider"
+        className="flex flex-col items-start self-stretch bg-[#00000029] h-[2px] sm:hidden xl:block"
+      ></div>
     </>
   )
 }

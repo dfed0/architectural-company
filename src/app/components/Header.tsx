@@ -39,34 +39,12 @@ export default function HeaderComponent() {
   return (
     <Suspense>
       <header
-        className={`z-10 fixed xl:left-[3.5rem] xl:right-[3.5rem] top-[0rem] flex flex-col py-[1.5rem] md:px-[1.25rem] justify-between items-center self-stretch bg-background md:right-[calc(1.25rem)] bottom-[calc(100vh-6rem)]`}
-// sm:left-[1.25rem] sm:right-[1.25rem] 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        style={{
-          left: `calc(1.25rem + ${
-            clientWidth >= 390 && clientWidth < 800
-              ? (clientWidth - 390) / 2
-              : clientWidth >= 800 && clientWidth < 1440
-              ? (clientWidth - 800) / 2
-              : clientWidth >= 1440 ? '2.25rem' : ''
-          }px)`,
-          right: `calc(1.25rem + ${
-            clientWidth >= 390 && clientWidth < 800
-              ? (clientWidth - 390) / 2 + 15
-              : clientWidth >= 800 && clientWidth < 1440
-              ? (clientWidth - 800) / 2
-              : clientWidth >= 1440 ? '2.25rem' : ''
-          }px)`,
-        }}
+        className={`z-10 fixed sm:left-[1.25rem] sm:right-[calc(1.25rem+15px)] md:left-[1.25rem] md:right-[calc(1.25rem+15px)] xl:left-[3.5rem] xl:right-[3.5rem] top-[0rem] flex flex-col py-[1.5rem] md:px-[1.25rem] justify-between items-center self-stretch bg-background sm:bottom-[calc(100vh-6rem)]`}
       >
-        {/* ${
-          menuActive.language || menuActive.navigation
-            ? 'bottom-[calc(100vh-30.54rem)]'
-            : 'bottom-[calc(100vh-6rem)]'
-        } */}
+       
         <div className="flex flex-col w-full h-full gap-[2.5rem]">
-          <div className="z-15 flex justify-between">
-            <div className="flex h-[3rem] items-center gap-1">
+          <div className="z-15 sm:gap-[2.5rem] md:gap-0 flex justify-between">
+            <div className="flex h-[3rem] items-center gap-1 self-stretch">
               <div className="flex h-[2rem] items-center gap-[0.375rem]">
                 <Image
                   src="/images/logomark.svg"
@@ -261,28 +239,7 @@ export default function HeaderComponent() {
                 </div>
               </div>
             )}
-            {/* <div
-              className="flex items-center xl:hidden"
-              onClick={() => setMenuActive((prevValue) => !prevValue)}
-            >
-              {menuActive ? (
-                <Image
-                  alt="menu icon"
-                  src="/images/close.svg"
-                  width={24}
-                  height={24}
-                  className="object-none w-[24px] h-[24px]"
-                />
-              ) : (
-                <Image
-                  alt="menu icon"
-                  src="/images/menu.svg"
-                  width={24}
-                  height={24}
-                  className="object-none w-[24px] h-[24px]"
-                />
-              )}
-            </div> */}
+          
           </div>
           {menuActive.navigation && (
             <Burger
@@ -313,9 +270,8 @@ export default function HeaderComponent() {
                 },
                 {
                   name: 'Contact',
-                  path: '/home',
-                  deleteParams: true,
-                  paramsToSave: ['lang'],
+                  thisPage: true,
+                  deleteParams: false,
                   fragment: '#contact',
                   deleteFragment: false,
                 },

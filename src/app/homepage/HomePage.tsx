@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { useWindowSize } from '../contexts/WindowSizeContext'
-import Footer from '../footer/Footer'
+import Footer from '../components/Footer'
 import Header from '../header/Header'
 import AdditionalInfoSection from '../sections/AdditionalInfoSection'
 import ClientsWorkSection from '../sections/ClientsWorkSection'
@@ -9,10 +9,12 @@ import HighlightedSection from '../sections/HighlightedSection'
 import ImageGallerySection from '../sections/ImageGallerySection'
 import ServicesSection from '../sections/ServicesSection'
 
+
 export default function HomePage() {
+
   const { clientWidth } = useWindowSize()
   const [mounted, setMounted] = useState(false)
-
+  
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -34,7 +36,7 @@ export default function HomePage() {
         >
           <Header></Header>
           <main className="self-stretch w-[100%]">
-            <HighlightedSection />
+            <HighlightedSection page="home" />
             <section className="py-[1.5rem] sm:pb-[4.25rem] md:pb-[1.5rem] flex flex-col self-stretch items-start">
               <ImageGallerySection />
               <ServicesSection />
@@ -56,7 +58,7 @@ export default function HomePage() {
         >
           <Header></Header>
           <main className="self-stretch w-[100%]">
-            <HighlightedSection />
+            <HighlightedSection page="home" />
             <section className="py-[1.5rem] sm:pb-[4.25rem] md:pb-[1.5rem] flex flex-col self-stretch items-start">
               <ImageGallerySection />
               <ServicesSection />
@@ -69,10 +71,10 @@ export default function HomePage() {
       )}
       {/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
       {(clientWidth >= 1440 || clientWidth < 390) && (
-        <div className="sm:flex xl:w-[90rem] xl:min-h-[56.25rem] xl:px-[3.5rem] sm:flex-col sm:items-start md:items-center md:content-center xl:items-start bg-background md:w-[50rem] sm:px-[1.25rem] ">
+        <div className="sm:flex xl:w-[90rem] xl:min-h-[56.25rem] xl:px-[3.5rem] sm:flex-col sm:items-start md:items-center md:content-center xl:items-start bg-background md:w-[50rem] sm:px-[1.25rem]">
           <Header></Header>
           <main className="self-stretch w-[100%]">
-            <HighlightedSection />
+            <HighlightedSection page="home" />
             <section className="py-[1.5rem] sm:pb-[4.25rem] md:pb-[1.5rem] flex flex-col self-stretch items-start">
               <ImageGallerySection />
               <ServicesSection />
