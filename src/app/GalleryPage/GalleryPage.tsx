@@ -55,15 +55,14 @@ export default function GalleryPage() {
       <div className="bg-[#fff] fixed left-[0vw] right-[0vw] top-[0vh] bottom-[0vh]"></div>
     )
   }
-  console.log(projectTitle, 'oGGGG')
   return (
     <>
-      {!loading && clientWidth >= 390 && clientWidth < 800 && (
+      {!loading && clientWidth >= 330 && clientWidth < 800 && (
         <div
           className="sm:flex xl:w-[90rem] xl:min-h-[56.25rem] xl:flex-col xl:px-[3.5rem] xl:items-start bg-background"
           style={{
-            paddingLeft: `calc(1.25rem + ${(clientWidth - 390) / 2}px)`,
-            paddingRight: `calc(1.25rem + ${(clientWidth - 390) / 2}px)`,
+            paddingLeft: `calc(1.25rem + ${(clientWidth - 330) / 2}px)`,
+            paddingRight: `calc(1.25rem + ${(clientWidth - 330) / 2}px)`,
           }}
         >
           <Header />
@@ -110,10 +109,10 @@ export default function GalleryPage() {
           </main>
         </div>
       )}
-      {!loading && (clientWidth >= 1440 || clientWidth < 390) && (
+      {!loading && (clientWidth >= 1440 || clientWidth < 330) && (
         <div className="sm:flex xl:w-[90rem] sm:px-[1.25rem]  xl:min-h-[56.25rem] xl:px-[3.5rem] xl:flex-col xl:items-start bg-background" >
           <Header />
-          <main className="self-stretch">
+          <main className="self-stretch w-full">
             <HighlightedSection
               title={projectTitle}
               projectNumber={projectNumber}

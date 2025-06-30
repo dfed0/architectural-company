@@ -11,6 +11,9 @@ import ServicesSection from '../sections/ServicesSection'
 import { useSyncLanguageWithQuery } from '../components/languageSync'
 
 export default function HomePage() {
+
+
+
   const { clientWidth } = useWindowSize()
   const [mounted, setMounted] = useState(false)
   useSyncLanguageWithQuery()
@@ -23,6 +26,7 @@ export default function HomePage() {
       <div className="bg-[#fff] fixed left-[0vw] right-[0vw] top-[0vh] bottom-[0vh]"></div>
     )
   }
+
   return (
     <>
       {clientWidth >= 390 && clientWidth < 800 && (

@@ -32,14 +32,13 @@ input:-webkit-autofill:active {
   --font-fluid-md: 16px;
   --font-fluid-xl: calc(16px + (5.33 * ((100vw - 1440px) / 480)));
   /* !!!! */
-   /* --font-fluid-sm: calc(16px + (16.82 * ((100vw - 390px) / 410)));
+  /* --font-fluid-sm: calc(16px + (16.82 * ((100vw - 390px) / 410)));
   --font-fluid-md: calc(16px + (12.78 * ((100vw - 800px) / 639)));
   --font-fluid-xl: calc(16px + (5.33 * ((100vw - 1440px) / 480))); */
 }
-html {
-}
-.PhoneInputInput{
-    outline: none;
+
+.PhoneInputInput {
+  outline: none;
 }
 html,
 body {
@@ -54,7 +53,7 @@ body {
   overflow-x: hidden;
 }
 @theme {
-  --breakpoint-sm: 390;
+  --breakpoint-sm: 330;
   --breakpoint-md: 800;
   --breakpoint-xl: 1440px;
   --breakpoint-2xl: 1920px;
