@@ -41,23 +41,21 @@ export default function HeaderComponent() {
   return (
     <Suspense>
       <header
-         className={`z-10 fixed 
-    sm:left-[1.25rem] 
-    sm:right-[calc(1.25rem+15px)] 
-    md:left-[1.25rem] 
-    md:right-[calc(1.25rem+15px)] 
-    xl:left-[3.5rem] 
-    xl:right-[3.5rem] 
-    top-[0rem] 
-    flex flex-col 
-    py-[1.5rem] 
-    md:px-[1.25rem] 
-    xl:px-[0rem] 
-    justify-between 
-    items-center 
-    self-stretch 
-    bg-background 
-  `}
+        className={`
+  fixed top-0 z-10
+  left-[1.25rem] right-0
+  sm:left-[1.25rem] sm:right-[calc(1.25rem+15px)]
+  md:left-[1.25rem] md:right-[calc(1.25rem+15px)]
+  xl:left-[3.5rem] xl:right-[3.5rem]
+  flex flex-col
+  py-[1.5rem]
+  md:px-[1.25rem]
+  xl:px-0
+  justify-between items-center
+  self-stretch
+  bg-background
+  max-w-full overflow-x-hidden
+`}
       >
         <div className="flex flex-col w-full h-full gap-[2.5rem]">
           <div className="z-15 sm:gap-[2.5rem] md:gap-0 flex justify-between">
@@ -80,7 +78,10 @@ export default function HeaderComponent() {
               className="xl:flex items-center gap-[3rem] sm:hidden"
             >
               {links.map((link) => (
-                <div className="flex content-center items-center gap-[0.625rem] h-[43.5px] font-[Inter_Var]" key={link.title}>
+                <div
+                  className="flex content-center items-center gap-[0.625rem] h-[43.5px] font-[Inter_Var]"
+                  key={link.title}
+                >
                   <Link
                     href={`/home?lang=${searchParams.get('lang')}${link.href}`}
                     className="text-[#1E1B28] text-[1.25rem] font-[500] hover:text-[#8F5E00]"
