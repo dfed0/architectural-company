@@ -9,7 +9,6 @@ import AdditionalPhotosSection from '../sections/AdditionalPhotosSection'
 import Footer from '../components/Footer'
 import { useTranslation } from 'react-i18next'
 import ContactUsSection from '../sections/ContactUsSection'
-import { useProjects } from '../contexts/ProjectsContext'
 import { useGoogleData } from '../contexts/GoogleDataContext'
 
 export default function GalleryPage() {
