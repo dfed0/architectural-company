@@ -44,8 +44,8 @@ export default function HeaderComponent() {
         className={`
   fixed top-0 z-10
   left-[1.25rem] right-0
-  sm:left-[1.25rem] sm:right-[calc(1.25rem+15px)]
-  md:left-[1.25rem] md:right-[calc(1.25rem+15px)]
+  sm:left-[1.25rem] sm:right-[calc(1.259375rem)]
+  md:left-[1.25rem] md:right-[calc(1.259375rem)]
   xl:left-[3.5rem] xl:right-[3.5rem]
   flex flex-col
   py-[1.5rem]
