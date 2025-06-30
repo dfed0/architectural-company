@@ -29,22 +29,18 @@ export default function ImageGallerySection() {
     ...projects,
     imageUrl: lastProjectsMainImages[index],
   }))
-  let projectsWithoutServices = projectsWithMainImg.filter(
+  let gallerySectionProjects = projectsWithMainImg.filter(
     (project) =>
-      project.order !== '1' && project.order !== '6' && project.order !== '10' && project.order !== '12'
+      project.order !== '1' &&
+      project.order !== '6' &&
+      project.order !== '10' &&
+      project.order !== '12'
   )
-console.log(projectsWithoutServices)
+  console.log(gallerySectionProjects)
 
-  projectsWithoutServices = projectsWithoutServices.slice(-9)
-console.log(projectsWithoutServices)
-  const groupedRooms = chunkByThree(projectsWithoutServices)
-  // console.log(
-  //   [projects.table.slice(-9)],
-  //   'IGI',
-  //   projects.images.projects.map((project) => project.mainImageUrl).slice(-9),
-  //   projectsWithMainImg
-  // )
-  // const { t } = useTranslation()
+  gallerySectionProjects = gallerySectionProjects.slice(-9).reverse()
+  console.log(gallerySectionProjects)
+  const groupedRooms = chunkByThree(gallerySectionProjects)
   return (
     <>
       {!loading && (
@@ -70,7 +66,7 @@ console.log(projectsWithoutServices)
             } flex sm:flex-col sm:self-center md:items-start sm:gap-[1.25rem] xl:gap-[3.5rem] md:self-stretch w-full`}
           >
             {group.map((room, i) => {
-              console.log('HGHHHHHHHHHH',group)
+              console.log('HGHHHHHHHHHH', group)
               return (
                 projects && (
                   <RoomCard

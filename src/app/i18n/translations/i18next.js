@@ -7,11 +7,11 @@ i18next
   .use(I18nextBrowserLanguageDetector)
   .init({
     fallbackLng: 'en',
-  detection: {
-  order: ['querystring'], // только query
-  lookupQuerystring: 'lang',
-  caches: [], // отключаем кэширование вообще
-},
+    detection: {
+      order: ['querystring'], // только query
+      lookupQuerystring: 'lang',
+      caches: [], // отключаем кэширование вообще
+    },
     debug: true,
     // detection: {
     //   order: ['localStorage', 'navigator'],
@@ -32,7 +32,10 @@ i18next
             date: 'Established in 2005',
           },
           header: {
-            text: 'Home_Our Services_About Us_Gallery of Works_Contact',
+            title1: 'Home',
+            title2: 'Our Services',
+            title3: 'About Us',
+            title4: 'Contact',
           },
           sections: {
             services: {
@@ -53,10 +56,10 @@ i18next
               buttonTitle: 'Learn More',
             },
             additionalInfo: {
-              title: 'Modern Repair and <br /> Quality Service',
+              title: 'Modern Repair <br /> and Quality Service',
               subtitle:
                 'Our specialists will offer the best types of materials, taking <br /> into account modern aesthetics and functionality, creating <br /> the best living conditions for you.',
-              titleTablet: 'Modern Repair and Quality Service',
+              titleTablet: 'Modern Repair <br /> and Quality Service',
               subtitleTablet:
                 'Our specialists will offer the best types of materials, taking into account modern aesthetics and functionality, creating the best living conditions for you.',
               btnTitle: 'Learn More',
@@ -188,31 +191,14 @@ i18next
             location: 'Знаходимося в Києві, Україна',
             date: 'Засновано у 2005 році',
             locationProject: 'Київ, Україна',
-            subtitleProjects: 'ремонт',
+            subtitleProjects: 'Ремонт',
           },
           header: {
-            text: 'Домашня_Наші послуги_Про нас_Галерея Робіт_Контакти',
+            title1: 'Домашня',
+            title2: 'Наші послуги',
+            title3: 'Про нас',
+            title4: 'Контакти',
           },
-          // projects: {
-          //   title_1: rooms[0].titleUk,
-          //   title_2: rooms[1].titleUk,
-          //   title_3: rooms[2].titleUk,
-          //   title_4: rooms[3].titleUk,
-          //   title_5: rooms[4].titleUk,
-          //   title_6: rooms[5].titleUk,
-          //   title_7: rooms[6].titleUk,
-          //   title_8: rooms[7].titleUk,
-          //   title_9: rooms[8].titleUk,
-          //   subtitle_1: rooms[0].subtitleUk,
-          //   subtitle_2: rooms[1].subtitleUk,
-          //   subtitle_3: rooms[2].subtitleUk,
-          //   subtitle_4: rooms[3].subtitleUk,
-          //   subtitle_5: rooms[4].subtitleUk,
-          //   subtitle_6: rooms[5].subtitleUk,
-          //   subtitle_7: rooms[6].subtitleUk,
-          //   subtitle_8: rooms[7].subtitleUk,
-          //   subtitle_9: rooms[8].subtitleUk,
-          // },
           sections: {
             services: {
               title: 'Наші послуги',
@@ -228,16 +214,16 @@ i18next
                 title: 'Малярні роботи',
                 subtitle: 'Індивідуальні рішення в галузі малярних робіт.',
               },
-              buttonTitle: 'дізнайтеся більше',
+              buttonTitle: 'Дізнайтеся більше',
             },
             additionalInfo: {
-              title: 'Сучасний ремонт та якісний сервіс',
+              title: 'Сучасний ремонт <br /> та якісний сервіс',
               subtitle:
                 'Наші фахівці запропонують найкращі види матеріалів, враховуючи  сучасну естетику та функціональність, створюючи для вас найкращі умови для життя.',
-              titleTablet: 'Сучасний ремонт та <br /> якісний сервіс',
+              titleTablet: 'Сучасний ремонт <br /> та якісний сервіс',
               subtitleTablet:
                 'Наші фахівці запропонують найкращі види матеріалів, враховуючи сучасну естетику та функціональність, створюючи для вас найкращі умови для життя.',
-              btnTitle: 'дізнайтеся більше',
+              btnTitle: 'Дізнайтеся більше',
             },
             comments: {
               title: 'Відгуки наших клієнтів',

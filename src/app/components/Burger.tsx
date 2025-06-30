@@ -71,11 +71,6 @@ export default function Burger(props: Props) {
       ></div>
       {props.navItems.map((itemName) => {
         if (itemName.deleteParams) {
-          // [...params.keys()].map((param) => {
-          //   if (!paramsToSave.includes(param)) {
-          //     params.delete(param)
-          //   }
-          // })
           if (itemName.deleteParams && itemName.paramsToSave) {
             for (const key of params.keys()) {
               if (!itemName.paramsToSave.includes(key)) {
@@ -103,8 +98,6 @@ export default function Burger(props: Props) {
           <div
             className="z-10 flex py-[0.625rem] content-center items-center gap-[0.625rem self-stretch] active:bg-[#AD7C00] h-[3.25rem] w-full justify-center"
             key={itemName.name}
-            // onMouseEnter={(e) => spanHover(e)}
-            // onMouseLeave={(e) => spanHover(e)}
           >
             <Link
               href={`${navItemUrl}`}
@@ -115,6 +108,10 @@ export default function Burger(props: Props) {
                 if (itemName.lang) {
                   i18n.changeLanguage(itemName.lang)
                 }
+                props.setMenuActive(() => ({
+                  navigation: false,
+                  language: false,
+                }))
               }}
             >
               {itemName.name}

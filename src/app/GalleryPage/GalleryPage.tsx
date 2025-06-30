@@ -120,7 +120,7 @@ export default function GalleryPage() {
               projectNumber={projectNumber}
               page="project"
             />
-            <div className="flex flex-col sm:pb-[1.25rem] xl:py-[3.5rem] items-start self-stretch">
+            <div className="flex flex-col sm:pb-[1.25rem] xl:pb-[0rem] items-start self-stretch">
               <ImageGalleryProductSection />
               <AdditionalPhotosSection />
             </div>

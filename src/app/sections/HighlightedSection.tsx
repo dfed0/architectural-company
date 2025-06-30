@@ -1,8 +1,6 @@
 'use client'
 import { useTranslation } from 'react-i18next'
 // import i18next, { rooms } from '../i18n/translations/i18next'
-import i18next from '../i18n/translations/i18next'
-import { formatDate } from '../utils/date/formatDate'
 import { useEffect, useRef } from 'react'
 import { useGoogleData } from '../contexts/GoogleDataContext'
 interface MainText {
@@ -19,14 +17,14 @@ export default function HighlightedSection({
   const { projects, loading, error } = useGoogleData()
   const sectionRef = useRef(null)
   console.log('ORIG', projects)
-  const lastProjects = projects.table.slice(-9)
-  const lastProjectsMainImages = projects.images.projects
-    .map((project) => project.mainImageUrl)
-    .slice(-9)
-  const projectsWithMainImg = lastProjects.map((projects, index) => ({
-    ...projects,
-    imageUrl: lastProjectsMainImages[index],
-  }))
+  // const lastProjects = projects.table.slice(-9)
+  // const lastProjectsMainImages = projects.images.projects
+  //   .map((project) => project.mainImageUrl)
+  //   .slice(-9)
+  // const projectsWithMainImg = lastProjects.map((projects, index) => ({
+  //   ...projects,
+  //   imageUrl: lastProjectsMainImages[index],
+  // }))
 
   useEffect(() => {
     if (!sectionRef.current) return
@@ -60,9 +58,9 @@ export default function HighlightedSection({
       {!loading && (
         <section
           className={`xl:pb-[3.5rem] sm:pb-[2.5rem] ${
-            page === 'project' && 'xl:pt-[6rem]'
+            page === 'project' && 'xl:pt-[9.5rem]'
           } ${
-            page === 'home' && 'xl:pt-[13rem]'
+            page === 'home' && 'xl:pt-[13rem] xl:pb-[7rem]'
           } sm:pt-[9.75rem] flex flex-col self-stretch relative`}
           ref={sectionRef}
         >
@@ -96,11 +94,11 @@ export default function HighlightedSection({
           <span
             className={`absolute text-[#1E1B28] right-0 font-[400] leading-[1.5rem] text-[1rem] font-[Inter_Var] tracking-[-0.005rem] text-right ${
               page === 'home' && 'sm:top-[7.25rem] xl:top-[13rem]'
-            } ${page === 'project' && 'sm:top-[6rem] xl:top-[6rem]'}`}
+            } ${page === 'project' && 'sm:top-[6rem] xl:top-[9.5rem]'}`}
           >
-            {title ? title : t('title.date')}
+            {title ? title.charAt(0).toUpperCase() + title.slice(1) : t('title.date')}
           </span>
-          <span className="absolute text-[#1E1B28] sm:bottom-[0] xl:bottom-[3.5rem]  leading-[1.5rem] text-[1rem] font-[Inter_Var] font-[400] tracking-[-0.005rem]">
+          <span className={`absolute text-[#1E1B28] sm:bottom-[0] ${page === 'home' &&'xl:bottom-[7rem]'} ${page === 'project' &&'xl:bottom-[3.5rem]'} leading-[1.5rem] text-[1rem] font-[Inter_Var] font-[400] tracking-[-0.005rem]`}>
             {/* {i18next.language === 'en' ? projectNumber
           ? rooms[projectNumber].date + ', ' + rooms[projectNumber].locationEn
           : t('title.location') : projectNumber

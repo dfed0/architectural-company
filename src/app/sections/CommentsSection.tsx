@@ -10,7 +10,7 @@ import TestimonialCard from '../components/TestimonialCard'
 export default function CommentsSection() {
   const { t } = useTranslation()
   return (
-    <section className="flex flex-col justify-center items-center sm:gap-[1.25rem] gap-[3.5rem] self-stretch">
+    <section className="flex flex-col justify-center items-center sm:gap-[1.25rem] xl:gap-[3.5rem] self-stretch">
       <h2 className="text-[#1E1B28] sm:text-center md:text-start font-[Roboto_Serif_Bold] text-[2.5rem] font-[700] leading-[3.25rem] tracking-[0.05rem]">
         {t('sections.comments.title')}
       </h2>

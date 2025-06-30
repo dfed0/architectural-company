@@ -9,14 +9,10 @@ import { useTranslation } from 'react-i18next'
 import Burger from './Burger'
 import LanguagePicker from './LanguagePicker'
 import { useWindowSize } from '../contexts/WindowSizeContext'
-// import { useWindowSize } from '../contexts/WindowSizeContext'
 export default function HeaderComponent() {
   const { t } = useTranslation()
   const { clientWidth } = useWindowSize()
-  // const { i18n } = useTranslation()
-  // const { scrollSize, divWidth } = useWindowSize()
   const searchParams = useSearchParams()
-  // const params = new URLSearchParams(searchParams.toString())
   const router = useRouter()
   const [menuActive, setMenuActive] = useState({
     navigation: false,
@@ -36,12 +32,17 @@ export default function HeaderComponent() {
     setFlag((prevValue) => ({ ...prevValue, flag: langParam }))
   }, [langParam])
   useEffect(() => {}, [flag.flag])
+  const links = [
+    { href: '', title: 'header.title1' },
+    { href: '#about-us', title: 'header.title2' },
+    { href: '#services', title: 'header.title3' },
+    { href: '#contact', title: 'header.title4' },
+  ]
   return (
     <Suspense>
       <header
-        className={`z-10 fixed sm:left-[1.25rem] sm:right-[calc(1.25rem+15px)] md:left-[1.25rem] md:right-[calc(1.25rem+15px)] xl:left-[3.5rem] xl:right-[3.5rem] top-[0rem] flex flex-col py-[1.5rem] md:px-[1.25rem] justify-between items-center self-stretch bg-background sm:bottom-[calc(100vh-6rem)]`}
+        className={`z-10 fixed sm:left-[1.25rem] sm:right-[calc(1.25rem+15px)] md:left-[1.25rem] md:right-[calc(1.25rem+15px)] xl:left-[3.5rem] xl:right-[3.5rem] top-[0rem] flex flex-col py-[1.5rem] md:px-[1.25rem] xl:px-[0rem] justify-between items-center self-stretch bg-background sm:bottom-[calc(100vh-6rem)]`}
       >
-       
         <div className="flex flex-col w-full h-full gap-[2.5rem]">
           <div className="z-15 sm:gap-[2.5rem] md:gap-0 flex justify-between">
             <div className="flex h-[3rem] items-center gap-1 self-stretch">
@@ -62,53 +63,26 @@ export default function HeaderComponent() {
               aria-label="Main menu"
               className="xl:flex items-center gap-[3rem] sm:hidden"
             >
-              <div className="flex content-center items-center gap-[0.625rem] h-[43.5px] font-[Inter_Var]">
-                <Link
-                  href={`/home?lang=${searchParams.get('lang')}`}
-                  className="text-[#1E1B28] text-[1.25rem] font-[500] hover:text-[#8F5E00]"
-                  aria-label="Go to about home page"
-                >
-                  {t('header.text').split('_')[0]}
-                </Link>
-              </div>
-              <div className="flex content-center items-center gap-[0.625rem] h-[43.5px] font-[Inter_Var]">
-                <Link
-                  href={`/home?lang=${searchParams.get('lang')}#services`}
-                  className="text-[#1E1B28] text-[1.25rem] font-[500] hover:text-[#8F5E00]"
-                  aria-label="Go to services section"
-                >
-                  {t('header.text').split('_')[1]}
-                </Link>
-              </div>
-              <div className="flex content-center items-center gap-[0.625rem] h-[43.5px] font-[Inter_Var]">
-                <Link
-                  href={`/home?lang=${searchParams.get('lang')}#about-us`}
-                  className="text-[#1E1B28] text-[1.25rem] font-[500] hover:text-[#8F5E00]"
-                  aria-label="Go to about us section"
-                >
-                  {t('header.text').split('_')[2]}
-                </Link>
-              </div>
-
-              <div className="flex content-center items-center gap-[0.625rem] h-[43.5px] font-[Inter_Var]">
-                <Link
-                  href={`/home?lang=${searchParams.get('lang')}#contact`}
-                  className="text-[#1E1B28] text-[1.25rem] font-[500] hover:text-[#8F5E00]"
-                  aria-label="Go to about contact section"
-                >
-                  {t('header.text').split('_')[4]}
-                </Link>
-              </div>
+              {links.map((link) => (
+                <div className="flex content-center items-center gap-[0.625rem] h-[43.5px] font-[Inter_Var]" key={link.title}>
+                  <Link
+                    href={`/home?lang=${searchParams.get('lang')}${link.href}`}
+                    className="text-[#1E1B28] text-[1.25rem] font-[500] hover:text-[#8F5E00]"
+                    aria-label={`Go to ${link.title}`}
+                  >
+                    {t(link.title)}
+                  </Link>
+                </div>
+              ))}
             </div>
             {flag.hover ? (
               <div className="flex">
-                <LanguagePicker flag={flag} setFlag={setFlag} mode="burger" />
-
+                <LanguagePicker flag={flag} setFlag={setFlag} />
                 <div
                   onMouseEnter={() =>
                     setFlag((prevValue) => ({
                       ...prevValue,
-                      engHover: true,
+                      engHover: false,
                       hover: true,
                     }))
                   }
@@ -120,38 +94,6 @@ export default function HeaderComponent() {
                     alt="flag"
                     src={`/images/flag-${flag.flag}.svg`}
                   />
-                </div>
-                <div
-                  className="flex items-center xl:hidden"
-                  onClick={() => {
-                    setMenuActive((prevValue) => ({
-                      ...prevValue,
-                      navigation: !prevValue.navigation,
-                    }))
-                    setFlag((prevValue) => ({ ...prevValue, click: false }))
-                  }}
-                >
-                  {menuActive.navigation || menuActive.language ? (
-                    <div className="flex items-center xl:hidden">
-                      <Image
-                        alt="menu icon"
-                        src="/images/close.svg"
-                        width={24}
-                        height={24}
-                        className="object-none w-[24px] h-[24px]"
-                      />
-                    </div>
-                  ) : (
-                    <div className="flex items-center xl:hidden">
-                      <Image
-                        alt="menu icon"
-                        src="/images/menu.svg"
-                        width={24}
-                        height={24}
-                        className="object-none w-[24px] h-[24px]"
-                      />
-                    </div>
-                  )}
                 </div>
               </div>
             ) : (
@@ -185,7 +127,7 @@ export default function HeaderComponent() {
                         onMouseEnter={() =>
                           setFlag((prevValue) => ({
                             ...prevValue,
-                            engHover: true,
+                            engHover: false,
                             hover: true,
                           }))
                         }
@@ -239,21 +181,20 @@ export default function HeaderComponent() {
                 </div>
               </div>
             )}
-          
           </div>
           {menuActive.navigation && (
             <Burger
               setMenuActive={setMenuActive}
               navItems={[
                 {
-                  name: 'Home',
+                  name: `${t('header.title1')}`,
                   path: '/home',
                   deleteParams: true,
                   paramsToSave: ['lang'],
                   deleteFragment: true,
                 },
                 {
-                  name: 'Our Services',
+                  name: `${t('header.title2')}`,
                   path: '/home',
                   deleteParams: true,
                   paramsToSave: ['lang'],
@@ -261,7 +202,7 @@ export default function HeaderComponent() {
                   deleteFragment: false,
                 },
                 {
-                  name: 'About Us',
+                  name: `${t('header.title3')}`,
                   path: '/home',
                   deleteParams: true,
                   paramsToSave: ['lang'],
@@ -269,14 +210,13 @@ export default function HeaderComponent() {
                   deleteFragment: false,
                 },
                 {
-                  name: 'Contact',
+                  name: `${t('header.title4')}`,
                   thisPage: true,
                   deleteParams: false,
                   fragment: '#contact',
                   deleteFragment: false,
                 },
               ]}
-              // ['Home', 'Our Services', 'About Us', 'Contact']
             />
           )}
           {menuActive.language && (

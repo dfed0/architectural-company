@@ -1,185 +1,137 @@
 'use client'
 
-import OutlinedStandardButton from '@/app/components/OutlinedStandardButton'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { useTranslation } from 'react-i18next'
+import { useState } from 'react'
+import FooterLinks from './FooterLinks'
 
 export default function Footer() {
-  const { t } = useTranslation()
+  const [hover, setHover] = useState({
+    facebook: false,
+    telegram: false,
+    viber: false,
+  })
   const searchParams = useSearchParams()
   return (
     <>
-      <footer className="flex xl:pt-[0rem] flex-col items-start gap-[3.5rem] self-stretch">
+      <footer className="flex xl:pt-[0rem] flex-col items-start sm:gap-[1.25rem] md:gap-0 self-stretch">
         <div
           id="divider"
           className="flex flex-col items-start self-stretch bg-[#00000029] h-[2px]"
         ></div>
+        <section className="flex sm:py-[1.25rem] sm:my-0 md:my-[1.75rem] xl:my-0 xl:py-[7rem] sm:flex-col md:flex-col xl:flex-row items-start sm:gap-[1.25rem] md:gap-[3.92rem] xl:gap-[0rem]  self-stretch md:items-center">
+          {/* xl:pb-[3.5rem] */}
+          <div className="flex w-full justify-between sm:flex-col md:flex-col xl:flex-row  sm:gap-[1.25rem] xl:gap-0">
+            <div className="flex sm:flex-col md:flex-row xl:flex-row xl:h-[3rem] sm:items-center md:items-center xl:items-center xl:px-[1.25rem] xl:py-[0] sm:gap-[1.5rem] self-stretch">
+              <div className="flex h-[2rem] items-center sm:w-max">
+                <Image
+                  src="/images/logomark.svg"
+                  alt="Logo"
+                  height={32}
+                  width={32}
+                />
+                <span className="text-[#AD7C00] font-[500] text-[1.25rem] leading-[100%] font-[Inter_Var]">
+                  Masters100%
+                </span>
+              </div>
+              <div className="flex sm:items-start gap-[1.5rem] w-[7.5rem] h-[1.5rem]">
+                <Link
+                  href={'https://www.facebook.com/share/g/1DvCdDc2zQ/'}
+                  className="w-full h-full"
+                  onMouseEnter={() =>
+                    setHover((prevValue) => ({ ...prevValue, facebook: true }))
+                  }
+                  onMouseLeave={() =>
+                    setHover((prevValue) => ({ ...prevValue, facebook: false }))
+                  }
+                >
+                  <Image
+                    src={`/images/facebook-1${
+                      hover.facebook ? '-hover' : ''
+                    }.svg`}
+                    alt="Facebook logo"
+                    height={24}
+                    width={24}
+                  />
+                </Link>
+                <Link
+                  href={'https://t.me/+PE2Tlwp5AeYyZTMy'}
+                  className="w-full h-full"
+                  onMouseEnter={() =>
+                    setHover((prevValue) => ({ ...prevValue, telegram: true }))
+                  }
+                  onMouseLeave={() =>
+                    setHover((prevValue) => ({ ...prevValue, telegram: false }))
+                  }
+                >
+                  <Image
+                    src={`/images/telegram-1${
+                      hover.telegram ? '-hover' : ''
+                    }.svg`}
+                    alt="Telegram logo"
+                    height={24}
+                    width={24}
+                  />
+                </Link>
+                <Link
+                  href={
+                    'https://invite.viber.com/?g=E6gvPNyp6FRRbqVka2NqRoPDqjaRKPHU'
+                  }
+                  className="w-full h-full"
+                  onMouseEnter={() =>
+                    setHover((prevValue) => ({ ...prevValue, viber: true }))
+                  }
+                  onMouseLeave={() =>
+                    setHover((prevValue) => ({ ...prevValue, viber: false }))
+                  }
+                >
+                  <Image
+                    src={`/images/viber-1${hover.viber ? '-hover' : ''}.svg`}
+                    alt="Viber logo"
+                    height={24}
+                    width={24}
+                  />
+                </Link>
+              </div>
+            </div>
 
-        <section className="flex sm:py-[1.25rem] xl:py-[3.5rem] sm:flex-col xl:flex-row items-start sm:gap-[1.25rem] xl:gap-[2.5rem] self-stretch">
-          <div className="flex flex-col xl:h-[3rem] items-start md:px-[1.25rem] xl:py-[0] gap-[1.5rem] flex-[1_0_0] self-stretch">
-            <div className="flex h-[2rem] items-center gap-[0.375rem]">
-              <Image
-                src="/images/logomark.svg"
-                alt="Logo"
-                height={32}
-                width={32}
+            <div className="sm:hidden md:flex xl:hidden md:gap-[3.92rem]  sm:flex-col md:flex-row xl:flex-col xl:px-[1.25rem] items-start md:items-center md:justify-between gap-[1.25rem] self-stretch h-[2rem]">
+              <FooterLinks
+                links={[
+                  { href: '', label: 'footer.section1.title1' },
+                  { href: '#about-us', label: 'footer.section1.title2' },
+                  { href: '#services', label: 'footer.section2.title1' },
+                  { href: '#contact', label: 'footer.section2.title2' },
+                ]}
+                linkClass="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[500] leading-[1.25rem] w-max sm:hidden md:block xl:hidden self-center hover:text-[#8F5E00]"
+                langParam={`${searchParams.get('lang')}`}
               />
-              <span className="text-[#AD7C00] font-[500] text-[1.25rem] leading-[100%] font-[Inter_Var]">
-                Masters100%
-              </span>
             </div>
-            <div className="flex items-start gap-[1.5rem]">
-              <Link href={'https://www.facebook.com/share/g/1DvCdDc2zQ/'}>
-                <Image
-                  src="/images/facebook-1.svg"
-                  alt="Facebook logo"
-                  height={24}
-                  width={24}
+            <div className="sm:flex md:hidden xl:hidden sm:flex-col md:flex-row xl:flex-col w-full md:px-[1.25rem] gap-[1.25rem] self-stretch">
+              <div className="sm:flex md:hidden xl:hidden w-full flex-col justify-center items-center sm:gap-[1.25rem]">
+                <FooterLinks
+                  links={[
+                    { href: '', label: 'footer.section1.title1' },
+                    { href: '#about-us', label: 'footer.section1.title2' },
+                    { href: '#services', label: 'footer.section2.title1' },
+                    { href: '#contact', label: 'footer.section2.title2' },
+                  ]}
+                  linkClass="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[500] leading-[1.25rem] w-max hover:text-[#8F5E00]"
+                  langParam={`${searchParams.get('lang')}`}
                 />
-              </Link>
-              <Link href={'https://t.me/+PE2Tlwp5AeYyZTMy'}>
-                <Image
-                  src="/images/telegram-1.svg"
-                  alt="Telegram logo"
-                  height={24}
-                  width={24}
-                />
-              </Link>
-              <Link
-                href={
-                  'https://invite.viber.com/?g=E6gvPNyp6FRRbqVka2NqRoPDqjaRKPHU'
-                }
-              >
-                <Image
-                  src="/images/viber-1.svg"
-                  alt="Viber logo"
-                  height={24}
-                  width={24}
-                />
-              </Link>
-            </div>
-          </div>
-          <div className="sm:hidden md:flex xl:hidden sm:flex-col md:flex-row xl:flex-col w-full md:px-[1.25rem] items-start gap-[1.25rem] self-stretch">
-            <div className="sm:hidden md:flex xl:hidden w-full flex-col justify-center items-start gap-[1rem]">
-              <Link
-                href={`/home?lang=${searchParams.get('lang')}`}
-                aria-label="Go to home page"
-                className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]"
-              >
-                {t('footer.section1.title1')}
-              </Link>
-              <Link
-                href={`/home?lang=${searchParams.get('lang')}#about-us`}
-                aria-label="Go to about us section"
-                className="text-[#00000099] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]"
-              >
-                {t('footer.section1.title2')}
-              </Link>
-            </div>
-            <div className="sm:hidden md:flex xl:hidden w-full flex-col justify-center items-start gap-[1rem]">
-              <Link
-                href={`/home?lang=${searchParams.get('lang')}#services`}
-                aria-label="Go to services section"
-                className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]"
-              >
-                {t('footer.section2.title1')}
-
-                {/* {t('footer.section2').split('_')[0]} */}
-              </Link>
-              <Link
-                href={`/home?lang=${searchParams.get('lang')}#contact`}
-                aria-label="Go to about contact section"
-                className="text-[#00000099] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]"
-              >
-                {t('footer.section2.title2')}
-              </Link>
-            </div>
-          </div>
-          <div className="sm:flex md:hidden xl:hidden sm:flex-col md:flex-row xl:flex-col  w-full md:px-[1.25rem] items-start gap-[1.25rem] self-stretch">
-            <div className="sm:flex md:hidden xl:hidden w-full flex-col justify-center items-start gap-[1rem]">
-              <Link
-                href={`/home?lang=${searchParams.get('lang')}`}
-                aria-label="Go to home page"
-                className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]"
-              >
-                {t('footer.section1.title1')}
-              </Link>
-              <Link
-                href={`/home?lang=${searchParams.get('lang')}#about-us`}
-                aria-label="Go to about us section"
-                className="text-[#00000099] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]"
-              >
-                {t('footer.section1.title2')}
-              </Link>
-              <Link
-                href={`/home?lang=${searchParams.get('lang')}#services`}
-                aria-label="Go to services section"
-                className="text-[#00000099] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]"
-              >
-                {t('footer.section2.title1')}
-              </Link>
-              <Link
-                href={`/home?lang=${searchParams.get('lang')}#contact`}
-                aria-label="Go to about contact section"
-                className="text-[#00000099] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]"
-              >
-                {t('footer.section2.title2')}
-              </Link>
-            </div>
-          </div>
-          <div className="sm:hidden xl:flex flex w-[12.5rem] flex-col justify-center items-start gap-[1rem]">
-            <Link
-              href={`/home?lang=${searchParams.get('lang')}`}
-              aria-label="Go to home page"
-              className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]"
-            >
-              {t('footer.section1.title1')}
-            </Link>
-            <Link
-              href={`/home?lang=${searchParams.get('lang')}#about-us`}
-              aria-label="Go to about us section"
-              className="text-[#00000099] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]"
-            >
-              {t('footer.section1.title2')}
-            </Link>
-          </div>
-          <div className="sm:hidden xl:flex w-[12.5rem] flex-col justify-center items-start gap-[1rem]">
-            <Link
-              href={`/home?lang=${searchParams.get('lang')}#services`}
-              aria-label="Go to services section"
-              className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]"
-            >
-              {t('footer.section2.title1')}
-            </Link>
-            <Link
-              href={`/home?lang=${searchParams.get('lang')}#contact`}
-              aria-label="Go to about contact section"
-              className="text-[#00000099] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem]"
-            >
-              {t('footer.section2.title2')}
-            </Link>
-          </div>
-          {/* facebook */}
-          <div className="flex sm:w-full md:px-[1.25rem] xl:px-0 xl:w-[25rem] sm:flex-row xl:flex-col justify-center items-start gap-[2.5rem]">
-            <div className="flex sm:flex-col md:flex-row sm:w-full xl:flex-col items-start self-stretch sm:gap-[1.25rem] xl:gap-[1.5rem] sm:left-[1.25rem] sm:right-[1.25rem] xl:left-[3.5rem] xl:right-[3.5rem]">
-              <div className="flex flex-col items-start self-stretch gap-[0.375rem] sm:w-full">
-                <p className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[500] leading-[1.25rem] self-stretch">
-                  {t('footer.section3.title')}
-                </p>
-                <p className="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[400] leading-[1.25rem] self-stretch">
-                  {t('footer.section3.subtitle')}
-                </p>
-              </div>
-              <div className="flex items-start gap-[1rem] self-stretch sm:flex-col xl:flex-row sm:w-full">
-                <input
-                  placeholder={t('footer.form.inputTitle')}
-                  className="flex py-[1rem] px-[1.5rem] items-center gap-[0.75] flex-[1_0_0] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] focus:outline-none focus:border-[#00000029] text-[#0000005c] w-full"
-                />
-                <OutlinedStandardButton title={t('footer.form.btnTitle')} />
               </div>
             </div>
+            <FooterLinks
+              links={[
+                { href: '', label: 'footer.section1.title1' },
+                { href: '#about-us', label: 'footer.section1.title2' },
+                { href: '#services', label: 'footer.section2.title1' },
+                { href: '#contact', label: 'footer.section2.title2' },
+              ]}
+              linkClass="text-[#000] font-[Inter_Var] text-[0.9375rem] font-[500] leading-[1.25rem] w-max sm:hidden xl:block self-center hover:text-[#8F5E00]"
+              langParam={`${searchParams.get('lang')}`}
+            />
           </div>
         </section>
       </footer>

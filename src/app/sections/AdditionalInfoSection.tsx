@@ -7,12 +7,12 @@ import { Trans, useTranslation } from 'react-i18next'
 export default function AdditionalInfoSection() {
   const { t } = useTranslation()
   return (
-    <>
+    <section className='xl:py-[3.5rem]'>
       <div
         id="divider"
         className="flex flex-col items-start self-stretch bg-[#00000029] h-[2px]"
       ></div>
-      <section className=" xl:h-[56.25rem] self-stretch flex sm:flex-col xl:flex-row items-center">
+      <div className=" xl:h-[37.875rem] self-stretch flex sm:flex-col xl:flex-row items-center">
         <div className="sm:py-[0] py-[2.5rem]">
           <Image
             width={760}
@@ -85,14 +85,14 @@ export default function AdditionalInfoSection() {
           style={{ height: '64.25rem', width: '47.5rem' }}
           alt="description to get interested"
           src="/images/room-sofa.svg"
-          className="sm:hidden xl:block xl:h-[64.25rem] xl:w-[47.5rem]"
+          className="sm:hidden xl:block xl:h-[64.25rem] xl:w-[47.5rem] xl:mb-[8rem]"
         />
         {/* </div> */}
-      </section>
+      </div>
       <div
         id="divider"
         className="flex flex-col items-start self-stretch bg-[#00000029] h-[2px] sm:hidden xl:block"
       ></div>
-    </>
+    </section>
   )
 }

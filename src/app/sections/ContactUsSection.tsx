@@ -12,6 +12,38 @@ import {
 // import PhoneInput from 'react-phone-input-2'
 
 export default function ContactUsSection() {
+  const [borderStyles, setBorderStyles] = useState({
+    firstName: {
+      border: 'border-[#00000029]',
+      focusBorder: '',
+      text: '',
+      placeholder: '',
+    },
+    lastName: {
+      border: 'border-[#00000029]',
+      focusBorder: '',
+      text: '',
+      placeholder: '',
+    },
+    email: {
+      border: 'border-[#00000029]',
+      focusBorder: '',
+      text: '',
+      placeholder: '',
+    },
+    phone: {
+      border: 'border-[#00000029]',
+      focusBorder: '',
+      text: '',
+      placeholder: '',
+    },
+    placeholder: {
+      border: 'border-[#00000029]',
+      focusBorder: '',
+      text: '',
+      placeholder: '',
+    },
+  })
   const { t } = useTranslation()
   const [formSubmit, setFormSubmit] = useState(false)
   const [errors, setErrors] = useState({
@@ -29,30 +61,50 @@ export default function ContactUsSection() {
     phone: false,
     placeholder: false,
   })
+
   function addValidationClasses(target, type, message) {
     setErrors((prev) => ({
       ...prev,
       [type]: message,
     }))
-    target.classList.remove('border-[#00000029]')
-    target.classList.add('border-[#D62D30]')
-    target.classList.remove('text-[#000]')
-    target.classList.add('placeholder-[#D62D30]')
-    target.classList.remove('placeholder-[#00000029]')
-    target.classList.add('text-[#D62D30]')
-    target.classList.remove('text-[#000]')
-    target.classList.add('focus:border-[#D62D30]')
+    setBorderStyles((prev) => ({
+      ...prev,
+      [type]: {
+        border: 'border-[#D62D30]',
+        focusBorder: 'focus:border-[#D62D30]',
+        text: 'text-[#D62D30]',
+        placeholder: 'placeholder-[#D62D30]',
+      },
+    }))
+    // target.classList.remove('border-[#00000029]')
+    // target.classList.add('border-[#D62D30]')
+    // target.classList.remove('placeholder-[#00000029]')
+    // target.classList.add('placeholder-[#D62D30]')
+    // target.classList.remove('text-[#000]')
+    // target.classList.add('text-[#D62D30]')
+    // target.classList.remove('focus:border-[#00000029]')
+    // target.classList.add('focus:border-[#D62D30]')
   }
   function removeValidationClasses(target, type) {
+    console.log('VALL')
     setErrors((prev) => ({ ...prev, [type]: '' }))
-    target.classList.remove('border-[#D62D30]')
-    target.classList.add('border-[#00000029]')
-    target.classList.remove('placeholder-[#D62D30]')
-    target.classList.add('placeholder-[#00000029]')
-    target.classList.remove('text-[#D62D30]')
-    target.classList.add('text-[#000]')
-    target.classList.remove('focus:border-[#D62D30]')
-    target.classList.add('focus:border-[#00000029]')
+    setBorderStyles((prev) => ({
+      ...prev,
+      [type]: {
+        border: 'border-[#00000029]',
+        focusBorder: 'focus:border-[#00000029]',
+        text: 'text-[#000]',
+        placeholder: 'placeholder-[#00000029]',
+      },
+    }))
+    // target.classList.remove('border-[#D62D30]')
+    // target.classList.add('border-[#00000029]')
+    // target.classList.remove('placeholder-[#D62D30]')
+    // target.classList.add('placeholder-[#00000029]')
+    // target.classList.remove('text-[#D62D30]')
+    // target.classList.add('text-[#000]')
+    // target.classList.remove('focus:border-[#D62D30]')
+    // target.classList.add('focus:border-[#00000029]')
   }
   const firstNameRef = useRef(null)
   const lastNameRef = useRef(null)
@@ -99,7 +151,7 @@ export default function ContactUsSection() {
         type,
         t(t('sections.clientsWork.contactUs.form.errors.notLetter'))
       )
-    } else if (target.value.trimEnd().includes(' ')) {
+    } else if (type !== 'placeholder' && target.value.trimEnd().includes(' ')) {
       // setErrors((prev) => ({
       //   ...prev,
       //   [type]: 'Spaces are not supported',
@@ -146,19 +198,17 @@ export default function ContactUsSection() {
   }
   function handleChange(e) {
     setErrors((prev) => ({ ...prev, notTouched: false }))
-
     const target = e.target
     inputValidation(target)
   }
 
-  useEffect(() => {
-  }, [errors])
+  useEffect(() => {}, [errors])
   const handleSubmit = async (e) => {
     setFormSubmit(true)
 
     e.preventDefault()
-    const hasErrors = Object.values(errors).some((error) => error != false)
-  
+    const hasErrors = Object.values(errors).some((error) => error != '')
+
     if (
       hasErrors ||
       !firstNameRef.current?.value ||
@@ -217,10 +267,10 @@ export default function ContactUsSection() {
 
   return (
     <section
-      className="flex sm:flex-col xl:flex-row sm:pt-[1.25rem] sm:pb-[1.25rem]  xl:py-[3.5rem] items-start sm:gap-[1.25rem] xl:gap-[6rem] self-stretch scroll-mt-[6rem]"
+      className="flex sm:flex-col xl:flex-row sm:pt-[1.25rem] sm:pb-[1.25rem]  xl:py-[3.5rem] xl:pt-[7rem] items-start sm:gap-[1.25rem] xl:gap-[6rem] self-stretch scroll-mt-[6rem]"
       id="contact"
     >
-      <div className='flex flex-col self-stretch w-full sm:gap-[1.5rem]'>
+      <div className="flex flex-col self-stretch w-full sm:gap-[1.5rem]">
         <h2 className="text-[#1E1B28] font-[Roboto_Serif_Bold] text-[2.5rem] font-[700] leading-[3.25rem] sm:h-[2.5rem]">
           {t('sections.clientsWork.contactUs.title')}
         </h2>
@@ -236,7 +286,11 @@ export default function ContactUsSection() {
         noValidate
       >
         {/* absolute top-[-1.375rem] left-0    relative */}
-        <div className={`flex sm:flex-col md:flex-row items-start ${focus.firstName ? 'sm:gap-[1.5rem]' : 'sm:gap-[1.5rem]'} self-stretch`}>
+        <div
+          className={`flex sm:flex-col md:flex-row items-start ${
+            focus.firstName ? 'sm:gap-[1.5rem]' : 'sm:gap-[1.5rem]'
+          } self-stretch`}
+        >
           <div className="flex flex-col items-start gap-[0.25rem] flex-[1_0_0] self-stretch">
             {focus.firstName && (
               <div className="flex">
@@ -247,9 +301,11 @@ export default function ContactUsSection() {
               </div>
             )}
             <input
-              className={`h-[4rem] flex p-[1rem] self-stretch items-center gap-[0.5rem] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029] ${
+              className={`h-[4rem] flex p-[1rem] self-stretch items-center gap-[0.5rem] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] focus:outline-none ${
                 focus.lastName ? 'md:mt-[1.375rem]' : ''
-              }`}
+              } ${borderStyles.firstName.border} ${
+                borderStyles.firstName.focusBorder
+              } ${borderStyles.firstName.text}`}
               placeholder={
                 !focus.firstName
                   ? t('sections.clientsWork.contactUs.form.input1')
@@ -261,7 +317,9 @@ export default function ContactUsSection() {
               inputMode="text"
               ref={firstNameRef}
               onChange={handleChange}
-              onFocus={() => setFocus((prev) => ({ ...prev, firstName: true }))}
+              onFocus={() => {
+                setFocus((prev) => ({ ...prev, firstName: true }))
+              }}
               onBlur={() => setFocus((prev) => ({ ...prev, firstName: false }))}
               required
             ></input>
@@ -283,7 +341,9 @@ export default function ContactUsSection() {
             <input
               className={`h-[4rem] flex p-[1rem] self-stretch items-center gap-[0.5rem] border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029] ${
                 focus.firstName ? 'md:mt-[1.375rem]' : ''
-              }`}
+              } ${borderStyles.lastName.border} ${
+                borderStyles.lastName.focusBorder
+              } ${borderStyles.lastName.text}`}
               placeholder={
                 !focus.lastName
                   ? t('sections.clientsWork.contactUs.form.input2')
@@ -317,7 +377,7 @@ export default function ContactUsSection() {
             </div>
           )}
           <input
-            className="h-[4rem] flex p-[1rem] items-center gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] w-full text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
+            className={`h-[4rem] flex p-[1rem] items-center gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] w-full text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029] ${borderStyles.email.border} ${borderStyles.email.focusBorder} ${borderStyles.email.text}`}
             placeholder={
               !focus.email
                 ? t('sections.clientsWork.contactUs.form.input3')
@@ -347,12 +407,12 @@ export default function ContactUsSection() {
             </div>
           )}
           <input
-            className="flex p-[1rem] items-center gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] w-full text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029]"
-            placeholder={`+380 ${
+            className={`flex p-[1rem] items-center gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] w-full text-[1rem] bg-[#fff] focus:outline-none focus:border-[#00000029] ${borderStyles.phone}`}
+            placeholder={`${
               !focus.phone
                 ? t('sections.clientsWork.contactUs.form.input4')
                 : ''
-            }`}
+            } +380 `}
             type="tel"
             name="phone"
             id="phone"
@@ -395,7 +455,7 @@ export default function ContactUsSection() {
             </div>
           )}
           <textarea
-            className="flex p-[1rem] items-start gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] min-h-[7.75rem] focus:outline-none focus:border-[#00000029]"
+            className={`flex p-[1rem] items-start gap-[0.5rem] self-stretch border-[2px] rounded-[0.75rem] border-solid border-[#00000029] text-[#000] text-[1rem] bg-[#fff] min-h-[7.75rem] focus:outline-none focus:border-[#00000029] ${borderStyles.placeholder.border} ${borderStyles.placeholder.focusBorder} ${borderStyles.placeholder.text} ${borderStyles.placeholder.placeholder}`}
             placeholder={
               !focus.placeholder
                 ? t('sections.clientsWork.contactUs.form.textarea')

@@ -38,13 +38,13 @@ const TooltipParagraph = ({ text, pClass }) => {
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Content
-            className="sm:hidden md:flex w-[18rem] p-[0.5rem] flex-col content-center items-center gap-[0.625rem] bg-[#AD7C00] text-[#fff] font-[Inter_Var] text-[1rem] font-[400] leading-[-0.005rem] mr-[1.5rem] rounded-[0.25rem]"
+            className="sm:hidden md:flex w-[18rem] p-[0.5rem] mt-[0.55rem] flex-col content-center items-center gap-[0.625rem] bg-[#AD7C00] text-[#fff] font-[Inter_Var] text-[1rem] font-[400] leading-[-0.005rem] mr-[1.5rem] rounded-[0.25rem] relative "
             side="bottom"
             sideOffset={sideOffset}
           >
             {text}
             <Tooltip.Arrow
-              className="w-[0.75rem] h-[0.5625rem]"
+              className="w-[0.75rem] h-[0.5625rem] absolute left-1/2 -translate-x-1/2"
               fill="#AD7C00"
             />
           </Tooltip.Content>

@@ -59,9 +59,9 @@ const RoomCard = ({
               ''
             )}?project=${photoIndex}&lang=${searchParams.get('lang')}`}
         >
-            <span className="text-[#000] overflow-ellipsis text-[1.25rem] font-[Inter_Var] font-[400] leading-[1.5rem]">
-              {title}
-            </span>
+            <p className="text-[#000] overflow-ellipsis text-[1.25rem] font-[Inter_Var] font-[400] leading-[1.5rem]">
+              {title.charAt(0).toUpperCase() + title.slice(1)}
+            </p>
             <span className="text-[#00000099] overflow-ellipsis text-[1.0625rem] font-[Inter_Var] font-[400]">
               {subtitle || 'NO SUBTITLE'}
             </span>

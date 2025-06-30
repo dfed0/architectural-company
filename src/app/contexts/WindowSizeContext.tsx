@@ -35,11 +35,11 @@ export const WindowSizeProvider = ({
 
   const handleResize = useCallback(() => {
     setSize({
-      windowWidth: window.innerWidth,
-      windowHeight: window.innerHeight,
-      clientWidth: document.documentElement.clientWidth,
-      scrollSize: window.innerWidth - document.querySelector('div').offsetWidth,
-      divWidth: document.querySelector('div').offsetWidth,
+      windowWidth: window?.innerWidth,
+      windowHeight: window?.innerHeight,
+      clientWidth: document.documentElement?.clientWidth,
+      scrollSize: window.innerWidth - document.querySelector('div')?.offsetWidth,
+      divWidth: document.querySelector('div')?.offsetWidth,
     })
   }, [setSize])
 

@@ -6,27 +6,9 @@ import { useGoogleData } from '../contexts/GoogleDataContext'
 
 export default function ServicesSection() {
   const { t } = useTranslation()
-  // const services = [
-  //   {
-  //     title: 'Apartment Renovation',
-  //     subtitle: 'Complete apartment renovations tailored to your needs.',
-  //     imageUrl: '/images/first-service.svg',
-  //     altText: 'Redesigned apatment',
-  //   },
-  //   {
-  //     title: 'Office Renovation',
-  //     subtitle: 'Expert renovation services to transform your space.',
-  //     imageUrl: '/images/second-service.svg',
-  //     altText: 'Redesigned office',
-  //   },
-  //   {
-  //     title: 'Painting works',
-  //     subtitle: 'Individual solutions in the field of painting work',
-  //     imageUrl: '/images/third-service.svg',
-  //     altText: 'Redesigned paintings',
-  //   },
-  // ]
   const { projects, loading, error } = useGoogleData()
+  const {i18n} = useTranslation()
+  const titleByLang = i18n.language === 'en' ? 'titleen' : i18n.language === 'uk' ? 'titleuk' : ''
   const lastProjects = projects.table
   const lastProjectsMainImages = projects.images.projects.map(
     (project) => project.mainImageUrl
@@ -55,8 +37,10 @@ export default function ServicesSection() {
           <div className="flex sm:items-center md:items-center sm:flex-col md:flex-row sm:justify-center sm:gap-[1.25rem] xl:gap-[3.5rem] self-stretch">
             {servicesProject.map((service, index) => (
               <ServiceCard
-                title={t(`sections.services.service_${index + 1}.title`)}
-                subtitle={t(`sections.services.service_${index + 1}.subtitle`)}
+                // title={t(`sections.services.service_${index + 1}.title`)}
+                // subtitle={t(`sections.services.service_${index + 1}.subtitle`)}
+                title={service[titleByLang].charAt(0).toUpperCase() + service[titleByLang].slice(1)}
+                subtitle={t('title.subtitleProjects')}
                 imageUrl={service.imageUrl}
                 altText="services images"
                 key={index}

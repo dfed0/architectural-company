@@ -9,7 +9,7 @@ export default function ImageGalleryProductSection() {
   const projectNumber = searchParams.get('project')
 
   const { projects, loading, error } = useGoogleData()
-
+console.log(projects)
   return (
     <section
       className="flex flex-col sm:py-[1.25rem] items-start self-stretch md:py-[1.25rem] xl:py-[1rem]"
