@@ -57,12 +57,12 @@ export default function GalleryPage() {
   }
   return (
     <>
-      {!loading && clientWidth >= 330 && clientWidth < 800 && (
+      {!loading && clientWidth >= 320 && clientWidth < 800 && (
         <div
           className="sm:flex xl:w-[90rem] xl:min-h-[56.25rem] xl:flex-col xl:px-[3.5rem] xl:items-start bg-background"
           style={{
-            paddingLeft: `calc(1.25rem + ${(clientWidth - 330) / 2}px)`,
-            paddingRight: `calc(1.25rem + ${(clientWidth - 330) / 2}px)`,
+            paddingLeft: `calc(1.25rem + ${(clientWidth - 320) / 2}px)`,
+            paddingRight: `calc(1.25rem + ${(clientWidth - 320) / 2}px)`,
           }}
         >
           <Header />
@@ -109,7 +109,7 @@ export default function GalleryPage() {
           </main>
         </div>
       )}
-      {!loading && (clientWidth >= 1440 || clientWidth < 330) && (
+      {!loading && (clientWidth >= 1440 || clientWidth < 320) && (
         <div className="sm:flex xl:w-[90rem] sm:px-[1.25rem]  xl:min-h-[56.25rem] xl:px-[3.5rem] xl:flex-col xl:items-start bg-background" >
           <Header />
           <main className="self-stretch w-full">
