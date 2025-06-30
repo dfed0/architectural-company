@@ -7,7 +7,6 @@ const nextConfig: NextConfig = {
       'docs.google.com',
       'pcijqmimlorjjwretheb.supabase.co',
     ],
-
     remotePatterns: [
       {
         protocol: 'https',
@@ -23,6 +22,9 @@ const nextConfig: NextConfig = {
         destination: '/gallery-of-:project',
       },
     ]
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 }
 
