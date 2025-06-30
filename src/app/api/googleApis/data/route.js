@@ -90,9 +90,11 @@ export async function GET() {
       ],
     })
     const drive = google.drive({ version: 'v3', auth })
-    const mainDriveFolderId = process.env.GDRIVE_FOLDER_ID
-    const spreadsheetId = process.env.SHEETS_SPREADSHEET_ID
+    const mainDriveFolderId = '1jho1nZkJJcHlJAiZf9FKZ_ATZ6yZtdu8'
+    const spreadsheetId = '1IdGYJBBNtHJ4BkNAeQxNSwWbIkWK9tEdoaLBBYt4BOU'
     const sheetRange = 'A:Z'
+    console.log('Spreadsheet ID:', spreadsheetId)
+    console.log('Main Drive Folder ID:', mainDriveFolderId)
 
     const sheetsData = await fetchSheetsData(auth, spreadsheetId, sheetRange)
 
