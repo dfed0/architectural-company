@@ -117,7 +117,7 @@ export default function HeaderComponent() {
               <div className="flex">
                 {!(menuActive.language || menuActive.navigation) && (
                   <>
-                    {clientWidth >= 390 && clientWidth < 1440 && (
+                    {clientWidth >= 320 && clientWidth < 1440 && (
                       <div
                         onClick={() => {
                           setFlag((prevValue) => ({
@@ -139,7 +139,7 @@ export default function HeaderComponent() {
                         />
                       </div>
                     )}
-                    {(clientWidth < 390 || clientWidth >= 1440) && (
+                    {(clientWidth >= 1440) && (
                       <div
                         onMouseEnter={() =>
                           setFlag((prevValue) => ({

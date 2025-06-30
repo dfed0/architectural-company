@@ -3,12 +3,14 @@
 import { useTranslation } from 'react-i18next'
 import ServiceCard from '../components/ServiceCard'
 import { useGoogleData } from '../contexts/GoogleDataContext'
+import { useEffect, useRef } from 'react'
 
 export default function ServicesSection() {
   const { t } = useTranslation()
   const { projects, loading, error } = useGoogleData()
-  const {i18n} = useTranslation()
-  const titleByLang = i18n.language === 'en' ? 'titleen' : i18n.language === 'uk' ? 'titleuk' : ''
+  const { i18n } = useTranslation()
+  const titleByLang =
+    i18n.language === 'en' ? 'titleen' : i18n.language === 'uk' ? 'titleuk' : ''
   const lastProjects = projects.table
   const lastProjectsMainImages = projects.images.projects.map(
     (project) => project.mainImageUrl
@@ -22,6 +24,23 @@ export default function ServicesSection() {
     projectsWithMainImg[5],
     projectsWithMainImg[11],
   ]
+  const h2Ref = useRef(null)
+
+  useEffect(() => {
+    const h2Element = h2Ref.current
+    if (!h2Element) return
+
+    let fontSize = 120
+    h2Element.style.fontSize = `${fontSize}px`
+
+    while (
+      h2Element.scrollWidth > h2Element.parentElement.clientWidth &&
+      fontSize > 10
+    ) {
+      fontSize -= 0.5
+      h2Element.style.fontSize = `${fontSize}px`
+    }
+  }, [loading, i18n.language])
   return (
     <>
       {!loading && (
@@ -30,7 +49,10 @@ export default function ServicesSection() {
           id="services"
         >
           <div className="flex flex-col items-start gap-[2.5rem] self-stretch">
-            <h2 className="text-[#1E1B28] text-[2.5rem] text-center font-[Roboto_Serif_Bold] font-[700] leading-[3.25rem] self-stretch h-[2.5rem]">
+            <h2
+              className="text-[#1E1B28] text-[2.5rem] text-center font-[Roboto_Serif_Bold] font-[700] leading-[3.25rem] self-stretch h-[2.5rem] text-nowrap"
+              ref={h2Ref}
+            >
               {t('sections.services.title')}
             </h2>
           </div>
@@ -39,7 +61,10 @@ export default function ServicesSection() {
               <ServiceCard
                 // title={t(`sections.services.service_${index + 1}.title`)}
                 // subtitle={t(`sections.services.service_${index + 1}.subtitle`)}
-                title={service[titleByLang].charAt(0).toUpperCase() + service[titleByLang].slice(1)}
+                title={
+                  service[titleByLang].charAt(0).toUpperCase() +
+                  service[titleByLang].slice(1)
+                }
                 subtitle={t('title.subtitleProjects')}
                 imageUrl={service.imageUrl}
                 altText="services images"
