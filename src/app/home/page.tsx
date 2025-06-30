@@ -7,12 +7,10 @@ import HomePage from '../homepage/HomePage'
 import {
   GoogleDataProvider,
 } from '../contexts/GoogleDataContext'
-import { useSyncLanguageWithQuery } from '../components/languageSync'
 
 
 export default function Home() {
   
-  useSyncLanguageWithQuery()
   return (
     <Suspense>
       <WindowSizeProvider>

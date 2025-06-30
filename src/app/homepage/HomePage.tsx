@@ -8,11 +8,12 @@ import ClientsWorkSection from '../sections/ClientsWorkSection'
 import HighlightedSection from '../sections/HighlightedSection'
 import ImageGallerySection from '../sections/ImageGallerySection'
 import ServicesSection from '../sections/ServicesSection'
+import { useSyncLanguageWithQuery } from '../components/languageSync'
 
 export default function HomePage() {
   const { clientWidth } = useWindowSize()
   const [mounted, setMounted] = useState(false)
-
+  useSyncLanguageWithQuery()
   useEffect(() => {
     setMounted(true)
   }, [])
