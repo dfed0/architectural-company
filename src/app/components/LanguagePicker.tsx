@@ -28,7 +28,7 @@ export default function LanguagePicker({ setFlag, flag }: Props) {
         {windowWidth >= 1440 && (
           <>
             <div
-              className="sm:hidden xl:flex w-[10.4rem] flex-col items-start border-[#8F5E00] border-[1px] border-solid shadow-xl shadow-[rgba(15,42,81,0.08)] absolute right-0 top-[4rem] cursor-pointer rounded-b-[0.25rem] overflow-hidden"
+              className="z-20 sm:hidden xl:flex w-[10.4rem] flex-col items-start border-[#8F5E00] border-[1px] border-solid shadow-xl shadow-[rgba(15,42,81,0.08)] absolute right-0 top-[4rem] cursor-pointer rounded-b-[0.25rem] overflow-hidden"
               onMouseLeave={() =>
                 setFlag((prevValue) => ({
                   engHover: false,
