@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { useRouter } from 'next/navigation'
 import { Suspense, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Burger from './Burger'
@@ -13,12 +12,10 @@ export default function HeaderComponent() {
   const { t } = useTranslation()
   const { clientWidth } = useWindowSize()
   const searchParams = useSearchParams()
-  const router = useRouter()
   const [menuActive, setMenuActive] = useState({
     navigation: false,
     language: false,
   })
-  console.log(menuActive)
   const langParam = searchParams.get('lang')
   const [flag, setFlag] = useState(() => ({
     engHover: false,
@@ -27,7 +24,6 @@ export default function HeaderComponent() {
     flag: langParam,
     click: false,
   }))
-  console.log(router)
   useEffect(() => {
     setFlag((prevValue) => ({ ...prevValue, flag: langParam }))
   }, [langParam])

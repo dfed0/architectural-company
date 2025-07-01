@@ -16,7 +16,6 @@ export default function HighlightedSection({
   const { t, i18n } = useTranslation()
   const { projects, loading, error } = useGoogleData()
   const sectionRef = useRef(null)
-  console.log('ORIG', projects)
   // const lastProjects = projects.table.slice(-9)
   // const lastProjectsMainImages = projects.images.projects
   //   .map((project) => project.mainImageUrl)

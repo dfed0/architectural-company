@@ -55,7 +55,6 @@ export async function getReviews() {
   const key = name.map((item) => {
     return item + Math.floor(Math.random() * 1000000000)
   })
-  console.log({ name, tender, comment, key })
   // const length = Math.min(name.length, tender.length, comment.length)
 
   const length = Math.min(name.length, tender.length, comment.length)

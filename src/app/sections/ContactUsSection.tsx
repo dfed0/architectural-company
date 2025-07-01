@@ -76,17 +76,8 @@ export default function ContactUsSection() {
         placeholder: 'placeholder-[#D62D30]',
       },
     }))
-    // target.classList.remove('border-[#00000029]')
-    // target.classList.add('border-[#D62D30]')
-    // target.classList.remove('placeholder-[#00000029]')
-    // target.classList.add('placeholder-[#D62D30]')
-    // target.classList.remove('text-[#000]')
-    // target.classList.add('text-[#D62D30]')
-    // target.classList.remove('focus:border-[#00000029]')
-    // target.classList.add('focus:border-[#D62D30]')
   }
   function removeValidationClasses(target, type) {
-    console.log('VALL')
     setErrors((prev) => ({ ...prev, [type]: '' }))
     setBorderStyles((prev) => ({
       ...prev,

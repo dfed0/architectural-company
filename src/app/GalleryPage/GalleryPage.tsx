@@ -24,11 +24,10 @@ export default function GalleryPage() {
   //     ? projects.table[Number(projectNumber) % 9]
   //     : ''
   useEffect(() => {
-    console.log('EFFECT', projectNumber, projects,projects.table.find(el => el.order === projectNumber))
+   
     if (i18n.language === 'en') {
       setProjectTitle(
         () => projects.table.find(el => {
-          console.log(el)
           return el.order === projectNumber})?.titleen
       )
     }
@@ -39,7 +38,6 @@ export default function GalleryPage() {
       )
     }
 
-    // console.log('BAD', projects.table[(Number(projectNumber) % 9) - 1], 17 % 9)
   }, [projects, projectNumber, i18n.language, projectTitle])
 
   // const { t } = useTranslation()

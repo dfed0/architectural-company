@@ -27,7 +27,6 @@ const Modal = (props: Props) => {
   const [isMounted, setMounted] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
   const btnRef = useRef<HTMLButtonElement>(null)
-  const modalText = useRef<HTMLParagraphElement>(null)
   const handleClose: MouseEventHandler<HTMLDivElement | HTMLButtonElement> =
     useCallback(() => {
       onClose?.()
@@ -44,14 +43,11 @@ const Modal = (props: Props) => {
       rootRef.current.focus()
     }
 
-    if (modalText) {
-      console.log('Top from viewport:', top)
-    }
+   
   }, [isMounted])
   useEffect(() => {
     const handleWrapperClick = (event: MouseEvent) => {
       const { target } = event
-      console.log(target, btnRef, rootRef)
       if (rootRef.current === target || btnRef.current === target) {
         onClose?.()
       }
@@ -61,7 +57,6 @@ const Modal = (props: Props) => {
         onClose?.()
       }
       if (event.key === 'Tab') {
-        console.log(event)
         event.preventDefault()
       }
     }

@@ -29,39 +29,12 @@ type Props = {
     thisPage?: boolean
   }[]
 }
-// navItems: object[] | string[]
-//   itemClick?: () => undefined
-//   path?: string
-//   fragment?: string
-//   lang?: string
 export default function Burger(props: Props) {
   const { i18n } = useTranslation()
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const params = new URLSearchParams(searchParams.toString())
-  // const [closeBurger, setCloseBurger] = useState(false)
-  // useEffect(() => {
-  //   if (props.setMenuActive && closeBurger) {
-  //     props.setMenuActive(() => ({
-  //       navigation: false,
-  //       language: false,
-  //     }))
-  //   }
-  // }, [searchParams, pathname, closeBurger])
 
-  // !!!!
-  // function spanHover(e) {
-  //   console.log(e.target)
-  //   if (e.type === 'click') {
-  //     e.target.firstElementChild.classList.remove('text-[#1E1B28]')
-  //     e.target.firstElementChild.classList.add('text-[#FFF]')
-  //   }
-
-  //   if (e.type === 'mouseleave') {
-  //     e.target.firstElementChild.classList.add('text-[#1E1B28]')
-  //     e.target.firstElementChild.classList.remove('text-[#FFF]')
-  //   }
-  // }
   return (
     <div className="fixed bottom-[0px] top-[6rem] left-[1.25rem] right-[1.25rem] flex flex-col content-center items-center self-stretch bg-[#FFF] xl:hidden gap-[0px]">
       {/* gap-[1.5rem] */}

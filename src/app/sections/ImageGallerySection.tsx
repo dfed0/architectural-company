@@ -19,7 +19,6 @@ export default function ImageGallerySection() {
   //     : i18n.language === 'uk'
   //     ? 'subtitleuk'
   //     : ''
-  console.log('THIS IS ORIGINAL:', projects)
   const lastProjects = projects.table
   // const startIndex = projects.table.length - 13
   const lastProjectsMainImages = { ...projects }.images.projects.map(
@@ -36,10 +35,8 @@ export default function ImageGallerySection() {
       project.order !== '10' &&
       project.order !== '12'
   )
-  console.log(gallerySectionProjects)
 
   gallerySectionProjects = gallerySectionProjects.slice(-9).reverse()
-  console.log(gallerySectionProjects)
   const groupedRooms = chunkByThree(gallerySectionProjects)
   return (
     <>
@@ -66,7 +63,6 @@ export default function ImageGallerySection() {
             } flex sm:flex-col sm:self-center md:items-start sm:gap-[1.25rem] xl:gap-[3.5rem] md:self-stretch w-full`}
           >
             {group.map((room, i) => {
-              console.log('HGHHHHHHHHHH', group)
               return (
                 projects && (
                   <RoomCard

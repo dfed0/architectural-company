@@ -59,7 +59,6 @@ export default function LanguagePicker({ setFlag, flag }: Props) {
                     click: prevValue.click,
                   }))
                   params.set('lang', 'en')
-                  console.log(params.toString())
                   router.push(`?${params.toString()}`, { scroll: false })
                   i18n.changeLanguage('en')
                 }}
