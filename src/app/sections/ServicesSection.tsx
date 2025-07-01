@@ -29,6 +29,7 @@ export default function ServicesSection() {
   useEffect(() => {
     const h2Element = h2Ref.current
     if (!h2Element) return
+    if (!(h2Element.scrollWidth > h2Element.parentElement.clientWidth)) return
 
     let fontSize = 120
     h2Element.style.fontSize = `${fontSize}px`
