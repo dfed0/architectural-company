@@ -17,12 +17,7 @@ export default function GalleryPage() {
   const { projects, loading, error } = useGoogleData()
   const [projectTitle, setProjectTitle] = useState(null)
   const { i18n } = useTranslation()
-  // const projectTitle =
-  //   i18next.language === 'en' && projects
-  //     ? projects.table[Number(projectNumber) % 9]
-  //     : i18next.language === 'uk' && projects
-  //     ? projects.table[Number(projectNumber) % 9]
-  //     : ''
+ 
   useEffect(() => {
    
     if (i18n.language === 'en') {
@@ -40,7 +35,6 @@ export default function GalleryPage() {
 
   }, [projects, projectNumber, i18n.language, projectTitle])
 
-  // const { t } = useTranslation()
   const { clientWidth } = useWindowSize()
   const [mounted, setMounted] = useState(false)
 

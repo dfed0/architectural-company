@@ -71,49 +71,6 @@ const Modal = (props: Props) => {
   }, [onClose])
   return isMounted ? (
     <Portal id={MODAL_CONTAINER_ID}>
-      {/* <div
-        className="fixed top-0 left-0 w-full h-full bg-black/50 z-50 text-[#000]"
-        onClick={handleClose}
-        ref={rootRef}
-      >
-        <div
-          className="absolute left-[10vw] right-[10vw] bg-white p-[5%] rounded-[20px] flex items-center flex-col"
-          style={{
-            boxShadow: '0 0 30px rgba(0,0,0,0.15)',
-            top: '20vh',
-          }}
-          onClick={(e) => e.stopPropagation()}
-          ref={focusRef}
-          id="modal"
-        >
-          <Image
-            src={imageUrl}
-            alt="avatar"
-            width={80}
-            height={80}
-            style={{ width: '5rem', height: '5rem', objectFit: 'cover' }}
-            className="rounded-[1.5rem] border-[2px] border-solid border-[rgba(82, 73, 110, 0.00)] shrink-0 object-top rounded-[50%]"
-          />
-          <h2 className="font-[Inter_Var] font-[600] text-[3rem]">{name}</h2>
-
-          <p className="font-[Inter_Var] overflow-y-auto text-[1.2rem]">
-            {children}
-          </p>
-          <button
-            ref={btnRef}
-            className="absolute top-[5%] bottom-[85%] left-[85%] right-[5%] flex items-center justify-center"
-            onClick={handleClose}
-          >
-            <Image
-              alt="menu icon"
-              src="/images/close.svg"
-              width={24}
-              height={24}
-              className="object-fill"
-            />
-          </button>
-        </div>
-      </div> */}
       <div
         className="fixed flex items-center justify-center top-0 left-0 w-full h-full bg-black/50 z-50 text-[#000]"
         onClick={handleClose}
@@ -125,8 +82,6 @@ const Modal = (props: Props) => {
             marginLeft: `calc(1.25rem + ${(clientWidth - 390) / 2}px)`,
             marginRight: `calc(1.25rem + 15px + ${(clientWidth - 390) / 2}px)`,
           }}
-          // #edebf2 #3a257e17
-          //  flex w-[18rem] p-[3rem] flex-col items-center gap-[1.5rem] rounded-[1.375rem] border-[1px] border-solid border-[rgba(0, 0, 0, 0.00)] bg-[#edebf2]
           onClick={(e) => e.stopPropagation()}
           ref={focusRef}
           id="modal"

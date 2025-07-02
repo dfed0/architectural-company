@@ -64,9 +64,11 @@ export default function Burger(props: Props) {
             ? window.location.hash
             : ''
         }
-        const navItemUrl = `${itemName.path ? itemName.path : pathname}?${
-          params.toString() ? params.toString() : ''
-        }${hash ? hash : ''}`
+        const navItemUrl = itemName.thisPage
+          ? `${pathname + '?' + searchParams + itemName.fragment}`
+          : `${itemName.path ? itemName.path : pathname}?${
+              params.toString() ? params.toString() : ''
+            }${hash ? hash : ''}`
         return (
           <div
             className="z-10 flex py-[0.625rem] content-center items-center gap-[0.625rem self-stretch] active:bg-[#AD7C00] h-[3.25rem] w-full justify-center"
@@ -92,58 +94,6 @@ export default function Burger(props: Props) {
           </div>
         )
       })}
-      {/* <div
-        className="z-10 flex py-[0.625rem] content-center items-center gap-[0.625rem self-stretch] active:bg-[#AD7C00] h-[3.25rem] w-full justify-center"
-        // onMouseEnter={(e) => spanHover(e)}
-        // onMouseLeave={(e) => spanHover(e)}
-      >
-        <Link
-          href={`/home?lang=${searchParams.get('lang')}`}
-          className="active:text-[#FFF] text-[#1E1B28] text-[1.25rem] font-[Inter_Var] font-[600] leading-[2rem] w-full text-center"
-          aria-label="Go to about home page"
-        >
-          Home
-        </Link>
-      </div>
-      <div
-        className="z-10 flex py-[0.625rem] content-center items-center gap-[0.625rem self-stretch] active:bg-[#AD7C00] h-[3.25rem] w-full justify-center"
-        // onMouseEnter={(e) => spanHover(e)}
-        // onMouseLeave={(e) => spanHover(e)}
-      >
-        <Link
-          href={`/home?lang=${searchParams.get('lang')}#services`}
-          className="active:text-[#FFF] text-[#1E1B28] text-[1.25rem] font-[Inter_Var] font-[600] leading-[2rem] w-full text-center"
-          aria-label="Go to about home page"
-        >
-          Our Services
-        </Link>
-      </div>
-      <div
-        className="z-10 flex py-[0.625rem] content-center items-center gap-[0.625rem self-stretch] active:bg-[#AD7C00] h-[3.25rem] w-full justify-center"
-        // onMouseEnter={(e) => spanHover(e)}
-        // onMouseLeave={(e) => spanHover(e)}
-      >
-        <Link
-          href={`/home?lang=${searchParams.get('lang')}#about-us`}
-          className="active:text-[#FFF] text-[#1E1B28] text-[1.25rem] font-[Inter_Var] font-[600] leading-[2rem] w-full text-center"
-          aria-label="Go to about home page"
-        >
-          About Us
-        </Link>
-      </div>
-      <div
-        className="z-10 flex py-[0.625rem] content-center items-center gap-[0.625rem self-stretch] active:bg-[#AD7C00] h-[3.25rem] w-full justify-center"
-        // onMouseEnter={(e) => spanHover(e)}
-        // onMouseLeave={(e) => spanHover(e)}
-      >
-        <Link
-          href={`/home?lang=${searchParams.get('lang')}#contact`}
-          className="active:text-[#FFF] text-[#1E1B28] text-[1.25rem] font-[Inter_Var] font-[600] leading-[2rem] w-full text-center"
-          aria-label="Go to about home page"
-        >
-          Contact
-        </Link>
-      </div> */}
     </div>
   )
 }

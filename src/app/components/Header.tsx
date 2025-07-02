@@ -1,8 +1,8 @@
 'use client'
-// import i18next from '../a'
+
 import Image from 'next/image'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { Suspense, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Burger from './Burger'
@@ -17,6 +17,7 @@ export default function HeaderComponent() {
     language: false,
   })
   const langParam = searchParams.get('lang')
+  const pathname = usePathname()
   const [flag, setFlag] = useState(() => ({
     engHover: false,
     ukrHover: false,
@@ -29,10 +30,10 @@ export default function HeaderComponent() {
   }, [langParam])
   useEffect(() => {}, [flag.flag])
   const links = [
-    { href: '', title: 'header.title1' },
-    { href: '#about-us', title: 'header.title2' },
-    { href: '#services', title: 'header.title3' },
-    { href: '#contact', title: 'header.title4' },
+    { href: '', title: 'header.title1', page: 'home' },
+    { href: '#about-us', title: 'header.title2', page: 'home' },
+    { href: '#services', title: 'header.title3', page: 'home' },
+    { href: '#contact', title: 'header.title4', page: 'current' },
   ]
   return (
     <Suspense>
@@ -78,7 +79,11 @@ export default function HeaderComponent() {
                   key={link.title}
                 >
                   <Link
-                    href={`/home?lang=${searchParams.get('lang')}${link.href}`}
+                    href={`${
+                      link.page === 'current'
+                        ? `${pathname + '?' + searchParams + link.href}`
+                        : `/home?lang=${searchParams.get('lang')}${link.href}`
+                    }`}
                     className="text-[#1E1B28] text-[1.25rem] font-[500] hover:text-[#8F5E00]"
                     aria-label={`Go to ${link.title}`}
                   >
@@ -134,7 +139,7 @@ export default function HeaderComponent() {
                         />
                       </div>
                     )}
-                    {(clientWidth >= 1440) && (
+                    {clientWidth >= 1440 && (
                       <div
                         onMouseEnter={() =>
                           setFlag((prevValue) => ({

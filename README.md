@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛠️ Real Renovation Project Website
 
-## Getting Started
+> **Not just a demo — a real commercial website built for an actual client.**  
+> Created within a coworking company's workflow, this project showcases live services, real photos, and practical UX decisions.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Main Page
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Project Gallery  
+Explore real renovation works with project **titles** and **subtitles**, accompanied by authentic photos. Each one tells a visual story of transformation.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Services Overview  
+Interested in similar work? Dive into service details and easily **get in touch** to place an order — just like with project inquiries.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Motivation Section  
+A compelling block designed to **inspire trust and curiosity**, guiding the user toward the best examples and encouraging them to learn more.
 
-## Learn More
+### Client Reviews  
+Nothing builds confidence like real feedback. Verified reviews reinforce the high quality of the services provided.
 
-To learn more about Next.js, take a look at the following resources:
+### Still Have Questions?  
+No problem — there’s a simple and accessible **Contact Us** section ready to help.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Stay Connected  
+The footer invites users to **join social groups**, making it easy to stay informed about future offers and project updates.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Second Page — Project Detail
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Showcases **14 high-quality, real photos** from one selected renovation project.
+- Includes a **Contact Form** for quick and easy order placement.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Summary
+
+This website isn’t a mockup — it’s a finished product made for a real client.  
+Everything you see is part of a working business tool: from intuitive navigation to engaging visual storytelling and trust-building elements.
+
+---

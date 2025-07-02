@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { Suspense, useRef } from 'react'
+import { Suspense } from 'react'
 // import { useRouter } from 'next/navigation'
 
 type RoomCardProps = {
@@ -20,16 +20,10 @@ const RoomCard = ({
   imageUrl,
   photoIndex,
 }: RoomCardProps) => {
-  // const router = useRouter()
-  // function pushRouterTitle(project: string) {
-  //   router.push(`/project-${project}`)
-  //   return
-  // }
   const searchParams = useSearchParams()
 
   return (
     <Suspense>
-      {/* убрал фиксированную высоту у див */}
       <div className="flex items-start gap-[0.75rem] flex-col flex-[1_0_0] rounded-[0.75rem] justify-start self-stretch">
         <div className="w-full h-[17.0625rem]">
           <Image
