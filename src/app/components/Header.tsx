@@ -31,8 +31,8 @@ export default function HeaderComponent() {
   useEffect(() => {}, [flag.flag])
   const links = [
     { href: '', title: 'header.title1', page: 'home' },
-    { href: '#about-us', title: 'header.title2', page: 'home' },
-    { href: '#services', title: 'header.title3', page: 'home' },
+    { href: '#services', title: 'header.title2', page: 'home' },
+    { href: '#about-us', title: 'header.title3', page: 'home' },
     { href: '#contact', title: 'header.title4', page: 'current' },
   ]
   return (

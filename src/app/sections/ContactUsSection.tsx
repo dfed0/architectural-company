@@ -88,14 +88,6 @@ export default function ContactUsSection() {
         placeholder: 'placeholder-[#00000029]',
       },
     }))
-    // target.classList.remove('border-[#D62D30]')
-    // target.classList.add('border-[#00000029]')
-    // target.classList.remove('placeholder-[#D62D30]')
-    // target.classList.add('placeholder-[#00000029]')
-    // target.classList.remove('text-[#D62D30]')
-    // target.classList.add('text-[#000]')
-    // target.classList.remove('focus:border-[#D62D30]')
-    // target.classList.add('focus:border-[#00000029]')
   }
   const firstNameRef = useRef(null)
   const lastNameRef = useRef(null)
@@ -106,16 +98,6 @@ export default function ContactUsSection() {
     if (formSubmit === true) setFormSubmit(false)
     const type = target.name
     if (target.value === '' && target !== phoneRef.current) {
-      // setErrors((prev) => ({
-      //   ...prev,
-      //   [type]: 'This field must be filled in',
-      // }))
-      // target.classList.remove('border-[#00000029]')
-      // target.classList.add('border-[#D62D30]')
-      // target.classList.remove('text-[#000]')
-      // target.classList.add('text-[#D62D30]')
-      // target.classList.remove('focus:border-[#00000029]')
-      // target.classList.add('focus:border-[#D62D30]')
       addValidationClasses(
         target,
         type,
@@ -127,45 +109,18 @@ export default function ContactUsSection() {
       type !== 'placeholder' &&
       /[^a-zA-Zа-яА-ЯёЁіІїЇєЄ ]/g.test(target.value)
     ) {
-      // setErrors((prev) => ({
-      //   ...prev,
-      //   [type]: 'Only letters are supported',
-      // }))
-      // target.classList.remove('border-[#00000029]')
-      // target.classList.add('border-[#D62D30]')
-      // target.classList.remove('text-[#000]')
-      // target.classList.add('text-[#D62D30]')
-      // target.classList.remove('focus:border-[#00000029]')
-      // target.classList.add('focus:border-[#D62D30]')
       addValidationClasses(
         target,
         type,
         t(t('sections.clientsWork.contactUs.form.errors.notLetter'))
       )
     } else if (type !== 'placeholder' && target.value.trimEnd().includes(' ')) {
-      // setErrors((prev) => ({
-      //   ...prev,
-      //   [type]: 'Spaces are not supported',
-      // }))
-      // target.classList.remove('border-[#00000029]')
-      // target.classList.add('border-[#D62D30]')
-      // target.classList.remove('text-[#000]')
-      // target.classList.add('text-[#D62D30]')
-      // target.classList.remove('focus:border-[#00000029]')
-      // target.classList.add('focus:border-[#D62D30]')
       addValidationClasses(
         target,
         type,
         t('sections.clientsWork.contactUs.form.errors.spaces')
       )
     } else if (target.classList.value.includes('border-[#D62D30]')) {
-      // setErrors((prev) => ({ ...prev, [type]: '' }))
-      // target.classList.remove('border-[#D62D30]')
-      // target.classList.add('border-[#00000029]')
-      // target.classList.remove('text-[#D62D30]')
-      // target.classList.add('text-[#000]')
-      // target.classList.remove('focus:border-[#D62D30]')
-      // target.classList.add('focus:border-[#00000029]')
       removeValidationClasses(target, type)
     }
   }
@@ -207,22 +162,6 @@ export default function ContactUsSection() {
       !emailRef.current?.value ||
       !placeholderRef.current?.value
     ) {
-      // setErrors((prevValue) => ({
-      //   ...prevValue,
-      //   firstName: !firstNameRef.current?.value
-      //     ? 'This field must be filled in'
-      //     : prevValue.firstName,
-      //   lastName: !lastNameRef.current?.value
-      //     ? 'This field must be filled in'
-      //     : prevValue.lastName,
-      //   email: !emailRef.current?.value
-      //     ? 'This field must be filled in'
-      //     : prevValue.email,
-      //   placeholder: !placeholderRef.current?.value
-      //     ? 'This field must be filled in'
-      //     : prevValue.placeholder,
-      //   notTouched: true,
-      // }))
       const requiredRefs = [firstNameRef, lastNameRef, emailRef, placeholderRef]
       requiredRefs.map((ref) => {
         if (!ref.current?.value) {
@@ -246,7 +185,7 @@ export default function ContactUsSection() {
       return
     }
     const formData = new FormData(e.target)
-    formData.append('access_key', 'dbd256a5-73eb-4bce-9e3d-030758e39866')
+    formData.append('access_key', '80fcc3ed-2307-45b6-a5bc-fb024688d954')
 
     const res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
@@ -269,7 +208,6 @@ export default function ContactUsSection() {
           {t('sections.clientsWork.contactUs.subtitle')}
         </p>
       </div>
-      {/* <div className="w-full"> */}
       <form
         method="POST"
         className="flex flex-col items-start gap-[1.5rem] w-full"
@@ -356,7 +294,6 @@ export default function ContactUsSection() {
               </p>
             )}
           </div>
-          {/* </div> */}
         </div>
         <div className="flex flex-col items-start gap-[0.25rem] self-stretch">
           {focus.email && (
