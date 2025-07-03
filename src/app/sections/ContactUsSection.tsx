@@ -201,7 +201,7 @@ export default function ContactUsSection() {
       id="contact"
     >
       <div className="flex flex-col self-stretch w-full sm:gap-[1.5rem]">
-        <h2 className="text-[#1E1B28] font-[Roboto_Serif_Bold] text-[2.5rem] font-[700] leading-[3.25rem] sm:h-[2.5rem]">
+        <h2 className="text-[#1E1B28] font-[Roboto_Serif_Bold] text-[2.5rem] font-[700] leading-[3.25rem] w-full">
           {t('sections.clientsWork.contactUs.title')}
         </h2>
         <p className="self-stretch text-[#000] font-[Inter_Var] text-[1.25rem] font-[400] leading-[2rem] tracking-[-0.00625rem]">

@@ -2,10 +2,8 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react'
 
-// Создаем контекст для данных проектов
-// ИСПРАВЛЕНО: projects теперь ожидается как массив
 const GoogleDataContext = createContext({
-  projects: { images: { projects: [] }, table: [] }, // Инициализируем images.projects как пустой массив
+  projects: { images: { projects: [] }, table: [] }, 
   loading: true,
   error: null,
 })
@@ -13,29 +11,12 @@ const GoogleDataContext = createContext({
 // Переменные для кэширования данных проектов
 let cachedProjectsData = null
 let lastFetchTime = 0
-const CACHE_LIFETIME = 5 * 60 * 1000 // Кэш живет 5 минут
+const CACHE_LIFETIME = 5 * 60 * 1000 
 
-// Функцию sortProjectsByOrder (если нужна) лучше определить вне провайдера
-// или внутри него, но с useCallback, если она не меняется.
-// const sortProjectsByOrder = (projects) => {
-//   if (!Array.isArray(projects)) {
-//     console.warn('sortProjectsByOrder: projects is not an array', projects);
-//     return [];
-//   }
-//   const sorted = [...projects].sort((a, b) => {
-//     const orderA = parseFloat(a.order) || Infinity;
-//     const orderB = parseFloat(b.order) || Infinity;
-//     console.log('Comparing:', a.order, b.order);
-//     return orderA - orderB; // Сортировка по возрастанию
-//   });
-//   console.log('Sorted result:', sorted);
-//   return sorted;
-// }
 
 export const GoogleDataProvider = ({ children }) => {
-  console.log('Provider rendered'); // Лог для подтверждения рендера провайдера
   const [projects, setProjects] = useState({
-    images: { projects: [] }, // ИСПРАВЛЕНО: projects теперь массив
+    images: { projects: [] }, 
     table: [],
   })
   const [loading, setLoading] = useState(true)
@@ -45,10 +26,9 @@ export const GoogleDataProvider = ({ children }) => {
     async function loadProjects() {
       const currentTime = Date.now()
 
-      // Проверка кэша
       if (cachedProjectsData && currentTime - lastFetchTime < CACHE_LIFETIME) {
-        console.log('Using cached data.'); // Лог для кэша
-        setProjects(cachedProjectsData); // Используем закэшированные данные
+        console.log('Using cached data.'); 
+        setProjects(cachedProjectsData); 
         setLoading(false);
         return;
       }
@@ -57,13 +37,12 @@ export const GoogleDataProvider = ({ children }) => {
         setLoading(true)
         setError(null)
 
-        // ИСПРАВЛЕНО: Изменен URL API на правильный путь /api/googleApis/data
         console.log('Fetching new data from /api/googleApis/data...');
-        const dataRes = await fetch('/api/googleApis/data'); // <-- ИСПРАВЛЕНО ЗДЕСЬ
+        const dataRes = await fetch('/api/googleApis/data'); 
         if (!dataRes.ok) {
           const errorText = await dataRes.text();
           console.error(
-            'HTTP error from /api/googleApis/data:', // <-- ИСПРАВЛЕНО ЗДЕСЬ
+            'HTTP error from /api/googleApis/data:', 
             dataRes.status,
             errorText
           );
@@ -76,34 +55,30 @@ export const GoogleDataProvider = ({ children }) => {
 
         let data;
         try {
-          const parsedData = JSON.parse(responseTextData) // Правильная переменная для парсинга
+          const parsedData = JSON.parse(responseTextData) 
 
           console.log('This is parsed data...', parsedData)
           data = {
-            images: { projects: parsedData.images.projects }, // Используем parsedData
-            table: parsedData.table, // Используем parsedData
+            images: { projects: parsedData.images.projects }, 
+            table: parsedData.table, 
           }
         } catch (jsonError) {
-          // ИСПРАВЛЕНО: Сообщение об ошибке парсинга JSON
           console.error('JSON parsing error from /api/googleApis/data:', jsonError);
           throw new Error('API returned invalid JSON.');
         }
 
-        // ИСПРАВЛЕНО: Проверка структуры данных
-        // Теперь images.projects ожидается как МАССИВ.
         if (
           data.images &&
-          Array.isArray(data.images.projects) && // КОРРЕКТНАЯ ПРОВЕРКА: images.projects - это массив
+          Array.isArray(data.images.projects) && 
           data.table &&
-          Array.isArray(data.table) // table остается массивом объектов
+          Array.isArray(data.table) 
         ) {
           console.log('Setting projects data:', data)
-          cachedProjectsData = { ...data } // Кэшируем данные
+          cachedProjectsData = { ...data } 
           lastFetchTime = currentTime
           setProjects(() => data)
         } else {
           console.warn('Invalid data structure from API:', data)
-          // ИСПРАВЛЕНО: projects теперь массив и при некорректных данных
           cachedProjectsData = { images: { projects: [] }, table: [] }
           setProjects({ images: { projects: [] }, table: [] })
         }
@@ -134,7 +109,6 @@ export const GoogleDataProvider = ({ children }) => {
 export const useGoogleData = () => {
   const context = useContext(GoogleDataContext)
   if (context === undefined) {
-    // ИСПРАВЛЕНО: Сообщение об ошибке для правильного провайдера
     throw new Error('useGoogleData must be used within a GoogleDataProvider');
   }
   return context;

@@ -77,7 +77,7 @@ i18next
                 name: 'Victor',
                 tender: 'Basement plastering 35 sq.m. (Kyiv)',
                 review:
-                  'I liked the cooperation. Very nice prices. They gave advice on the choice of materials. I cooperated with the team not only on plastering but also on the installation of drywall and exterior plastering. Everything was done with high quality.',
+                  'I cooperated with the team not only on plastering but also on the installation of drywall and exterior plastering. Everything was done with high quality.',
               },
               2: {
                 name: 'Oleh',
@@ -98,8 +98,8 @@ i18next
               },
               5: {
                 name: 'Serhii',
-                tender: 'Puttying walls for wallpapering and wallpapering',
-                review: `I don't understand why these guys still don't have any feedback. very professional craftsmen. constantly checking themselves, no need to follow them and ‘poke their noses in’. I am very satisfied with the quality of work.`,
+                tender: 'Puttying walls for wallpapering',
+                review: `Very professional craftsmen. constantly checking themselves, no need to follow them and ‘poke their noses in’. I am very satisfied with the quality of work.`,
               },
             },
             clientsWork: {
@@ -238,7 +238,7 @@ i18next
                 name: 'Віктор',
                 tender: 'Штукатурка підвалу 35 м.кв. (Київ)',
                 review:
-                  'Співпраця сподобалась. Дуже приємні ціни. Надали поради щодо вибору матеріалів. Співпрацював з бригадою не тільки по штукатурці а й по монтажу гіпсокартону та зовнішнім штукатурним роботам. Все виконано з високою якістю.',
+                  'Співпрацював з бригадою не тільки по штукатурці а й по монтажу гіпсокартону та зовнішнім штукатурним роботам. Все виконано з високою якістю.',
               },
               2: {
                 name: 'Олег',
@@ -259,8 +259,8 @@ i18next
               },
               5: {
                 name: 'Сергій',
-                tender: 'Шпаклювання стін під шпалери та поклейка шпалер',
-                review: `Я не розумію чому у цих хлопців досі немає відгуків. Дуже професійні майстри. Постійно самі себе перевіряють, не потрібно ходити за ними і «тикати носом». Я дуже задоволений якістю робіт.`,
+                tender: 'Шпаклювання стін під шпалери',
+                review: `Дуже професійні майстри. Постійно самі себе перевіряють, не потрібно ходити за ними і «тикати носом». Я дуже задоволений якістю робіт.`,
               },
             },
             clientsWork: {
