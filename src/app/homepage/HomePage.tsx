@@ -11,9 +11,6 @@ import ServicesSection from '../sections/ServicesSection'
 import { useSyncLanguageWithQuery } from '../components/languageSync'
 
 export default function HomePage() {
-
-
-
   const { clientWidth } = useWindowSize()
   const [mounted, setMounted] = useState(false)
   useSyncLanguageWithQuery()

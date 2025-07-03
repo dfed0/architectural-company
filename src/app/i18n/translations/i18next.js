@@ -21,6 +21,13 @@ i18next
     resources: {
       en: {
         translation: {
+           home: {
+        seo: {
+          title: 'Home - European Style Renovations',
+          description: 'Explore beautifully renovated apartments in Kyiv with European design.',
+          keywords: 'apartment renovation, European style, Kyiv',
+        },
+      },
           title: {
             firstRow: 'European',
             secondRow: 'Style',
