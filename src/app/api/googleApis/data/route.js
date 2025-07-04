@@ -1,7 +1,6 @@
 import { google } from 'googleapis'
-import path from 'path'
 import { GoogleAuth } from 'google-auth-library'
-
+import { serviceAccount } from '../secretApi'
 async function fetchImagesRecursively(drive, folderId) {
   let allImages = []
   const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']
@@ -78,12 +77,12 @@ async function fetchSheetsData(authClient, spreadsheetId, range) {
 
 export async function GET() {
   try {
-    const keyFile = path.join(
-      process.cwd(),
-      'src/app/api/googleApis/secretApi.json'
-    )
+    // const keyFile = path.join(
+    //   process.cwd(),
+    //   'src/app/api/googleApis/secretApi.json'
+    // )
     const auth = new GoogleAuth({
-      keyFile,
+      credentials: serviceAccount,
       scopes: [
         'https://www.googleapis.com/auth/drive.readonly',
         'https://www.googleapis.com/auth/spreadsheets.readonly',

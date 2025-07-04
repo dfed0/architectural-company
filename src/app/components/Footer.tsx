@@ -56,7 +56,7 @@ export default function Footer() {
                   />
                 </Link>
                 <Link
-                  href={'https://t.me/+PE2Tlwp5AeYyZTMy'}
+                  href={'https://t.me/+HO-_-Ofq4jMzOGNi'}
                   className="w-full h-full"
                   onMouseEnter={() =>
                     setHover((prevValue) => ({ ...prevValue, telegram: true }))
@@ -76,7 +76,7 @@ export default function Footer() {
                 </Link>
                 <Link
                   href={
-                    'https://invite.viber.com/?g=E6gvPNyp6FRRbqVka2NqRoPDqjaRKPHU'
+                    'https://invite.viber.com/?g2=AQBY0CHLGVa3xVT1pU%2B2Xb2kmkmBxNs%2FpJ541vFIRaRtOdLE4hLki2lMQqX7%2FeZU'
                   }
                   className="w-full h-full"
                   onMouseEnter={() =>
