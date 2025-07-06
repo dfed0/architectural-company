@@ -7,7 +7,7 @@ import { Trans, useTranslation } from 'react-i18next'
 export default function AdditionalInfoSection() {
   const { t } = useTranslation()
   return (
-    <section className='xl:py-[3.5rem]'>
+    <section className="xl:py-[3.5rem]">
       <div
         id="divider"
         className="flex flex-col items-start self-stretch bg-[#00000029] h-[2px]"
@@ -21,6 +21,7 @@ export default function AdditionalInfoSection() {
             alt="description to get interested"
             src="/images/room-sofa-second.svg"
             className="sm:w-[25.46544rem] sm:h-[12.86806rem] md:h-[29.5rem] md:w-[52.438rem] md:object-cover md:object-[center_67%] md:py-[2.5rem] xl:hidden "
+            priority
           />
         </div>
         <div className="inline-flex flex-col items-start sm:gap-[2.25rem] xl:gap-[3rem] xl:w-[50rem] md:w-full">
@@ -86,6 +87,7 @@ export default function AdditionalInfoSection() {
           alt="description to get interested"
           src="/images/room-sofa.svg"
           className="sm:hidden xl:block xl:h-[64.25rem] xl:w-[47.5rem] xl:mb-[8rem]"
+          priority
         />
         {/* </div> */}
       </div>

@@ -37,7 +37,7 @@ export default function Footer() {
               </div>
               <div className="flex sm:items-start gap-[1.5rem] w-[7.5rem] h-[1.5rem]">
                 <Link
-                  href={'https://www.facebook.com/share/g/1DvCdDc2zQ/'}
+                  href={'https://www.facebook.com/groups/2276962082759857/?ref=share'}
                   className="w-full h-full"
                   onMouseEnter={() =>
                     setHover((prevValue) => ({ ...prevValue, facebook: true }))

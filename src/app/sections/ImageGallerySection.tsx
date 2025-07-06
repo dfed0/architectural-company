@@ -13,14 +13,7 @@ export default function ImageGallerySection() {
   const { i18n, t } = useTranslation()
   const titleByLang =
     i18n.language === 'en' ? 'titleen' : i18n.language === 'uk' ? 'titleuk' : ''
-  // const subtitleByLang =
-  //   i18n.language === 'en'
-  //     ? 'subtitleen'
-  //     : i18n.language === 'uk'
-  //     ? 'subtitleuk'
-  //     : ''
   const lastProjects = projects.table
-  // const startIndex = projects.table.length - 13
   const lastProjectsMainImages = { ...projects }.images.projects.map(
     (project) => project.mainImageUrl
   )
@@ -72,7 +65,6 @@ export default function ImageGallerySection() {
                     subtitle={t('title.subtitleProjects')}
                     imageUrl={room.imageUrl}
                     photoIndex={room.order}
-                    // imageUrl={room.imageUrl}
                   />
                 )
               )
