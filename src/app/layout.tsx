@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://architectural-company.vercel.app'),
+  metadataBase: new URL('https://masters100.com.ua'),
   title: {
     default: 'Masters100 – Ремонт квартир у Києві',
     template: '%s | Ремонт, Дизайн, Архітектура – Masters100',
@@ -45,9 +45,7 @@ export const metadata: Metadata = {
     'Masters100',
     'ремонт візуалізація дизайн Київ',
   ],
-  authors: [
-    { name: 'Masters100', url: 'https://architectural-company.vercel.app' },
-  ],
+  authors: [{ name: 'Masters100', url: 'https://masters100.com.ua' }],
   creator: 'Masters100',
   publisher: 'Masters100',
   robots: {
@@ -61,23 +59,23 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://architectural-company.vercel.app/uk',
+    canonical: 'https://masters100.com.ua/uk',
     languages: {
-      uk: 'https://architectural-company.vercel.app/uk',
-      en: 'https://architectural-company.vercel.app/en',
+      uk: 'https://masters100.com.ua/uk',
+      en: 'https://masters100.com.ua/en',
     },
   },
   openGraph: {
     title: 'Masters100 – Преміум ремонт квартир у Києві',
     description:
       '100+ реалізованих проєктів. Дизайн інтерʼєру, архітектурні рішення, ремонт під ключ. Галерея робіт.',
-    url: 'https://architectural-company.vercel.app',
+    url: 'https://masters100.com.ua',
     siteName: 'Masters100',
     locale: 'uk_UA',
     type: 'website',
     images: [
       {
-        url: 'https://architectural-company.vercel.app/og-image.jpg',
+        url: 'https://masters100.com.ua/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Masters100 – Приклад ремонту квартири',
@@ -86,11 +84,6 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'LM466ngbgdc7qMgtqV9tf92DuifqCJzHgfzd_ScX8ME',
-    other: {
-      bing: 'BING_VERIFICATION_EXAMPLE',
-      yandex: 'YANDEX_CODE',
-      'google-site-verification': 'LM466ngbgdc7qMgtqV9tf92DuifqCJzHgfzd_ScX8ME',
-    },
   },
   icons: {
     icon: '/favicon.ico',
@@ -127,7 +120,27 @@ export default function RootLayout({
       lang="en"
       className="sm:[font-size:var(--font-fluid-sm)] md:[font-size:var(--font-fluid-md)] xl:[font-size:var(--font-fluid-xl)]"
     >
-      <head></head>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Masters100',
+              url: 'https://masters100.com.ua',
+              logo: 'https://masters100.com.ua/favicon.ico', 
+              description:
+                'Елітний ремонт квартир у Києві з авторським дизайном. Галерея завершених проєктів, сучасні інтер’єри, професійна команда.',
+              sameAs: [
+                'https://www.facebook.com/groups/2276962082759857/?ref=share',
+                'https://t.me/+HO-_-Ofq4jMzOGNi',
+                'https://invite.viber.com/?g2=AQBY0CHLGVa3xVT1pU%2B2Xb2kmkmBxNs%2FpJ541vFIRaRtOdLE4hLki2lMQqX7%2FeZU',
+              ],
+            }),
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

@@ -39,7 +39,8 @@ export default function HeaderComponent() {
     <Suspense>
       <header
         className={`
-  fixed top-0 z-40
+  fixed top-0 
+  z-40
   left-[1.25rem] right-0
   sm:left-[1.25rem] sm:right-[1.25rem]
   md:left-[1.25rem] md:right-[1.25rem]
